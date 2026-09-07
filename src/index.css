@@ -799,18 +799,44 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 @media (max-width: 992px) {
     .tecnologia-section .grid-2 { grid-template-columns: 1fr; gap: 3rem; }
     .tech-image-wrapper { padding-right: 0; }
-    .tech-badge { right: 20px; }
+    .tech-badge {
+        bottom: 16px;
+        right: 16px;
+        padding: 0.6rem 1rem;
+        border: 3px solid var(--white);
+        border-radius: 16px;
+        gap: 0.6rem;
+        box-shadow: 0 10px 25px rgba(0, 3, 39, 0.25);
+    }
+    .tech-badge .badge-number {
+        font-size: 1.5rem;
+    }
+    .tech-badge .badge-text {
+        font-size: 0.72rem;
+        letter-spacing: 0.5px;
+        line-height: 1.2;
+    }
+}
+
+@media (max-width: 576px) {
+    .tech-badge {
+        bottom: 12px;
+        right: 12px;
+        padding: 0.45rem 0.8rem;
+        border: 2.5px solid var(--white);
+        border-radius: 12px;
+        gap: 0.5rem;
+    }
+    .tech-badge .badge-number {
+        font-size: 1.25rem;
+    }
+    .tech-badge .badge-text {
+        font-size: 0.65rem;
+        line-height: 1.15;
+    }
 }
 
 /* --- Cotacao CTA --- */
-
-
-
-
-
-
-
-
 
 .form-header h3 { color: var(--dark-blue); text-align: center; }
 
@@ -822,7 +848,6 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 @media (max-width: 992px) {
     .cotacao-container, .tecnologia-section .grid-2 { grid-template-columns: 1fr; }
-    .tech-badge { bottom: 20px; right: 20px; }
 }
 
 /* --- UX/UI Tweaks --- */
