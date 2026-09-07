@@ -2570,6 +2570,15 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     margin: 0;
 }
 
+/* --- Eco Carousel Mobile --- */
+.eco-carousel-wrapper {
+    position: relative;
+    width: 100%;
+}
+.eco-dots {
+    display: none;
+}
+
 @media (max-width: 992px) {
     .eco-banner-box {
         padding: 2.5rem 1.8rem;
@@ -2578,9 +2587,49 @@ textarea.form-control { min-height: 120px; resize: vertical; }
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
     }
-    .eco-pillars-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+    .eco-carousel-grid {
+        display: flex !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 1.25rem;
+        padding: 0.5rem 1.25rem 1.5rem;
+        margin: 2.5rem -1.25rem 0;
+        scrollbar-width: none;
+    }
+    .eco-carousel-grid::-webkit-scrollbar {
+        display: none;
+    }
+    .eco-carousel-grid .eco-pillar-card {
+        flex: 0 0 85%;
+        max-width: 340px;
+        min-width: 280px;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 3, 39, 0.05);
+    }
+    .eco-dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.6rem;
+        margin-top: 1rem;
+    }
+    .eco-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(0, 3, 39, 0.18);
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .eco-dot.active {
+        width: 26px;
+        border-radius: 12px;
+        background: #16a34a;
     }
 }
 

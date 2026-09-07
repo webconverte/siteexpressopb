@@ -67,6 +67,32 @@ const Home = () => {
         }
     };
 
+    const ecoRef = useRef(null);
+    const [activeEco, setActiveEco] = useState(0);
+
+    const handleEcoScroll = () => {
+        if (!ecoRef.current) return;
+        const container = ecoRef.current;
+        const scrollLeft = container.scrollLeft;
+        const card = container.children[0];
+        if (!card) return;
+        const cardWidth = card.offsetWidth;
+        const gap = 20;
+        const index = Math.round(scrollLeft / (cardWidth + gap));
+        setActiveEco(Math.min(Math.max(index, 0), 2));
+    };
+
+    const scrollToEco = (index) => {
+        if (!ecoRef.current) return;
+        const container = ecoRef.current;
+        const card = container.children[index];
+        if (card) {
+            const cardLeft = card.offsetLeft - container.offsetLeft - (container.clientWidth - card.clientWidth) / 2;
+            container.scrollTo({ left: Math.max(0, cardLeft), behavior: 'smooth' });
+            setActiveEco(index);
+        }
+    };
+
     return (
         <>
             <section className="hero">
@@ -396,29 +422,47 @@ const Home = () => {
                     </div>
 
                     {/* Pilares Práticos de Ação Sustentável */}
-                    <div className="eco-pillars-grid">
-                        <div className="eco-pillar-card">
-                            <div className="eco-pillar-icon">
-                                <Tree weight="fill" />
+                    <div className="eco-carousel-wrapper">
+                        <div 
+                            className="eco-pillars-grid eco-carousel-grid"
+                            ref={ecoRef}
+                            onScroll={handleEcoScroll}
+                        >
+                            <div className="eco-pillar-card">
+                                <div className="eco-pillar-icon">
+                                    <Tree weight="fill" />
+                                </div>
+                                <h4>Direção Econômica & Treinamento</h4>
+                                <p>Capacitamos periodicamente nossos motoristas em condução defensiva e econômica, reduzindo freadas bruscas, rotações excessivas e emissão desnecessária de poluentes.</p>
                             </div>
-                            <h4>Direção Econômica & Treinamento</h4>
-                            <p>Capacitamos periodicamente nossos motoristas em condução defensiva e econômica, reduzindo freadas bruscas, rotações excessivas e emissão desnecessária de poluentes.</p>
+
+                            <div className="eco-pillar-card">
+                                <div className="eco-pillar-icon">
+                                    <Recycle weight="fill" />
+                                </div>
+                                <h4>Ciclo Reverso & Otimização de Pneus</h4>
+                                <p>Controle rigoroso da vida útil dos pneus com recapeamento homologado e descarte responsável via logística reversa através de parceiros certificados pela ANIP.</p>
+                            </div>
+
+                            <div className="eco-pillar-card">
+                                <div className="eco-pillar-icon">
+                                    <Drop weight="fill" />
+                                </div>
+                                <h4>Reuso de Água & Manutenção Limpa</h4>
+                                <p>Nosso pátio matriz em João Pessoa opera com sistema de separação de água e óleo e lavagem técnica de caminhões com captação e reaproveitamento de água pluvial.</p>
+                            </div>
                         </div>
 
-                        <div className="eco-pillar-card">
-                            <div className="eco-pillar-icon">
-                                <Recycle weight="fill" />
-                            </div>
-                            <h4>Ciclo Reverso & Otimização de Pneus</h4>
-                            <p>Controle rigoroso da vida útil dos pneus com recapeamento homologado e descarte responsável via logística reversa através de parceiros certificados pela ANIP.</p>
-                        </div>
-
-                        <div className="eco-pillar-card">
-                            <div className="eco-pillar-icon">
-                                <Drop weight="fill" />
-                            </div>
-                            <h4>Reuso de Água & Manutenção Limpa</h4>
-                            <p>Nosso pátio matriz em João Pessoa opera com sistema de separação de água e óleo e lavagem técnica de caminhões com captação e reaproveitamento de água pluvial.</p>
+                        <div className="eco-dots" aria-label="Navegação do compromisso ambiental">
+                            {[0, 1, 2].map((idx) => (
+                                <button
+                                    key={idx}
+                                    type="button"
+                                    className={`eco-dot ${activeEco === idx ? 'active' : ''}`}
+                                    onClick={() => scrollToEco(idx)}
+                                    aria-label={`Ir para o pilar ${idx + 1}`}
+                                />
+                            ))}
                         </div>
                     </div>
                 </div>
