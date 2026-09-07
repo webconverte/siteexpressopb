@@ -53,12 +53,38 @@ a { text-decoration: none; color: inherit; }
 .logo-img { height: 40px; transition: var(--transition); }
 .header.scrolled .logo-img { height: 32px; }
 
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
-.nav-links a { color: var(--white); font-weight: 300; font-size: 0.85rem; transition: var(--transition); text-transform: uppercase; letter-spacing: 1.5px;}
+.nav-links { 
+    display: flex; 
+    gap: 1.6rem; 
+    list-style: none; 
+    align-items: center;
+}
+.nav-links li {
+    white-space: nowrap;
+}
+.nav-links a { 
+    color: var(--white); 
+    font-weight: 500; 
+    font-size: 0.82rem; 
+    transition: var(--transition); 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
 .nav-links a:hover { color: var(--primary-blue); }
 
-
-.mobile-menu-btn { display: none; color: var(--white); font-size: 1.5rem; cursor: pointer;}
+.mobile-menu-btn { 
+    display: none; 
+    color: var(--white); 
+    font-size: 1.5rem; 
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+.hide-mobile {
+    display: inline-flex;
+    white-space: nowrap;
+}
 
 /* Footer */
 .footer { background: var(--dark-blue); color: var(--white); padding: 4rem 0 2rem; margin-top: 0; }
@@ -143,10 +169,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .step { display: flex; gap: 1.5rem; align-items: flex-start; }
 .step-number { width: 45px; height: 45px; background: var(--primary-blue); color: var(--dark-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0; }
 
-@media (max-width: 992px) {
-    .grid-3 { grid-template-columns: 1fr; }
-    .grid-2 { grid-template-columns: 1fr; }
-    .cotacao-container { grid-template-columns: 1fr; gap: 3.5rem; }
+@media (max-width: 1120px) {
     .nav-links { 
         display: none; 
         flex-direction: column; 
@@ -166,6 +189,13 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     .nav-links.active { display: flex; }
     .nav-links a { font-size: 1.15rem; font-weight: 600; padding: 0.8rem; display: block; }
     .mobile-menu-btn { display: block; }
+    .hide-mobile { display: none !important; }
+}
+
+@media (max-width: 992px) {
+    .grid-3 { grid-template-columns: 1fr; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .cotacao-container { grid-template-columns: 1fr; gap: 3.5rem; }
     .hero h1 { font-size: 2.6rem; }
     .hero-internal h1 { font-size: 2.5rem; }
     .frota-grid { grid-template-columns: 1fr; }
