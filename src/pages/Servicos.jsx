@@ -24,7 +24,7 @@ const Servicos = () => {
             {/* 2. Pilares de Serviço */}
             <section style={{padding: '6rem 0'}}>
                 <div className="container">
-                    <div className="grid-3" style={{alignItems: 'stretch'}}>
+                    <div className="grid-3 mobile-carousel" style={{alignItems: 'stretch'}}>
                         <div className="feature-card" style={{height: '100%', padding: '3.5rem 2.5rem'}}>
                             <ShieldCheck weight="fill" className="watermark-icon" />
                             <div className="feature-icon">
@@ -78,8 +78,7 @@ const Servicos = () => {
                         <h2 style={{fontSize: '3.5rem', fontWeight: '800', marginBottom: '1rem', color: 'var(--white)'}}>Nossa Frota</h2>
                         <p style={{fontSize: '1.2rem', color: 'rgba(255,255,255,0.7)', maxWidth: '600px', margin: '0 auto'}}>Equipamentos novos, com manutenção em dia e prontos para qualquer desafio logístico rodoviário.</p>
                     </div>
-
-                    <div className="frota-grid">
+                    <div className="frota-grid mobile-carousel">
                         {/* 1. Truck (2 eixos) */}
                         <div className="frota-card">
                             <div className="frota-icon-box">
@@ -239,8 +238,7 @@ const Servicos = () => {
                         <h2 style={{fontSize: '3rem', fontWeight: '800', color: 'var(--dark-blue)'}}>Controle absoluto da carga</h2>
                         <p style={{fontSize: '1.25rem', color: 'var(--text-muted)'}}>Tecnologia de ponta embarcada em cada veículo para garantir tranquilidade máxima.</p>
                     </div>
-                    
-                    <div className="grid-3" style={{alignItems: 'stretch'}}>
+                    <div className="grid-3 mobile-carousel" style={{alignItems: 'stretch'}}>
                         {/* Card 1: GPS */}
                         <div className="tech-feature-card">
                             <div className="tech-card-img-box">

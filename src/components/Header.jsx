@@ -55,16 +55,14 @@ const Header = () => {
         { path: '/atuacao', label: 'Área de Atuação', icon: MapPin },
         { 
             path: 'https://blog.expressopb.com', 
-            label: 'Blog de Notícias', 
+            label: 'Blog', 
             icon: Article, 
-            isExternal: true, 
-            badge: 'Externo' 
+            isExternal: true 
         },
         { 
             path: '/trabalhe-conosco', 
             label: 'Trabalhe Conosco', 
-            icon: Users,
-            badge: 'Vagas'
+            icon: Users
         },
         { path: '/contato', label: 'Fale Conosco', icon: PhoneCall },
     ];
@@ -102,13 +100,7 @@ const Header = () => {
             {/* Menu Mobile Drawer */}
             <div className={`mobile-nav-drawer ${menuActive ? 'open' : ''}`}>
                 <div className="mobile-nav-content">
-                    <div className="mobile-nav-header">
-                        <span className="mobile-nav-kicker">Navegação Principal</span>
-                        <div className="mobile-nav-status">
-                            <span className="status-indicator"></span>
-                            <span>Torre de Controle 24/7 Ativa</span>
-                        </div>
-                    </div>
+
 
                     <nav className="mobile-nav-list">
                         {navItems.map((item) => {

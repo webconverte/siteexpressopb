@@ -554,6 +554,41 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     .hero h1 { font-size: 2.6rem; }
     .hero-internal h1 { font-size: 2.5rem; }
     .frota-grid { grid-template-columns: 1fr; }
+
+    .mobile-carousel {
+        display: flex !important;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        gap: 1rem;
+        padding-bottom: 1rem;
+        margin-left: -1rem;
+        margin-right: -1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+    }
+    .mobile-carousel::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+    .mobile-carousel > * {
+        flex: 0 0 85%;
+        max-width: 85%;
+        scroll-snap-align: center;
+    }
+    
+    .frota-card { 
+        flex-direction: column; 
+        text-align: left; 
+        align-items: flex-start; 
+        padding: 1.8rem; 
+        gap: 1.2rem; 
+    }
+    .frota-card-header { 
+        justify-content: flex-start; 
+    }
 }
 
 @media (max-width: 600px) {
@@ -561,6 +596,9 @@ textarea.form-control { min-height: 120px; resize: vertical; }
         min-height: 80vh;
         padding: 95px 0 60px 0;
         background-position: 70% center;
+    }
+    .hero::before {
+        background: linear-gradient(180deg, rgba(0,3,39,0.85) 0%, rgba(0,3,39,0.65) 40%, rgba(0,3,39,0.9) 100%);
     }
     .hero h1 { font-size: 2.1rem; line-height: 1.2; }
     .hero p { font-size: 1.05rem; }
@@ -580,8 +618,8 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     }
     .hero-internal h1 { font-size: 2rem; }
     .hero-internal { height: auto; min-height: 320px; padding: 110px 0 60px; }
-    .frota-card { flex-direction: column; text-align: center; align-items: center; padding: 1.8rem; gap: 1.2rem; }
-    .frota-card-header { justify-content: center; }
+    .frota-card { flex-direction: column; text-align: left; align-items: flex-start; padding: 1.8rem; gap: 1.2rem; }
+    .frota-card-header { justify-content: flex-start; }
     .cotacao-form-wrapper { padding: 2rem 1.5rem; }
 }
 
