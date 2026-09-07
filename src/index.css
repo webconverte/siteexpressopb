@@ -586,6 +586,68 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .solucao-content h3 { font-size: 1.25rem; margin-bottom: 1rem; color: var(--dark-blue); letter-spacing: -0.5px; }
 .solucao-content p { color: var(--text-muted); font-size: 1rem; line-height: 1.6; }
 
+/* --- Soluções Carousel Mobile --- */
+.solucoes-carousel-wrapper {
+    position: relative;
+    width: 100%;
+}
+.solucoes-dots {
+    display: none;
+}
+
+@media (max-width: 992px) {
+    .solucoes-section {
+        padding: 4.5rem 0 4rem;
+    }
+    .solucoes-section .section-header {
+        margin-bottom: 2.5rem;
+    }
+    .solucoes-carousel-grid {
+        display: flex !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 1.25rem;
+        padding: 0.5rem 1.25rem 1.5rem;
+        margin: 0 -1.25rem;
+        scrollbar-width: none;
+    }
+    .solucoes-carousel-grid::-webkit-scrollbar {
+        display: none;
+    }
+    .solucoes-carousel-grid .solucao-card {
+        flex: 0 0 85%;
+        max-width: 340px;
+        min-width: 280px;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 3, 39, 0.07);
+    }
+    .solucoes-dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.6rem;
+        margin-top: 1rem;
+    }
+    .solucoes-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(0, 3, 39, 0.18);
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .solucoes-dot.active {
+        width: 26px;
+        border-radius: 12px;
+        background: var(--primary-blue);
+    }
+}
+
 /* --- Atuacao Section --- */
 .atuacao-section {
     background: var(--dark-blue);

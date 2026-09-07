@@ -18,6 +18,9 @@ const Home = () => {
     const highlightsRef = useRef(null);
     const [activeHighlight, setActiveHighlight] = useState(0);
 
+    const solucoesRef = useRef(null);
+    const [activeSolucao, setActiveSolucao] = useState(0);
+
     const handleHighlightScroll = () => {
         if (!highlightsRef.current) return;
         const container = highlightsRef.current;
@@ -38,6 +41,29 @@ const Home = () => {
             const cardLeft = card.offsetLeft - container.offsetLeft - (container.clientWidth - card.clientWidth) / 2;
             container.scrollTo({ left: Math.max(0, cardLeft), behavior: 'smooth' });
             setActiveHighlight(index);
+        }
+    };
+
+    const handleSolucaoScroll = () => {
+        if (!solucoesRef.current) return;
+        const container = solucoesRef.current;
+        const scrollLeft = container.scrollLeft;
+        const card = container.children[0];
+        if (!card) return;
+        const cardWidth = card.offsetWidth;
+        const gap = 20;
+        const index = Math.round(scrollLeft / (cardWidth + gap));
+        setActiveSolucao(Math.min(Math.max(index, 0), 2));
+    };
+
+    const scrollToSolucao = (index) => {
+        if (!solucoesRef.current) return;
+        const container = solucoesRef.current;
+        const card = container.children[index];
+        if (card) {
+            const cardLeft = card.offsetLeft - container.offsetLeft - (container.clientWidth - card.clientWidth) / 2;
+            container.scrollTo({ left: Math.max(0, cardLeft), behavior: 'smooth' });
+            setActiveSolucao(index);
         }
     };
 
@@ -133,33 +159,51 @@ const Home = () => {
                         <h2>Nossas Soluções Logísticas</h2>
                         <p className="section-sub">Atendemos os mais exigentes setores da economia com veículos dedicados e equipe altamente qualificada.</p>
                     </div>
-                    <div className="grid-3">
-                        <div className="solucao-card">
-                            <div className="solucao-img-box">
-                                <img src={imgHighway} alt="Construção Civil" className="solucao-img" />
+                    <div className="solucoes-carousel-wrapper">
+                        <div 
+                            className="grid-3 solucoes-carousel-grid"
+                            ref={solucoesRef}
+                            onScroll={handleSolucaoScroll}
+                        >
+                            <div className="solucao-card">
+                                <div className="solucao-img-box">
+                                    <img src={imgHighway} alt="Construção Civil" className="solucao-img" />
+                                </div>
+                                <div className="solucao-content">
+                                    <h3>Construção Civil e Pesados</h3>
+                                    <p>Transporte especializado para indústrias, cerâmicas e equipamentos de grande porte com total segurança.</p>
+                                </div>
                             </div>
-                            <div className="solucao-content">
-                                <h3>Construção Civil e Pesados</h3>
-                                <p>Transporte especializado para indústrias, cerâmicas e equipamentos de grande porte com total segurança.</p>
+                            <div className="solucao-card">
+                                <div className="solucao-img-box">
+                                    <img src={imgTablet} alt="Alimentos e Bebidas" className="solucao-img" />
+                                </div>
+                                <div className="solucao-content">
+                                    <h3>Alimentos & Bebidas</h3>
+                                    <p>Cuidado, telemetria e agilidade no transporte de bens de consumo, garantindo a integridade até o varejo.</p>
+                                </div>
+                            </div>
+                            <div className="solucao-card">
+                                <div className="solucao-img-box">
+                                    <img src={imgDriver} alt="Carga Dedicada" className="solucao-img" />
+                                </div>
+                                <div className="solucao-content">
+                                    <h3>Carga Lotação (Dedicada)</h3>
+                                    <p>Veículos exclusivos para a sua carga, indo do ponto de coleta diretamente ao destino final, sem paradas.</p>
+                                </div>
                             </div>
                         </div>
-                        <div className="solucao-card">
-                            <div className="solucao-img-box">
-                                <img src={imgTablet} alt="Alimentos e Bebidas" className="solucao-img" />
-                            </div>
-                            <div className="solucao-content">
-                                <h3>Alimentos & Bebidas</h3>
-                                <p>Cuidado, telemetria e agilidade no transporte de bens de consumo, garantindo a integridade até o varejo.</p>
-                            </div>
-                        </div>
-                        <div className="solucao-card">
-                            <div className="solucao-img-box">
-                                <img src={imgDriver} alt="Carga Dedicada" className="solucao-img" />
-                            </div>
-                            <div className="solucao-content">
-                                <h3>Carga Lotação (Dedicada)</h3>
-                                <p>Veículos exclusivos para a sua carga, indo do ponto de coleta diretamente ao destino final, sem paradas.</p>
-                            </div>
+
+                        <div className="solucoes-dots" aria-label="Navegação das soluções">
+                            {[0, 1, 2].map((idx) => (
+                                <button
+                                    key={idx}
+                                    type="button"
+                                    className={`solucoes-dot ${activeSolucao === idx ? 'active' : ''}`}
+                                    onClick={() => scrollToSolucao(idx)}
+                                    aria-label={`Ir para a solução ${idx + 1}`}
+                                />
+                            ))}
                         </div>
                     </div>
                 </div>
