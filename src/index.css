@@ -435,9 +435,66 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .feature-card:hover .feature-link {
     gap: 1rem;
 }
+
+/* --- Highlights Carousel Mobile --- */
+.highlights-carousel-wrapper {
+    position: relative;
+    width: 100%;
+}
+.highlights-dots {
+    display: none;
+}
+
 @media (max-width: 992px) {
     .highlights-section {
-        margin-top: 2rem; /* Remove negative margin on mobile so it doesn't break layout */
+        margin-top: 1.5rem;
+        padding: 0 0 3.5rem 0;
+        background: var(--gray-light);
+    }
+    .highlights-carousel-grid {
+        display: flex !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 1.25rem;
+        padding: 0.5rem 1.25rem 1.25rem;
+        margin: 0 -1.25rem;
+        scrollbar-width: none;
+    }
+    .highlights-carousel-grid::-webkit-scrollbar {
+        display: none;
+    }
+    .highlights-carousel-grid .feature-card {
+        flex: 0 0 85%;
+        max-width: 330px;
+        min-width: 270px;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        padding: 2.2rem 1.8rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 3, 39, 0.07);
+    }
+    .highlights-dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.6rem;
+        margin-top: 0.8rem;
+    }
+    .highlights-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(0, 3, 39, 0.18);
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .highlights-dot.active {
+        width: 26px;
+        border-radius: 12px;
+        background: var(--primary-blue);
     }
 }
 

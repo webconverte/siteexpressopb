@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 import brazilTopoJson from "../assets/brazil.json";
@@ -15,6 +15,32 @@ import imgTablet from '../assets/trait_tablet.jpg';
 
 
 const Home = () => {
+    const highlightsRef = useRef(null);
+    const [activeHighlight, setActiveHighlight] = useState(0);
+
+    const handleHighlightScroll = () => {
+        if (!highlightsRef.current) return;
+        const container = highlightsRef.current;
+        const scrollLeft = container.scrollLeft;
+        const card = container.children[0];
+        if (!card) return;
+        const cardWidth = card.offsetWidth;
+        const gap = 20;
+        const index = Math.round(scrollLeft / (cardWidth + gap));
+        setActiveHighlight(Math.min(Math.max(index, 0), 2));
+    };
+
+    const scrollToHighlight = (index) => {
+        if (!highlightsRef.current) return;
+        const container = highlightsRef.current;
+        const card = container.children[index];
+        if (card) {
+            const cardLeft = card.offsetLeft - container.offsetLeft - (container.clientWidth - card.clientWidth) / 2;
+            container.scrollTo({ left: Math.max(0, cardLeft), behavior: 'smooth' });
+            setActiveHighlight(index);
+        }
+    };
+
     return (
         <>
             <section className="hero">
@@ -30,36 +56,54 @@ const Home = () => {
 
             <section className="highlights-section">
                 <div className="container">
-                    <div className="grid-3">
-                        <Link to="/servicos" className="feature-card">
-                            <Truck weight="fill" className="watermark-icon" />
-                            <div className="feature-icon">
-                                <Truck weight="fill" />
-                            </div>
-                            <h3 className="feature-title">Frota Própria</h3>
-                            <p>Veículos modernos, próprios e agregados, rastreados via satélite para garantir máxima segurança na sua entrega.</p>
-                            <span className="feature-link">Conheça a Frota <ArrowRight weight="bold" /></span>
-                        </Link>
-                        
-                        <Link to="/atuacao" className="feature-card">
-                            <MapPinLine weight="fill" className="watermark-icon" />
-                            <div className="feature-icon">
-                                <MapPinLine weight="fill" />
-                            </div>
-                            <h3 className="feature-title">Atuação Nacional</h3>
-                            <p>Especialistas em longas distâncias, com forte presença e foco de alta performance nas regiões Norte e Nordeste.</p>
-                            <span className="feature-link">Ver Filiais <ArrowRight weight="bold" /></span>
-                        </Link>
+                    <div className="highlights-carousel-wrapper">
+                        <div 
+                            className="grid-3 highlights-carousel-grid"
+                            ref={highlightsRef}
+                            onScroll={handleHighlightScroll}
+                        >
+                            <Link to="/servicos" className="feature-card">
+                                <Truck weight="fill" className="watermark-icon" />
+                                <div className="feature-icon">
+                                    <Truck weight="fill" />
+                                </div>
+                                <h3 className="feature-title">Frota Própria</h3>
+                                <p>Veículos modernos, próprios e agregados, rastreados via satélite para garantir máxima segurança na sua entrega.</p>
+                                <span className="feature-link">Conheça a Frota <ArrowRight weight="bold" /></span>
+                            </Link>
+                            
+                            <Link to="/atuacao" className="feature-card">
+                                <MapPinLine weight="fill" className="watermark-icon" />
+                                <div className="feature-icon">
+                                    <MapPinLine weight="fill" />
+                                </div>
+                                <h3 className="feature-title">Atuação Nacional</h3>
+                                <p>Especialistas em longas distâncias, com forte presença e foco de alta performance nas regiões Norte e Nordeste.</p>
+                                <span className="feature-link">Ver Filiais <ArrowRight weight="bold" /></span>
+                            </Link>
 
-                        <Link to="/servicos" className="feature-card">
-                            <Truck weight="fill" className="watermark-icon" />
-                            <div className="feature-icon">
-                                <VideoCamera weight="fill" />
-                            </div>
-                            <h3 className="feature-title">Controle 24/7</h3>
-                            <p>Tecnologia de ponta embarcada. Telemetria avançada, GPS em tempo real e câmeras de segurança na cabine.</p>
-                            <span className="feature-link">Nossa Tecnologia <ArrowRight weight="bold" /></span>
-                        </Link>
+                            <Link to="/servicos" className="feature-card">
+                                <Truck weight="fill" className="watermark-icon" />
+                                <div className="feature-icon">
+                                    <VideoCamera weight="fill" />
+                                </div>
+                                <h3 className="feature-title">Controle 24/7</h3>
+                                <p>Tecnologia de ponta embarcada. Telemetria avançada, GPS em tempo real e câmeras de segurança na cabine.</p>
+                                <span className="feature-link">Nossa Tecnologia <ArrowRight weight="bold" /></span>
+                            </Link>
+                        </div>
+
+                        <div className="highlights-dots" aria-label="Navegação do carrossel">
+                            {[0, 1, 2].map((idx) => (
+                                <button
+                                    key={idx}
+                                    type="button"
+                                    className={`highlights-dot ${activeHighlight === idx ? 'active' : ''}`}
+                                    onClick={() => scrollToHighlight(idx)}
+                                    aria-label={`Ir para o card ${idx + 1}`}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
