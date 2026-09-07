@@ -7,6 +7,7 @@ import Sobre from './pages/Sobre'
 import Servicos from './pages/Servicos'
 import Atuacao from './pages/Atuacao'
 import Contato from './pages/Contato'
+import TrabalheConosco from './pages/TrabalheConosco'
 import { useEffect } from 'react'
 
 const ScrollToTop = () => {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/servicos" element={<Servicos />} />
         <Route path="/atuacao" element={<Atuacao />} />
         <Route path="/contato" element={<Contato />} />
+        <Route path="/trabalhe-conosco" element={<TrabalheConosco />} />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { List } from '@phosphor-icons/react';
+import { Link, useLocation } from 'react-router-dom';
+import { List, X } from '@phosphor-icons/react';
 import logo from '../assets/logo fundo escuro.svg';
 
 const Header = () => {
     const [menuActive, setMenuActive] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const location = useLocation();
+
+    // Fecha o menu mobile automaticamente sempre que a rota mudar
+    useEffect(() => {
+        setMenuActive(false);
+    }, [location.pathname]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -18,18 +24,26 @@ const Header = () => {
     return (
         <header className={`header ${scrolled ? 'scrolled' : ''}`}>
             <div className="container">
-                <Link to="/" className="logo">
+                <Link to="/" className="logo" onClick={() => setMenuActive(false)}>
                     <img src={logo} alt="Expresso PB" className="logo-img" />
                 </Link>
                 <ul className={`nav-links ${menuActive ? 'active' : ''}`}>
-                    <li><Link to="/">Início</Link></li>
-                    <li><Link to="/sobre">Sobre Nós</Link></li>
-                    <li><Link to="/servicos">Serviços & Frota</Link></li>
-                    <li><Link to="/atuacao">Atuação</Link></li>
-                    <li><Link to="/contato">Contato</Link></li>
+                    <li><Link to="/" onClick={() => setMenuActive(false)}>Início</Link></li>
+                    <li><Link to="/sobre" onClick={() => setMenuActive(false)}>Sobre Nós</Link></li>
+                    <li><Link to="/servicos" onClick={() => setMenuActive(false)}>Serviços & Frota</Link></li>
+                    <li><Link to="/atuacao" onClick={() => setMenuActive(false)}>Atuação</Link></li>
+                    <li><Link to="/trabalhe-conosco" onClick={() => setMenuActive(false)}>Trabalhe Conosco</Link></li>
+                    <li><Link to="/contato" onClick={() => setMenuActive(false)}>Contato</Link></li>
                 </ul>
                 <Link to="/contato" className="btn-primary hide-mobile">Cotar Frete</Link>
-                <List size={32} className="mobile-menu-btn" onClick={() => setMenuActive(!menuActive)} />
+                <button 
+                    className="mobile-menu-btn" 
+                    onClick={() => setMenuActive(!menuActive)}
+                    aria-label="Abrir menu de navegação"
+                    style={{ background: 'transparent', border: 'none', padding: '0.4rem', display: 'flex', alignItems: 'center' }}
+                >
+                    {menuActive ? <X size={32} /> : <List size={32} />}
+                </button>
             </div>
         </header>
     );

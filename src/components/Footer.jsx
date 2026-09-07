@@ -32,9 +32,10 @@ const Footer = () => {
                         <h4>A Empresa</h4>
                         <ul>
                             <li><Link to="/sobre"><CaretRight weight="bold"/> Nossa História</Link></li>
-                            <li><Link to="/tecnologia"><CaretRight weight="bold"/> Tecnologia e Segurança</Link></li>
+                            <li><Link to="/servicos"><CaretRight weight="bold"/> Tecnologia e Segurança</Link></li>
                             <li><Link to="/atuacao"><CaretRight weight="bold"/> Área de Atuação</Link></li>
-                            <li><Link to="/contato"><CaretRight weight="bold"/> Trabalhe Conosco</Link></li>
+                            <li><Link to="/trabalhe-conosco"><CaretRight weight="bold"/> Trabalhe Conosco</Link></li>
+                            <li><Link to="/contato"><CaretRight weight="bold"/> Fale Conosco</Link></li>
                         </ul>
                     </div>
                     
@@ -51,8 +52,8 @@ const Footer = () => {
                             <li>
                                 <div className="contact-icon"><Phone weight="bold" /></div>
                                 <div className="contact-info">
-                                    <span>Telefone</span>
-                                    <p>(83) 3000-0000</p>
+                                    <span>WhatsApp Comercial</span>
+                                    <p>(83) 99999-9999</p>
                                 </div>
                             </li>
                             <li>

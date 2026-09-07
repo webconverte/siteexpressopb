@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 import brazilTopoJson from "../assets/brazil.json";
 
-import { MapPin, ShieldCheck, Truck, Buildings, Factory, Package, Barcode, Headset, Crosshair, ArrowRight, CheckCircle, MapPinLine, VideoCamera } from '@phosphor-icons/react';
+import { 
+    MapPin, ShieldCheck, Truck, Buildings, Factory, Package, 
+    Barcode, Headset, Crosshair, ArrowRight, CheckCircle, 
+    MapPinLine, VideoCamera, Leaf, Tree, Recycle, Drop, Compass
+} from '@phosphor-icons/react';
 import imgHub from '../assets/trait_hub.jpg';
 import imgHighway from '../assets/trait_highway.jpg';
 import imgDriver from '../assets/trait_driver.jpg';
@@ -281,6 +285,52 @@ const Home = () => {
                         <div className="floating-badge tech-badge">
                             <span className="badge-number">100%</span>
                             <span className="badge-text">Frota<br/>Rastreada</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Sustentabilidade & Compromisso Ambiental (ESG) */}
+            <section className="eco-section">
+                <div className="container">
+                    <div className="eco-banner-box">
+                        <div style={{ maxWidth: '780px', position: 'relative', zIndex: 2 }}>
+                            <span className="eco-badge-pill">
+                                <Leaf weight="fill" /> Compromisso Ambiental & ESG
+                            </span>
+                            <h2 style={{ fontSize: '3.2rem', fontWeight: '800', color: 'var(--white)', letterSpacing: '-1.5px', marginBottom: '1.2rem', lineHeight: '1.15' }}>
+                                Eficiência que move cargas e preserva o meio ambiente
+                            </h2>
+                            <p style={{ fontSize: '1.2rem', color: 'rgba(255, 255, 255, 0.85)', lineHeight: '1.7', margin: 0 }}>
+                                Acreditamos que a logística do futuro precisa ser limpa, inteligente e responsável. Na Expresso PB, combinamos tecnologia de ponta, renovação contínua de frota e engenharia de tráfego para reduzir drasticamente as emissões de carbono em cada quilômetro percorrido.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Pilares Práticos de Ação Sustentável */}
+                    <div className="eco-pillars-grid">
+                        <div className="eco-pillar-card">
+                            <div className="eco-pillar-icon">
+                                <Tree weight="fill" />
+                            </div>
+                            <h4>Direção Econômica & Treinamento</h4>
+                            <p>Capacitamos periodicamente nossos motoristas em condução defensiva e econômica, reduzindo freadas bruscas, rotações excessivas e emissão desnecessária de poluentes.</p>
+                        </div>
+
+                        <div className="eco-pillar-card">
+                            <div className="eco-pillar-icon">
+                                <Recycle weight="fill" />
+                            </div>
+                            <h4>Ciclo Reverso & Otimização de Pneus</h4>
+                            <p>Controle rigoroso da vida útil dos pneus com recapeamento homologado e descarte responsável via logística reversa através de parceiros certificados pela ANIP.</p>
+                        </div>
+
+                        <div className="eco-pillar-card">
+                            <div className="eco-pillar-icon">
+                                <Drop weight="fill" />
+                            </div>
+                            <h4>Reuso de Água & Manutenção Limpa</h4>
+                            <p>Nosso pátio matriz em João Pessoa opera com sistema de separação de água e óleo e lavagem técnica de caminhões com captação e reaproveitamento de água pluvial.</p>
                         </div>
                     </div>
                 </div>
