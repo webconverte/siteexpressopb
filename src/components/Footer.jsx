@@ -34,6 +34,7 @@ const Footer = () => {
                             <li><Link to="/sobre"><CaretRight weight="bold"/> Nossa História</Link></li>
                             <li><Link to="/servicos"><CaretRight weight="bold"/> Tecnologia e Segurança</Link></li>
                             <li><Link to="/atuacao"><CaretRight weight="bold"/> Área de Atuação</Link></li>
+                            <li><a href="https://blog.expressopb.com" target="_blank" rel="noopener noreferrer"><CaretRight weight="bold"/> Blog de Notícias</a></li>
                             <li><Link to="/trabalhe-conosco"><CaretRight weight="bold"/> Trabalhe Conosco</Link></li>
                             <li><Link to="/contato"><CaretRight weight="bold"/> Fale Conosco</Link></li>
                         </ul>

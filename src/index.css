@@ -84,7 +84,7 @@ a { text-decoration: none; color: inherit; }
 /* Navegação Desktop */
 .nav-links { 
     display: flex; 
-    gap: 2.2rem; 
+    gap: 1.85rem; 
     list-style: none; 
     align-items: center;
     margin: 0;

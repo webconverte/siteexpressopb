@@ -33,6 +33,7 @@ const Header = () => {
                     <li><Link to="/sobre" onClick={() => setMenuActive(false)}>Sobre Nós</Link></li>
                     <li><Link to="/servicos" onClick={() => setMenuActive(false)}>Serviços & Frota</Link></li>
                     <li><Link to="/atuacao" onClick={() => setMenuActive(false)}>Atuação</Link></li>
+                    <li><a href="https://blog.expressopb.com" target="_blank" rel="noopener noreferrer" onClick={() => setMenuActive(false)}>Blog</a></li>
                     <li><Link to="/trabalhe-conosco" onClick={() => setMenuActive(false)}>Trabalhe Conosco</Link></li>
                     <li><Link to="/contato" onClick={() => setMenuActive(false)}>Contato</Link></li>
                 </ul>
