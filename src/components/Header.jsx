@@ -23,10 +23,11 @@ const Header = () => {
 
     return (
         <header className={`header ${scrolled ? 'scrolled' : ''}`}>
-            <div className="container">
-                <Link to="/" className="logo" onClick={() => setMenuActive(false)}>
+            <div className="header-container">
+                <Link to="/" className="header-logo" onClick={() => setMenuActive(false)}>
                     <img src={logo} alt="Expresso PB" className="logo-img" />
                 </Link>
+
                 <ul className={`nav-links ${menuActive ? 'active' : ''}`}>
                     <li><Link to="/" onClick={() => setMenuActive(false)}>Início</Link></li>
                     <li><Link to="/sobre" onClick={() => setMenuActive(false)}>Sobre Nós</Link></li>
@@ -35,15 +36,17 @@ const Header = () => {
                     <li><Link to="/trabalhe-conosco" onClick={() => setMenuActive(false)}>Trabalhe Conosco</Link></li>
                     <li><Link to="/contato" onClick={() => setMenuActive(false)}>Contato</Link></li>
                 </ul>
-                <Link to="/contato" className="btn-primary hide-mobile">Cotar Frete</Link>
-                <button 
-                    className="mobile-menu-btn" 
-                    onClick={() => setMenuActive(!menuActive)}
-                    aria-label="Abrir menu de navegação"
-                    style={{ background: 'transparent', border: 'none', padding: '0.4rem', display: 'flex', alignItems: 'center' }}
-                >
-                    {menuActive ? <X size={32} /> : <List size={32} />}
-                </button>
+
+                <div className="header-actions">
+                    <Link to="/contato" className="header-btn hide-mobile">Cotar Frete</Link>
+                    <button 
+                        className="mobile-menu-btn" 
+                        onClick={() => setMenuActive(!menuActive)}
+                        aria-label={menuActive ? "Fechar menu" : "Abrir menu"}
+                    >
+                        {menuActive ? <X size={32} /> : <List size={32} />}
+                    </button>
+                </div>
             </div>
         </header>
     );
