@@ -13,9 +13,21 @@ const Header = () => {
         setMenuActive(false);
     }, [location.pathname]);
 
+    // Trava o scroll da página quando o menu mobile está aberto
+    useEffect(() => {
+        if (menuActive) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [menuActive]);
+
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
+            setScrolled(window.scrollY > 30);
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
@@ -45,7 +57,7 @@ const Header = () => {
                         onClick={() => setMenuActive(!menuActive)}
                         aria-label={menuActive ? "Fechar menu" : "Abrir menu"}
                     >
-                        {menuActive ? <X size={32} /> : <List size={32} />}
+                        {menuActive ? <X size={28} weight="bold" /> : <List size={28} weight="bold" />}
                     </button>
                 </div>
             </div>
