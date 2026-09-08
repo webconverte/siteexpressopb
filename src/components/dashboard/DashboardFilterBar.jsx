@@ -1,12 +1,11 @@
 import React from 'react';
 import { 
-    Calendar, 
+    CalendarBlank, 
     Funnel, 
     Buildings, 
     MapPin, 
     ArrowClockwise, 
-    X,
-    SlidersHorizontal
+    X
 } from '@phosphor-icons/react';
 
 const periods = [
@@ -31,7 +30,7 @@ const channels = [
 ];
 
 const regions = [
-    { value: 'all', label: 'Todas as Regiões / UFs' },
+    { value: 'all', label: 'Todas as Regiões' },
     { value: 'PB', label: 'Paraíba (Matriz)' },
     { value: 'SP', label: 'São Paulo (Filial)' },
     { value: 'PE', label: 'Pernambuco' },
@@ -52,107 +51,99 @@ export const DashboardFilterBar = ({
     onRefresh,
     loading
 }) => {
-    // Verifica se algum filtro adicional além da data está ativo
     const hasActiveFilters = segment !== 'all' || channel !== 'all' || region !== 'all';
 
     return (
         <section className="dash-filter-section" aria-label="Filtros de telemetria analítica">
             <div className="dash-filter-card">
                 <div className="dash-filter-row">
-                    {/* 1. Filtro de Período (Data) */}
-                    <div className="dash-filter-group">
-                        <span className="dash-filter-label">
-                            <Calendar weight="bold" size={13} />
-                            Período:
-                        </span>
-                        <div className="dash-period-pills" role="group" aria-label="Seletor de período">
-                            {periods.map(p => (
-                                <button
-                                    key={p.key}
-                                    type="button"
-                                    className={`dash-filter-pill-btn ${period === p.key ? 'active' : ''}`}
-                                    onClick={() => onPeriodChange(p.key)}
+                    {/* Grupo de Filtros à Esquerda */}
+                    <div className="dash-filter-left-group">
+                        {/* 1. Período */}
+                        <div className="dash-filter-item">
+                            <div className="dash-period-pills">
+                                {periods.map(p => (
+                                    <button
+                                        key={p.key}
+                                        type="button"
+                                        className={`dash-filter-pill-btn ${period === p.key ? 'active' : ''}`}
+                                        onClick={() => onPeriodChange(p.key)}
+                                        disabled={loading}
+                                    >
+                                        {p.label}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="dash-filter-divider hide-mobile"></div>
+
+                        {/* 2. Segmento */}
+                        <div className="dash-filter-item">
+                            <div className="dash-select-container">
+                                <Buildings size={14} weight="bold" className="dash-filter-icon" />
+                                <select 
+                                    value={segment} 
+                                    onChange={(e) => onSegmentChange(e.target.value)}
+                                    className={`dash-select ${segment !== 'all' ? 'has-value' : ''}`}
                                     disabled={loading}
+                                    aria-label="Filtrar por segmento industrial"
                                 >
-                                    {p.label}
-                                </button>
-                            ))}
+                                    {segments.map(s => (
+                                        <option key={s.value} value={s.value}>{s.label}</option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
+
+                        {/* 3. Canal */}
+                        <div className="dash-filter-item">
+                            <div className="dash-select-container">
+                                <Funnel size={14} weight="bold" className="dash-filter-icon" />
+                                <select 
+                                    value={channel} 
+                                    onChange={(e) => onChannelChange(e.target.value)}
+                                    className={`dash-select ${channel !== 'all' ? 'has-value' : ''}`}
+                                    disabled={loading}
+                                    aria-label="Filtrar por canal de conversão"
+                                >
+                                    {channels.map(c => (
+                                        <option key={c.value} value={c.value}>{c.label}</option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
+
+                        {/* 4. Região / UF */}
+                        <div className="dash-filter-item">
+                            <div className="dash-select-container">
+                                <MapPin size={14} weight="bold" className="dash-filter-icon" />
+                                <select 
+                                    value={region} 
+                                    onChange={(e) => onRegionChange(e.target.value)}
+                                    className={`dash-select ${region !== 'all' ? 'has-value' : ''}`}
+                                    disabled={loading}
+                                    aria-label="Filtrar por região ou UF"
+                                >
+                                    {regions.map(r => (
+                                        <option key={r.value} value={r.value}>{r.label}</option>
+                                    ))}
+                                </select>
+                            </div>
                         </div>
                     </div>
 
-                    <div className="dash-filter-divider hide-mobile"></div>
-
-                    {/* 2. Filtro de Segmento Industrial */}
-                    <div className="dash-filter-group">
-                        <span className="dash-filter-label">
-                            <Buildings weight="bold" size={13} />
-                            Segmento:
-                        </span>
-                        <div className="dash-select-wrapper">
-                            <select 
-                                value={segment} 
-                                onChange={(e) => onSegmentChange(e.target.value)}
-                                className={`dash-select ${segment !== 'all' ? 'has-value' : ''}`}
-                                disabled={loading}
-                            >
-                                {segments.map(s => (
-                                    <option key={s.value} value={s.value}>{s.label}</option>
-                                ))}
-                            </select>
-                        </div>
-                    </div>
-
-                    {/* 3. Filtro de Canal de Conversão */}
-                    <div className="dash-filter-group">
-                        <span className="dash-filter-label">
-                            <Funnel weight="bold" size={13} />
-                            Canal:
-                        </span>
-                        <div className="dash-select-wrapper">
-                            <select 
-                                value={channel} 
-                                onChange={(e) => onChannelChange(e.target.value)}
-                                className={`dash-select ${channel !== 'all' ? 'has-value' : ''}`}
-                                disabled={loading}
-                            >
-                                {channels.map(c => (
-                                    <option key={c.value} value={c.value}>{c.label}</option>
-                                ))}
-                            </select>
-                        </div>
-                    </div>
-
-                    {/* 4. Filtro de Região / UF */}
-                    <div className="dash-filter-group">
-                        <span className="dash-filter-label">
-                            <MapPin weight="bold" size={13} />
-                            Origem / UF:
-                        </span>
-                        <div className="dash-select-wrapper">
-                            <select 
-                                value={region} 
-                                onChange={(e) => onRegionChange(e.target.value)}
-                                className={`dash-select ${region !== 'all' ? 'has-value' : ''}`}
-                                disabled={loading}
-                            >
-                                {regions.map(r => (
-                                    <option key={r.value} value={r.value}>{r.label}</option>
-                                ))}
-                            </select>
-                        </div>
-                    </div>
-
-                    {/* Lado Direito: Ações (Limpar Filtros + Atualizar) */}
+                    {/* Grupo de Ações à Direita */}
                     <div className="dash-filter-actions">
                         {hasActiveFilters && (
                             <button
                                 type="button"
                                 className="dash-clear-filters-btn"
                                 onClick={onResetFilters}
-                                title="Limpar filtros aplicados"
+                                title="Limpar filtros selecionados"
                             >
-                                <X weight="bold" size={14} />
-                                <span>Limpar Filtros</span>
+                                <X weight="bold" size={13} />
+                                <span>Limpar</span>
                             </button>
                         )}
 
@@ -160,37 +151,35 @@ export const DashboardFilterBar = ({
                             type="button"
                             className="dash-filter-refresh-btn" 
                             onClick={onRefresh}
-                            title="Atualizar dados de telemetria"
+                            title="Atualizar dados analíticos"
                             disabled={loading}
                         >
-                            <ArrowClockwise weight="bold" size={15} className={loading ? 'dash-spin' : ''} />
-                            <span className="hide-mobile">Atualizar</span>
+                            <ArrowClockwise weight="bold" size={14} className={loading ? 'dash-spin' : ''} />
+                            <span>Atualizar</span>
                         </button>
                     </div>
                 </div>
 
-                {/* Feedback sutil de filtros aplicados */}
+                {/* Tags de Filtros Ativos (Apenas quando houver filtro ativo) */}
                 {hasActiveFilters && (
                     <div className="dash-active-filters-bar">
-                        <span className="dash-active-filters-title">
-                            <SlidersHorizontal size={13} weight="bold" /> Filtros Ativos:
-                        </span>
+                        <span className="dash-active-filters-title">Filtros:</span>
                         {segment !== 'all' && (
                             <span className="dash-active-tag">
-                                Segmento: {segments.find(s => s.value === segment)?.label}
-                                <button type="button" onClick={() => onSegmentChange('all')}><X size={12} /></button>
+                                {segments.find(s => s.value === segment)?.label}
+                                <button type="button" onClick={() => onSegmentChange('all')}><X size={11} /></button>
                             </span>
                         )}
                         {channel !== 'all' && (
                             <span className="dash-active-tag">
-                                Canal: {channels.find(c => c.value === channel)?.label}
-                                <button type="button" onClick={() => onChannelChange('all')}><X size={12} /></button>
+                                {channels.find(c => c.value === channel)?.label}
+                                <button type="button" onClick={() => onChannelChange('all')}><X size={11} /></button>
                             </span>
                         )}
                         {region !== 'all' && (
                             <span className="dash-active-tag">
-                                UF: {regions.find(r => r.value === region)?.label}
-                                <button type="button" onClick={() => onRegionChange('all')}><X size={12} /></button>
+                                {regions.find(r => r.value === region)?.label}
+                                <button type="button" onClick={() => onRegionChange('all')}><X size={11} /></button>
                             </span>
                         )}
                     </div>

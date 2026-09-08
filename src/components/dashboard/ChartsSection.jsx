@@ -20,8 +20,8 @@ export const ChartsSection = ({ timeSeries, segments, funnel, topGeo, loading })
 
     // --- CÁLCULOS DO GRÁFICO DE LINHA/ÁREA TEMPORAL (SVG) ---
     const chartWidth = 620;
-    const chartHeight = 230;
-    const padding = { top: 25, right: 20, bottom: 35, left: 35 };
+    const chartHeight = 175;
+    const padding = { top: 15, right: 15, bottom: 26, left: 30 };
     const innerWidth = chartWidth - padding.left - padding.right;
     const innerHeight = chartHeight - padding.top - padding.bottom;
 
@@ -38,7 +38,7 @@ export const ChartsSection = ({ timeSeries, segments, funnel, topGeo, loading })
     const formAreaPath = `M ${getX(0)},${getY(0)} L ${timeSeries.map((d, i) => `${getX(i)},${getY(d.formulario)}`).join(' L ')} L ${getX(timeSeries.length - 1)},${getY(0)} Z`;
 
     // --- CÁLCULOS DO GRÁFICO DE ROSCA (DONUT SVG) ---
-    const donutRadius = 65;
+    const donutRadius = 55;
     const circumference = 2 * Math.PI * donutRadius;
     const totalSegmentLeads = segments.reduce((acc, s) => acc + s.totalLeads, 0);
 
@@ -272,19 +272,19 @@ export const ChartsSection = ({ timeSeries, segments, funnel, topGeo, loading })
 
                 <div className="dash-donut-wrapper">
                     <div className="dash-donut-svg-box">
-                        <svg viewBox="0 0 160 160" className="dash-donut-svg">
+                        <svg viewBox="0 0 140 140" className="dash-donut-svg">
                             {donutSlices.map((slice, i) => (
                                 <circle
                                     key={i}
-                                    cx="80"
-                                    cy="80"
+                                    cx="70"
+                                    cy="70"
                                     r={donutRadius}
                                     fill="transparent"
                                     stroke={slice.color}
-                                    strokeWidth={hoveredSegment === i ? "24" : "18"}
+                                    strokeWidth={hoveredSegment === i ? "18" : "14"}
                                     strokeDasharray={slice.strokeDasharray}
                                     strokeDashoffset={slice.strokeDashoffset}
-                                    transform="rotate(-90 80 80)"
+                                    transform="rotate(-90 70 70)"
                                     className={`dash-donut-segment ${hoveredSegment === i ? 'is-active' : ''}`}
                                     onMouseEnter={() => setHoveredSegment(i)}
                                     onMouseLeave={() => setHoveredSegment(null)}
