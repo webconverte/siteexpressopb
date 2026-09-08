@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, Suspense, lazy } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -9,8 +9,9 @@ import Atuacao from './pages/Atuacao'
 import Contato from './pages/Contato'
 import TrabalheConosco from './pages/TrabalheConosco'
 import SegmentoPage from './pages/SegmentoPage'
-import Dashboard from './pages/Dashboard'
-import { useEffect } from 'react'
+import ErrorBoundary from './components/ErrorBoundary'
+
+const Dashboard = lazy(() => import('./pages/Dashboard'))
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -25,7 +26,7 @@ const AppContent = () => {
   const isDashboard = location.pathname === '/dashboard';
 
   return (
-    <>
+    <ErrorBoundary>
       <ScrollToTop />
       {!isDashboard && <Header />}
       <Routes>
@@ -37,10 +38,21 @@ const AppContent = () => {
         <Route path="/trabalhe-conosco" element={<TrabalheConosco />} />
         <Route path="/segmentos/:slug" element={<SegmentoPage />} />
         <Route path="/segmentos" element={<SegmentoPage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route 
+          path="/dashboard" 
+          element={
+            <Suspense fallback={
+              <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#090D16', color: '#94A3B8' }}>
+                Carregando Dashboard...
+              </div>
+            }>
+              <Dashboard />
+            </Suspense>
+          } 
+        />
       </Routes>
       {!isDashboard && <Footer />}
-    </>
+    </ErrorBoundary>
   );
 };
 

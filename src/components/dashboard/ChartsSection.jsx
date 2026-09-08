@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { 
     CalendarBlank, 
     Funnel, 
-    PieChart, 
+    ChartPie, 
     GlobeHemisphereWest, 
     WhatsappLogo, 
     FileText,
@@ -210,7 +210,7 @@ export const ChartsSection = ({ timeSeries, segments, funnel, topGeo, loading })
             <div className="dash-card dash-chart-donut">
                 <div className="dash-card-header">
                     <div className="dash-card-title-group">
-                        <PieChart weight="duotone" size={20} className="dash-icon-title" />
+                        <ChartPie weight="duotone" size={20} className="dash-icon-title" />
                         <div>
                             <h3>Demanda por Segmento</h3>
                             <p>Proporção das cotações recebidas</p>
