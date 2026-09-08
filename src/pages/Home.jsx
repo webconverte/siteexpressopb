@@ -103,6 +103,11 @@ const Home = () => {
                         <Link to="/contato" className="btn-primary">Solicitar Cotação</Link>
                         <Link to="/servicos" className="btn-outline">Nossas Soluções</Link>
                     </div>
+                    <div className="hero-tags">
+                        <span className="hero-tag"><CheckCircle weight="fill" /> 10 anos no mercado</span>
+                        <span className="hero-tag"><CheckCircle weight="fill" /> Monitoramento 24h</span>
+                        <span className="hero-tag"><CheckCircle weight="fill" /> Frota dedicada</span>
+                    </div>
                 </div>
             </section>
 

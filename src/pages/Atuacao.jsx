@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 import brazilTopoJson from "../assets/brazil.json";
@@ -26,6 +26,59 @@ const Atuacao = () => {
     const [selectedUf, setSelectedUf] = useState("PB");
     const activeFilial = FILIAIS_DATA.find(f => f.uf === selectedUf) || FILIAIS_DATA[0];
 
+    const filiaisRef = useRef(null);
+    const [activeFilialIndex, setActiveFilialIndex] = useState(0);
+    const filiaisCards = FILIAIS_DATA.filter(f => f.uf !== 'PB');
+
+    const handleFiliaisScroll = () => {
+        if (!filiaisRef.current) return;
+        const container = filiaisRef.current;
+        const scrollLeft = container.scrollLeft;
+        const card = container.children[0];
+        if (!card) return;
+        const cardWidth = card.offsetWidth;
+        const gap = 20;
+        const index = Math.round(scrollLeft / (cardWidth + gap));
+        setActiveFilialIndex(Math.min(Math.max(index, 0), filiaisCards.length - 1));
+    };
+
+    const scrollToFilial = (index) => {
+        if (!filiaisRef.current) return;
+        const container = filiaisRef.current;
+        const card = container.children[index];
+        if (card) {
+            const cardLeft = card.offsetLeft - container.offsetLeft - (container.clientWidth - card.clientWidth) / 2;
+            container.scrollTo({ left: Math.max(0, cardLeft), behavior: 'smooth' });
+            setActiveFilialIndex(index);
+        }
+    };
+
+    const corredoresRef = useRef(null);
+    const [activeCorredorIndex, setActiveCorredorIndex] = useState(0);
+
+    const handleCorredoresScroll = () => {
+        if (!corredoresRef.current) return;
+        const container = corredoresRef.current;
+        const scrollLeft = container.scrollLeft;
+        const card = container.children[0];
+        if (!card) return;
+        const cardWidth = card.offsetWidth;
+        const gap = 20;
+        const index = Math.round(scrollLeft / (cardWidth + gap));
+        setActiveCorredorIndex(Math.min(Math.max(index, 0), 2));
+    };
+
+    const scrollToCorredor = (index) => {
+        if (!corredoresRef.current) return;
+        const container = corredoresRef.current;
+        const card = container.children[index];
+        if (card) {
+            const cardLeft = card.offsetLeft - container.offsetLeft - (container.clientWidth - card.clientWidth) / 2;
+            container.scrollTo({ left: Math.max(0, cardLeft), behavior: 'smooth' });
+            setActiveCorredorIndex(index);
+        }
+    };
+
     return (
         <>
             {/* 1. Hero Monumental Padronizado */}
@@ -44,17 +97,17 @@ const Atuacao = () => {
             </div>
 
             {/* 2. Matriz de Excelência Operacional (João Pessoa - PB) */}
-            <section style={{padding: '7rem 0', background: 'var(--white)'}}>
+            <section className="matriz-section">
                 <div className="container">
                     <div className="matriz-banner-card">
-                        <div style={{maxWidth: '800px', position: 'relative', zIndex: 2}}>
+                        <div className="matriz-card-header">
                             <span className="matriz-badge-pill">
                                 <Buildings weight="fill" /> Sede Corporativa & Hub Central
                             </span>
-                            <h2 style={{fontSize: '3.2rem', fontWeight: '800', color: 'var(--white)', marginBottom: '1.2rem', letterSpacing: '-1px'}}>
+                            <h2 className="matriz-title">
                                 João Pessoa, Paraíba
                             </h2>
-                            <p style={{fontSize: '1.2rem', color: 'rgba(255,255,255,0.85)', lineHeight: '1.6'}}>
+                            <p className="matriz-desc">
                                 O coração operacional da Expresso PB. A partir da matriz, orquestramos toda a frota própria que atende o Brasil, com torre de controle de risco, telemetria 24 horas por dia e engenharia de tráfego dedicada.
                             </p>
                         </div>
@@ -87,9 +140,9 @@ const Atuacao = () => {
             </section>
 
             {/* 3. As Filiais em Detalhes */}
-            <section style={{padding: '7rem 0', background: '#f8fafc'}}>
+            <section className="filiais-section">
                 <div className="container">
-                    <div className="section-header text-center" style={{marginBottom: '4rem'}}>
+                    <div className="section-header text-center">
                         <span className="kicker" style={{color: 'var(--primary-blue)', letterSpacing: '2px', fontWeight: '800', textTransform: 'uppercase', marginBottom: '1rem', display: 'inline-block'}}>
                             Capilaridade Regional
                         </span>
@@ -101,25 +154,43 @@ const Atuacao = () => {
                         </p>
                     </div>
 
-                    <div className="filiais-grid">
-                        {FILIAIS_DATA.filter(f => f.uf !== 'PB').map(filial => (
-                            <div 
-                                key={filial.uf} 
-                                className={`filial-card ${selectedUf === filial.uf ? 'active' : ''}`}
-                                onClick={() => setSelectedUf(filial.uf)}
-                            >
-                                <div className="filial-card-header">
-                                    <div className="filial-uf-badge">{filial.uf}</div>
-                                    <span className="filial-type">{filial.tipo}</span>
+                    <div className="filiais-carousel-wrapper">
+                        <div 
+                            className="filiais-grid filiais-carousel-grid"
+                            ref={filiaisRef}
+                            onScroll={handleFiliaisScroll}
+                        >
+                            {filiaisCards.map(filial => (
+                                <div 
+                                    key={filial.uf} 
+                                    className={`filial-card ${selectedUf === filial.uf ? 'active' : ''}`}
+                                    onClick={() => setSelectedUf(filial.uf)}
+                                >
+                                    <div className="filial-card-header">
+                                        <div className="filial-uf-badge">{filial.uf}</div>
+                                        <span className="filial-type">{filial.tipo}</span>
+                                    </div>
+                                    <h4>{filial.cidade}</h4>
+                                    <p>{filial.desc}</p>
+                                    <div className="filial-card-footer">
+                                        <Clock weight="fill" />
+                                        <span>Padrão SLA: {filial.sla}</span>
+                                    </div>
                                 </div>
-                                <h4>{filial.cidade}</h4>
-                                <p>{filial.desc}</p>
-                                <div className="filial-card-footer">
-                                    <Clock weight="fill" />
-                                    <span>Padrão SLA: {filial.sla}</span>
-                                </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
+
+                        <div className="filiais-dots" aria-label="Navegação das filiais">
+                            {filiaisCards.map((filial, idx) => (
+                                <button
+                                    key={filial.uf}
+                                    type="button"
+                                    className={`filiais-dot ${activeFilialIndex === idx ? 'active' : ''}`}
+                                    onClick={() => scrollToFilial(idx)}
+                                    aria-label={`Ir para filial ${filial.cidade}`}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
@@ -299,9 +370,9 @@ const Atuacao = () => {
             </section>
 
             {/* 5. Corredores de Longa Distância */}
-            <section style={{padding: '7rem 0', background: 'var(--gray-light)'}}>
+            <section className="corredores-section">
                 <div className="container">
-                    <div className="section-header text-center" style={{marginBottom: '4.5rem'}}>
+                    <div className="section-header text-center">
                         <span className="kicker" style={{color: 'var(--primary-blue)', letterSpacing: '2px', fontWeight: '800', textTransform: 'uppercase', marginBottom: '1rem', display: 'inline-block'}}>
                             Rotas Principais
                         </span>
@@ -313,29 +384,47 @@ const Atuacao = () => {
                         </p>
                     </div>
 
-                    <div className="grid-3" style={{gap: '2.5rem'}}>
-                        <div className="corredor-card">
-                            <div className="corredor-icon">
-                                <Truck weight="fill" />
+                    <div className="corredores-carousel-wrapper">
+                        <div 
+                            className="grid-3 corredores-carousel-grid"
+                            ref={corredoresRef}
+                            onScroll={handleCorredoresScroll}
+                        >
+                            <div className="corredor-card">
+                                <div className="corredor-icon">
+                                    <Truck weight="fill" />
+                                </div>
+                                <h3>Tronco BR-101 (Nordeste Litoral)</h3>
+                                <p>Espinha dorsal conectando Salvador, Aracaju, Maceió, Recife, João Pessoa e Natal com partidas diárias e entregas expressas.</p>
                             </div>
-                            <h3>Tronco BR-101 (Nordeste Litoral)</h3>
-                            <p>Espinha dorsal conectando Salvador, Aracaju, Maceió, Recife, João Pessoa e Natal com partidas diárias e entregas expressas.</p>
+
+                            <div className="corredor-card">
+                                <div className="corredor-icon">
+                                    <Compass weight="fill" />
+                                </div>
+                                <h3>Corredor Setentrional (CE - MA - PA)</h3>
+                                <p>Ligação rápida entre Fortaleza, São Luís e os polos industriais e de mineração do Pará com monitoramento por satélite ininterrupto.</p>
+                            </div>
+
+                            <div className="corredor-card">
+                                <div className="corredor-icon">
+                                    <ArrowsClockwise weight="fill" />
+                                </div>
+                                <h3>Conexão Ponto a Ponto Dedicada</h3>
+                                <p>Operação sem centros de redistribuição (crossdocking): o caminhão sai lacrado da indústria e vai direto até a porta do seu cliente final.</p>
+                            </div>
                         </div>
 
-                        <div className="corredor-card">
-                            <div className="corredor-icon">
-                                <Compass weight="fill" />
-                            </div>
-                            <h3>Corredor Setentrional (CE - MA - PA)</h3>
-                            <p>Ligação rápida entre Fortaleza, São Luís e os polos industriais e de mineração do Pará com monitoramento por satélite ininterrupto.</p>
-                        </div>
-
-                        <div className="corredor-card">
-                            <div className="corredor-icon">
-                                <ArrowsClockwise weight="fill" />
-                            </div>
-                            <h3>Conexão Ponto a Ponto Dedicada</h3>
-                            <p>Operação sem centros de redistribuição (crossdocking): o caminhão sai lacrado da indústria e vai direto até a porta do seu cliente final.</p>
+                        <div className="corredores-dots" aria-label="Navegação dos corredores">
+                            {[0, 1, 2].map((idx) => (
+                                <button
+                                    key={idx}
+                                    type="button"
+                                    className={`corredores-dot ${activeCorredorIndex === idx ? 'active' : ''}`}
+                                    onClick={() => scrollToCorredor(idx)}
+                                    aria-label={`Ir para corredor ${idx + 1}`}
+                                />
+                            ))}
                         </div>
                     </div>
                 </div>
