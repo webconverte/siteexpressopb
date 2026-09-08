@@ -9,6 +9,7 @@ import Atuacao from './pages/Atuacao'
 import Contato from './pages/Contato'
 import TrabalheConosco from './pages/TrabalheConosco'
 import SegmentoPage from './pages/SegmentoPage'
+import Dashboard from './pages/Dashboard'
 import { useEffect } from 'react'
 
 const ScrollToTop = () => {
@@ -19,11 +20,14 @@ const ScrollToTop = () => {
   return null;
 }
 
-function App() {
+const AppContent = () => {
+  const location = useLocation();
+  const isDashboard = location.pathname === '/dashboard';
+
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
-      <Header />
+      {!isDashboard && <Header />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sobre" element={<Sobre />} />
@@ -33,8 +37,17 @@ function App() {
         <Route path="/trabalhe-conosco" element={<TrabalheConosco />} />
         <Route path="/segmentos/:slug" element={<SegmentoPage />} />
         <Route path="/segmentos" element={<SegmentoPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
-      <Footer />
+      {!isDashboard && <Footer />}
+    </>
+  );
+};
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
     </BrowserRouter>
   )
 }
