@@ -4521,83 +4521,28 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 /* ==========================================================================
-   DASHBOARD EXECUTIVO B2B (TORRE DE CONTROLE 24/7 - GA4 & GTM)
-   Manual de Design System Expresso PB
+   DASHBOARD EXECUTIVO B2B (GA4 & GTM) - DESIGN SYSTEM EXPRESSO PB
+   Layout Limpo: Fundo Branco / Tons de Cinza com Acentos Institucionais
    ========================================================================== */
 
-/* 1. TOKENS DE TEMA DO DASHBOARD */
 .dash-layout {
     min-height: 100vh;
+    background-color: #F8FAFC;
+    color: #1E293B;
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     display: flex;
     flex-direction: column;
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* --- TEMA TORRE DE CONTROLE (DARK NAVY #000327 - PADRAO DA MARCA) --- */
-.dash-layout.theme-dark {
-    --dash-bg: #000327;
-    --dash-header-bg: rgba(0, 3, 39, 0.95);
-    --dash-card-bg: rgba(4, 10, 48, 0.72);
-    --dash-card-border: rgba(25, 163, 223, 0.18);
-    --dash-card-hover-border: rgba(25, 163, 223, 0.5);
-    --dash-card-shadow: 0 10px 30px rgba(0, 3, 39, 0.6);
-    --dash-card-hover-shadow: 0 16px 40px rgba(0, 3, 39, 0.8), 0 0 25px rgba(25, 163, 223, 0.15);
-    --dash-title-color: #FFFFFF;
-    --dash-body-color: #CBD5E1;
-    --dash-muted-color: #94A3B8;
-    --dash-subtle-border: rgba(255, 255, 255, 0.08);
-    --dash-table-head: rgba(255, 255, 255, 0.04);
-    --dash-table-row-hover: rgba(25, 163, 223, 0.07);
-    --dash-control-bg: rgba(255, 255, 255, 0.06);
-    --dash-control-border: rgba(255, 255, 255, 0.12);
-    --dash-input-bg: rgba(4, 10, 48, 0.8);
-    --dash-input-border: rgba(25, 163, 223, 0.25);
-    --dash-footer-bg: rgba(255, 255, 255, 0.03);
-    
-    background: 
-        radial-gradient(circle at 50% -15%, rgba(25, 163, 223, 0.16) 0%, transparent 55%),
-        radial-gradient(circle at 95% 85%, rgba(3, 10, 42, 0.9) 0%, transparent 60%),
-        #000327;
-    color: var(--dash-body-color);
-}
-
-/* --- TEMA EXECUTIVO CORPORATIVO (CLEAN LIGHT) --- */
-.dash-layout.theme-light {
-    --dash-bg: #F4F5F7;
-    --dash-header-bg: #000327;
-    --dash-card-bg: #FFFFFF;
-    --dash-card-border: rgba(0, 3, 39, 0.08);
-    --dash-card-hover-border: rgba(25, 163, 223, 0.45);
-    --dash-card-shadow: 0 4px 20px rgba(0, 3, 39, 0.04);
-    --dash-card-hover-shadow: 0 12px 32px rgba(0, 3, 39, 0.08);
-    --dash-title-color: #000327;
-    --dash-body-color: #334155;
-    --dash-muted-color: #64748B;
-    --dash-subtle-border: #E2E8F0;
-    --dash-table-head: #F8FAFC;
-    --dash-table-row-hover: #F1F5F9;
-    --dash-control-bg: #F1F5F9;
-    --dash-control-border: #E2E8F0;
-    --dash-input-bg: #FFFFFF;
-    --dash-input-border: #CBD5E1;
-    --dash-footer-bg: #FFFFFF;
-    
-    background-color: var(--dash-bg);
-    color: var(--dash-body-color);
-}
-
-/* 2. HEADER EXECUTIVO DO DASHBOARD */
+/* 1. HEADER EXECUTIVO DO DASHBOARD */
 .dash-header {
-    background-color: var(--dash-header-bg);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    background-color: #000327;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     position: sticky;
     top: 0;
     z-index: 100;
     padding: 0.85rem 0;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 4px 25px rgba(0, 3, 39, 0.35);
+    box-shadow: 0 4px 20px rgba(0, 3, 39, 0.15);
 }
 
 .dash-header-container {
@@ -4626,15 +4571,15 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     font-weight: 600;
     padding: 0.45rem 0.85rem;
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.25s ease;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: all 0.2s ease;
     text-decoration: none;
 }
 
 .dash-back-btn:hover {
     color: #FFFFFF;
-    background: rgba(25, 163, 223, 0.2);
+    background: rgba(25, 163, 223, 0.25);
     border-color: #19A3DF;
     transform: translateX(-2px);
 }
@@ -4651,44 +4596,10 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     gap: 1rem;
 }
 
-.dash-logo-box {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
 .dash-logo {
-    height: 36px;
+    height: 34px;
     width: auto;
     object-fit: contain;
-}
-
-.dash-radar-pulse {
-    position: absolute;
-    top: -2px;
-    right: -4px;
-    width: 9px;
-    height: 9px;
-    background: #4ADE80;
-    border-radius: 50%;
-    box-shadow: 0 0 10px #4ADE80;
-}
-
-.dash-radar-pulse::after {
-    content: "";
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    width: 15px;
-    height: 15px;
-    border: 1.5px solid #4ADE80;
-    border-radius: 50%;
-    animation: radarPulseAnim 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-}
-
-@keyframes radarPulseAnim {
-    0% { transform: scale(0.6); opacity: 1; }
-    100% { transform: scale(2.2); opacity: 0; }
 }
 
 .dash-title-group {
@@ -4705,17 +4616,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     font-weight: 800;
     color: #38BDF8;
     text-transform: uppercase;
-    letter-spacing: 1.2px;
-}
-
-.dash-pulse-icon {
-    color: #4ADE80;
-    animation: pulseBlink 1.5s ease-in-out infinite alternate;
-}
-
-@keyframes pulseBlink {
-    from { opacity: 0.6; }
-    to { opacity: 1; }
+    letter-spacing: 1px;
 }
 
 .dash-title {
@@ -4726,14 +4627,13 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     line-height: 1.2 !important;
     letter-spacing: -0.3px !important;
     font-family: var(--font-heading) !important;
-    text-wrap: balance;
 }
 
 /* Header Direito */
 .dash-header-right {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.85rem;
 }
 
 .dash-status-badge {
@@ -4745,30 +4645,28 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     padding: 0.42rem 0.85rem;
     border-radius: 30px;
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: all 0.2s ease;
     user-select: none;
 }
 
 .status-live {
-    background: rgba(74, 222, 128, 0.12);
+    background: rgba(74, 222, 128, 0.15);
     color: #4ADE80;
     border: 1px solid rgba(74, 222, 128, 0.35);
 }
 
 .status-live:hover {
-    background: rgba(74, 222, 128, 0.22);
-    box-shadow: 0 0 14px rgba(74, 222, 128, 0.3);
+    background: rgba(74, 222, 128, 0.25);
 }
 
 .status-demo {
-    background: rgba(245, 158, 11, 0.14);
+    background: rgba(245, 158, 11, 0.15);
     color: #FBBF24;
-    border: 1px solid rgba(245, 158, 11, 0.38);
+    border: 1px solid rgba(245, 158, 11, 0.4);
 }
 
 .status-demo:hover {
-    background: rgba(245, 158, 11, 0.24);
-    box-shadow: 0 0 14px rgba(245, 158, 11, 0.25);
+    background: rgba(245, 158, 11, 0.25);
 }
 
 .status-dot {
@@ -4788,63 +4686,9 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     box-shadow: 0 0 8px #FBBF24;
 }
 
-.dash-period-selector {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 10px;
-    padding: 3px;
-    display: flex;
-    gap: 2px;
-}
-
-.dash-period-btn {
-    background: transparent;
-    border: none;
-    color: #94A3B8;
-    font-size: 0.78rem;
-    font-weight: 600;
-    padding: 0.35rem 0.75rem;
-    border-radius: 7px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.dash-period-btn:hover:not(:disabled) {
-    color: #FFFFFF;
-}
-
-.dash-period-btn.active {
-    background: #19A3DF;
-    color: #FFFFFF;
-    font-weight: 700;
-    box-shadow: 0 2px 8px rgba(25, 163, 223, 0.4);
-}
-
-.dash-theme-btn,
-.dash-icon-btn {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    color: #FFFFFF;
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.dash-theme-btn:hover,
-.dash-icon-btn:hover:not(:disabled) {
-    background: rgba(255, 255, 255, 0.18);
-    border-color: rgba(25, 163, 223, 0.4);
-    transform: translateY(-1px);
-}
-
 .dash-config-btn {
     background: rgba(25, 163, 223, 0.18);
-    border: 1px solid rgba(25, 163, 223, 0.5);
+    border: 1px solid rgba(25, 163, 223, 0.45);
     color: #38BDF8;
     font-size: 0.8rem;
     font-weight: 700;
@@ -4854,15 +4698,14 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     align-items: center;
     gap: 0.45rem;
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: all 0.2s ease;
 }
 
 .dash-config-btn:hover {
     background: #19A3DF;
     color: #FFFFFF;
     border-color: #19A3DF;
-    box-shadow: 0 4px 14px rgba(25, 163, 223, 0.4);
-    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(25, 163, 223, 0.35);
 }
 
 .dash-spin {
@@ -4874,7 +4717,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     to { transform: rotate(360deg); }
 }
 
-/* 3. CONTEUDO PRINCIPAL DO DASHBOARD */
+/* 2. ÁREA PRINCIPAL DO DASHBOARD */
 .dash-main-content {
     flex: 1;
     padding: 1.75rem 0 3.5rem;
@@ -4891,9 +4734,9 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     display: flex;
     align-items: center;
     gap: 0.85rem;
-    background: rgba(245, 158, 11, 0.15);
-    border: 1px solid rgba(245, 158, 11, 0.4);
-    color: #FCD34D;
+    background: #FFFBEB;
+    border: 1px solid #FCD34D;
+    color: #B45309;
     padding: 0.85rem 1.25rem;
     border-radius: 12px;
     margin-bottom: 1.5rem;
@@ -4901,111 +4744,206 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     line-height: 1.5;
 }
 
-/* 4. BARRA DE INTELIGENCIA EXECUTIVA (SLA & INSIGHTS B2B) */
-.dash-exec-bar {
+/* 3. BARRA DE FILTROS NO TOPO DA PÁGINA (ABAIXO DO HEADER) */
+.dash-filter-section {
+    margin-bottom: 1.5rem;
+}
+
+.dash-filter-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 14px;
+    padding: 1rem 1.35rem;
+    box-shadow: 0 1px 4px rgba(0, 3, 39, 0.03), 0 4px 14px rgba(0, 0, 0, 0.02);
+}
+
+.dash-filter-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.5rem;
-    background: var(--dash-card-bg);
-    border: 1px solid var(--dash-card-border);
-    border-radius: 14px;
-    padding: 0.85rem 1.35rem;
-    margin-bottom: 1.5rem;
-    box-shadow: var(--dash-card-shadow);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    flex-wrap: wrap;
-}
-
-.dash-exec-metrics {
-    display: flex;
-    align-items: center;
     gap: 1.25rem;
     flex-wrap: wrap;
 }
 
-.dash-exec-item {
+.dash-filter-group {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.55rem;
 }
 
-.dash-exec-badge {
+.dash-filter-label {
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: #64748B;
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
-    font-size: 0.76rem;
-    font-weight: 800;
-    padding: 0.25rem 0.65rem;
-    border-radius: 20px;
-    font-family: var(--font-heading);
+    gap: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.dash-exec-badge.success {
-    background: rgba(74, 222, 128, 0.15);
-    color: #4ADE80;
-    border: 1px solid rgba(74, 222, 128, 0.35);
-}
-
-.dash-exec-badge.cyan {
-    background: rgba(25, 163, 223, 0.15);
-    color: #38BDF8;
-    border: 1px solid rgba(25, 163, 223, 0.35);
-}
-
-.dash-exec-badge.sky {
-    background: rgba(56, 189, 248, 0.15);
-    color: #38BDF8;
-    border: 1px solid rgba(56, 189, 248, 0.35);
-}
-
-.dash-exec-label {
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--dash-muted-color);
-}
-
-.dash-exec-divider {
-    width: 1px;
-    height: 24px;
-    background: var(--dash-subtle-border);
-}
-
-.dash-exec-insight {
+.dash-period-pills {
     display: flex;
     align-items: center;
-    gap: 0.65rem;
-    background: rgba(25, 163, 223, 0.08);
-    border: 1px solid rgba(25, 163, 223, 0.2);
-    border-radius: 10px;
-    padding: 0.45rem 0.95rem;
+    gap: 2px;
+    background: #F1F5F9;
+    padding: 3px;
+    border-radius: 9px;
+    border: 1px solid #E2E8F0;
+}
+
+.dash-filter-pill-btn {
+    background: transparent;
+    border: none;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #64748B;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dash-filter-pill-btn:hover:not(:disabled) {
+    color: #000327;
+}
+
+.dash-filter-pill-btn.active {
+    background: #19A3DF;
+    color: #FFFFFF;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(25, 163, 223, 0.35);
+}
+
+.dash-filter-divider {
+    width: 1px;
+    height: 28px;
+    background: #E2E8F0;
+}
+
+.dash-select-wrapper {
+    position: relative;
+}
+
+.dash-select {
+    background: #F8FAFC;
+    border: 1px solid #CBD5E1;
+    color: #000327;
     font-size: 0.8rem;
-    color: var(--dash-body-color);
-    flex: 1;
-    min-width: 320px;
+    font-weight: 600;
+    padding: 0.42rem 0.85rem;
+    border-radius: 8px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-.dash-insight-icon {
-    color: #38BDF8;
-    flex-shrink: 0;
+.dash-select:focus {
+    outline: none;
+    border-color: #19A3DF;
+    box-shadow: 0 0 0 3px rgba(25, 163, 223, 0.15);
 }
 
-.dash-insight-text {
-    line-height: 1.4;
-}
-
-.dash-insight-text strong {
-    color: var(--dash-title-color);
-}
-
-.dash-insight-text em {
-    font-style: normal;
-    color: #38BDF8;
+.dash-select.has-value {
+    border-color: #19A3DF;
+    background: #F0F9FF;
+    color: #0284C7;
     font-weight: 700;
 }
 
-/* 5. GRID DE CARDS KPI (ORBITRON TELEMETRY) */
+.dash-filter-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.dash-clear-filters-btn {
+    background: #FEE2E2;
+    border: 1px solid #FCA5A5;
+    color: #B91C1C;
+    font-size: 0.76rem;
+    font-weight: 700;
+    padding: 0.42rem 0.85rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: all 0.2s ease;
+}
+
+.dash-clear-filters-btn:hover {
+    background: #FDCFCF;
+}
+
+.dash-filter-refresh-btn {
+    background: #F1F5F9;
+    border: 1px solid #CBD5E1;
+    color: #334155;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.42rem 0.95rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.2s ease;
+}
+
+.dash-filter-refresh-btn:hover:not(:disabled) {
+    background: #E2E8F0;
+    color: #000327;
+    border-color: #94A3B8;
+}
+
+.dash-active-filters-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-top: 0.85rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #F1F5F9;
+    flex-wrap: wrap;
+}
+
+.dash-active-filters-title {
+    font-size: 0.74rem;
+    font-weight: 800;
+    color: #64748B;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.dash-active-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.74rem;
+    font-weight: 600;
+    background: #E0F2FE;
+    color: #0369A1;
+    border: 1px solid #BAE6FD;
+    padding: 0.2rem 0.65rem;
+    border-radius: 20px;
+}
+
+.dash-active-tag button {
+    background: transparent;
+    border: none;
+    color: #0369A1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.dash-active-tag button:hover {
+    color: #0C4A6E;
+}
+
+/* 4. GRID DE CARDS KPI */
 .dash-kpi-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -5014,13 +4952,11 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 .dash-kpi-card {
-    background: var(--dash-card-bg);
-    border: 1px solid var(--dash-card-border);
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
     border-radius: 16px;
     padding: 1.35rem 1.4rem;
-    box-shadow: var(--dash-card-shadow);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 1px 4px rgba(0, 3, 39, 0.03), 0 4px 14px rgba(0, 0, 0, 0.02);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -5028,9 +4964,9 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 .dash-kpi-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--dash-card-hover-border);
-    box-shadow: var(--dash-card-hover-shadow);
+    transform: translateY(-3px);
+    border-color: #19A3DF;
+    box-shadow: 0 8px 25px rgba(0, 3, 39, 0.08);
 }
 
 .dash-kpi-header {
@@ -5047,33 +4983,17 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.25s ease;
+    transition: transform 0.2s ease;
 }
 
 .dash-kpi-card:hover .dash-kpi-icon {
-    transform: scale(1.06);
+    transform: scale(1.05);
 }
 
-.icon-cyan { 
-    background: rgba(25, 163, 223, 0.15); 
-    color: #19A3DF; 
-    border: 1px solid rgba(25, 163, 223, 0.3);
-}
-.icon-navy { 
-    background: rgba(56, 189, 248, 0.15); 
-    color: #38BDF8; 
-    border: 1px solid rgba(56, 189, 248, 0.3);
-}
-.icon-sky { 
-    background: rgba(25, 163, 223, 0.15); 
-    color: #38BDF8; 
-    border: 1px solid rgba(25, 163, 223, 0.3);
-}
-.icon-green { 
-    background: rgba(74, 222, 128, 0.15); 
-    color: #4ADE80; 
-    border: 1px solid rgba(74, 222, 128, 0.3);
-}
+.icon-cyan { background: rgba(25, 163, 223, 0.12); color: #19A3DF; }
+.icon-navy { background: rgba(0, 3, 39, 0.08); color: #000327; }
+.icon-sky { background: rgba(56, 189, 248, 0.15); color: #0284C7; }
+.icon-green { background: rgba(74, 222, 128, 0.15); color: #16A34A; }
 
 .dash-kpi-badge {
     display: inline-flex;
@@ -5085,29 +5005,17 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     border-radius: 20px;
 }
 
-.badge-positive { 
-    background: rgba(74, 222, 128, 0.15); 
-    color: #4ADE80; 
-    border: 1px solid rgba(74, 222, 128, 0.3);
-}
-.badge-neutral { 
-    background: rgba(255, 255, 255, 0.08); 
-    color: var(--dash-body-color); 
-    border: 1px solid var(--dash-subtle-border);
-}
-.badge-success { 
-    background: rgba(56, 189, 248, 0.15); 
-    color: #38BDF8; 
-    border: 1px solid rgba(56, 189, 248, 0.3);
-}
+.badge-positive { background: #DCFCE7; color: #15803D; }
+.badge-neutral { background: #F1F5F9; color: #475569; }
+.badge-success { background: #E0F2FE; color: #0369A1; }
 
 .dash-kpi-label {
     display: block;
     font-size: 0.74rem;
     font-weight: 800;
-    color: var(--dash-muted-color);
+    color: #64748B;
     text-transform: uppercase;
-    letter-spacing: 0.8px;
+    letter-spacing: 0.6px;
     margin-bottom: 0.35rem;
 }
 
@@ -5118,11 +5026,10 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     margin-bottom: 0.4rem;
 }
 
-/* Tipografia Orbitron para Numerais de Telemetria */
 .dash-kpi-value {
     font-size: 2.15rem;
     font-weight: 700;
-    color: var(--dash-title-color);
+    color: #000327;
     line-height: 1;
     font-family: var(--font-logo), "Orbitron", monospace, sans-serif;
     letter-spacing: -0.5px;
@@ -5138,7 +5045,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .dash-kpi-unit {
     font-size: 0.82rem;
     font-weight: 600;
-    color: var(--dash-muted-color);
+    color: #94A3B8;
 }
 
 .dash-kpi-split {
@@ -5146,10 +5053,10 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     align-items: center;
     gap: 0.85rem;
     font-size: 0.76rem;
-    color: var(--dash-body-color);
+    color: #475569;
     margin-top: 0.5rem;
     padding-top: 0.5rem;
-    border-top: 1px solid var(--dash-subtle-border);
+    border-top: 1px solid #F1F5F9;
 }
 
 .dash-split-item {
@@ -5160,7 +5067,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 .dash-kpi-subtext {
     font-size: 0.78rem;
-    color: var(--dash-muted-color);
+    color: #64748B;
     margin: 0.35rem 0 0;
     line-height: 1.4;
     display: flex;
@@ -5169,13 +5076,13 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 .dash-kpi-subtext strong {
-    color: var(--dash-title-color);
+    color: #000327;
 }
 
 .dash-progress-bar {
     width: 100%;
     height: 6px;
-    background: var(--dash-subtle-border);
+    background: #E2E8F0;
     border-radius: 6px;
     overflow: hidden;
     margin: 0.55rem 0 0.4rem;
@@ -5183,12 +5090,11 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 .dash-progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #19A3DF 0%, #4ADE80 100%);
+    background: linear-gradient(90deg, #19A3DF 0%, #16A34A 100%);
     border-radius: 6px;
-    box-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
 }
 
-/* 6. GRIDS DE GRAFICOS SVG NATIVOS */
+/* 5. GRIDS DE GRÁFICOS SVG NATIVOS */
 .dash-charts-grid {
     display: grid;
     grid-template-columns: 1.85fr 1.15fr;
@@ -5197,18 +5103,16 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 .dash-card {
-    background: var(--dash-card-bg);
-    border: 1px solid var(--dash-card-border);
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
     border-radius: 16px;
-    padding: 1.45rem;
-    box-shadow: var(--dash-card-shadow);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    padding: 1.5rem;
+    box-shadow: 0 1px 4px rgba(0, 3, 39, 0.03), 0 4px 14px rgba(0, 0, 0, 0.02);
     transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .dash-card:hover {
-    border-color: var(--dash-card-hover-border);
+    border-color: #CBD5E1;
 }
 
 .dash-card-header {
@@ -5235,7 +5139,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .dash-card-title-group h3 {
     font-size: 1.05rem !important;
     font-weight: 800 !important;
-    color: var(--dash-title-color) !important;
+    color: #000327 !important;
     margin: 0 !important;
     line-height: 1.2 !important;
     font-family: var(--font-heading) !important;
@@ -5243,17 +5147,16 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 .dash-card-title-group p {
     font-size: 0.8rem;
-    color: var(--dash-muted-color);
+    color: #64748B;
     margin: 0.2rem 0 0;
 }
 
-/* Filtros de Canal de Graficos */
 .dash-chart-filter-group {
     display: flex;
     align-items: center;
     gap: 0.35rem;
-    background: var(--dash-control-bg);
-    border: 1px solid var(--dash-control-border);
+    background: #F1F5F9;
+    border: 1px solid #E2E8F0;
     padding: 3px;
     border-radius: 8px;
 }
@@ -5261,7 +5164,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .dash-chart-pill {
     background: transparent;
     border: none;
-    color: var(--dash-muted-color);
+    color: #64748B;
     font-size: 0.74rem;
     font-weight: 700;
     padding: 0.3rem 0.65rem;
@@ -5274,13 +5177,13 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 .dash-chart-pill:hover {
-    color: var(--dash-title-color);
+    color: #000327;
 }
 
 .dash-chart-pill.active {
     background: #19A3DF;
     color: #FFFFFF;
-    box-shadow: 0 2px 8px rgba(25, 163, 223, 0.4);
+    box-shadow: 0 2px 6px rgba(25, 163, 223, 0.35);
 }
 
 .dash-chart-pill.pill-cyan.active {
@@ -5289,8 +5192,8 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 .dash-chart-pill.pill-navy.active {
-    background: #38BDF8;
-    color: #000327;
+    background: #000327;
+    color: #FFFFFF;
 }
 
 /* SVG Line Chart */
@@ -5306,20 +5209,20 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 .dash-grid-line {
-    stroke: var(--dash-subtle-border);
+    stroke: #E5E7EB;
 }
 
 .dash-grid-text {
-    fill: var(--dash-muted-color);
+    fill: #9CA3AF;
 }
 
 .dash-axis-text {
-    fill: var(--dash-muted-color);
+    fill: #6B7280;
     transition: fill 0.2s;
 }
 
 .dash-axis-text.active {
-    fill: var(--dash-title-color);
+    fill: #000327;
     font-weight: 700;
 }
 
@@ -5328,11 +5231,10 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     stroke: #FFFFFF;
     stroke-width: 2px;
     transition: r 0.15s ease;
-    filter: drop-shadow(0 0 6px rgba(25, 163, 223, 0.7));
 }
 
 .dash-chart-dot-form {
-    fill: #38BDF8;
+    fill: #000327;
     stroke: #FFFFFF;
     stroke-width: 2px;
     transition: r 0.15s ease;
@@ -5343,12 +5245,11 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     top: 10px;
     right: 10px;
     background: #000327;
-    border: 1px solid rgba(25, 163, 223, 0.4);
     color: #FFFFFF;
     border-radius: 10px;
     padding: 0.7rem 0.95rem;
     font-size: 0.76rem;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     pointer-events: none;
     z-index: 10;
 }
@@ -5360,7 +5261,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     font-weight: 800;
     color: #38BDF8;
     margin-bottom: 0.35rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     padding-bottom: 0.25rem;
 }
 
@@ -5400,7 +5301,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     gap: 1rem;
     margin-top: 0.35rem;
     padding-top: 0.3rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
     color: #FFFFFF;
     font-weight: 700;
 }
@@ -5427,12 +5328,13 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 .dash-donut-segment {
-    transition: stroke-width 0.2s ease, filter 0.2s ease;
+    transition: stroke-width 0.2s ease, opacity 0.2s ease;
     cursor: pointer;
 }
 
 .dash-donut-segment.is-active {
-    filter: drop-shadow(0 0 8px rgba(25, 163, 223, 0.6));
+    stroke-width: 24;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
 }
 
 .dash-donut-center {
@@ -5448,7 +5350,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     display: block;
     font-size: 1.85rem;
     font-weight: 700;
-    color: var(--dash-title-color);
+    color: #000327;
     line-height: 1;
     font-family: var(--font-logo), "Orbitron", monospace;
     letter-spacing: -0.5px;
@@ -5458,7 +5360,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     display: block;
     font-size: 0.68rem;
     font-weight: 800;
-    color: var(--dash-muted-color);
+    color: #64748B;
     text-transform: uppercase;
     margin-top: 0.25rem;
     letter-spacing: 0.5px;
@@ -5479,12 +5381,12 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     padding: 0.4rem 0.6rem;
     border-radius: 8px;
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: background 0.15s ease;
 }
 
 .dash-donut-legend-row:hover,
 .dash-donut-legend-row.active {
-    background: var(--dash-control-bg);
+    background: #F1F5F9;
 }
 
 .dash-legend-color {
@@ -5498,7 +5400,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .dash-legend-name {
     font-size: 0.8rem;
     font-weight: 600;
-    color: var(--dash-body-color);
+    color: #334155;
     flex: 1;
     white-space: nowrap;
     overflow: hidden;
@@ -5507,10 +5409,10 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 .dash-legend-pct {
     font-size: 0.82rem;
-    color: var(--dash-title-color);
+    color: #000327;
 }
 
-/* Funil de Aquisicao */
+/* Funil de Aquisição */
 .dash-funnel-list {
     display: flex;
     flex-direction: column;
@@ -5532,7 +5434,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 .dash-funnel-step-name {
     font-weight: 600;
-    color: var(--dash-body-color);
+    color: #334155;
     display: flex;
     align-items: center;
     gap: 0.45rem;
@@ -5542,8 +5444,8 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background: rgba(25, 163, 223, 0.18);
-    color: #38BDF8;
+    background: rgba(25, 163, 223, 0.15);
+    color: #0284C7;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -5558,19 +5460,19 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 .dash-funnel-values strong {
-    color: var(--dash-title-color);
+    color: #000327;
     font-family: var(--font-logo), "Orbitron", monospace;
     font-size: 0.88rem;
 }
 
 .dash-funnel-pct {
     font-size: 0.76rem;
-    color: var(--dash-muted-color);
+    color: #64748B;
 }
 
 .dash-funnel-track {
     height: 8px;
-    background: var(--dash-subtle-border);
+    background: #F1F5F9;
     border-radius: 8px;
     overflow: hidden;
 }
@@ -5581,7 +5483,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     transition: width 0.5s ease;
 }
 
-/* Distribuicao Geografica */
+/* Distribuição Geográfica */
 .dash-geo-list {
     display: flex;
     flex-direction: column;
@@ -5613,7 +5515,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 .dash-geo-name {
     font-weight: 600;
-    color: var(--dash-body-color);
+    color: #334155;
 }
 
 .dash-branch-badge {
@@ -5622,9 +5524,8 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     gap: 0.25rem;
     font-size: 0.68rem;
     font-weight: 800;
-    background: rgba(74, 222, 128, 0.15);
-    color: #4ADE80;
-    border: 1px solid rgba(74, 222, 128, 0.35);
+    background: #DCFCE7;
+    color: #15803D;
     padding: 0.15rem 0.5rem;
     border-radius: 12px;
 }
@@ -5638,7 +5539,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .dash-geo-bar-track {
     flex: 1;
     height: 7px;
-    background: var(--dash-subtle-border);
+    background: #F1F5F9;
     border-radius: 6px;
     overflow: hidden;
 }
@@ -5651,15 +5552,15 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 .dash-geo-metric {
     font-size: 0.74rem;
-    color: var(--dash-muted-color);
+    color: #64748B;
     white-space: nowrap;
 }
 
 .dash-geo-metric strong {
-    color: var(--dash-title-color);
+    color: #000327;
 }
 
-/* 7. SECAO DE TABELAS COM CONTROLES E BUSCA */
+/* 6. SEÇÃO DE TABELAS COM CONTROLES E BUSCA */
 .dash-tables-section {
     margin-bottom: 2rem;
 }
@@ -5684,8 +5585,8 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     display: flex;
     align-items: center;
     gap: 0.35rem;
-    background: var(--dash-control-bg);
-    border: 1px solid var(--dash-control-border);
+    background: #F1F5F9;
+    border: 1px solid #E2E8F0;
     padding: 3px;
     border-radius: 10px;
 }
@@ -5693,7 +5594,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .dash-tab-btn {
     background: transparent;
     border: none;
-    color: var(--dash-muted-color);
+    color: #64748B;
     font-size: 0.8rem;
     font-weight: 600;
     padding: 0.45rem 0.95rem;
@@ -5706,14 +5607,14 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 .dash-tab-btn:hover {
-    color: var(--dash-title-color);
+    color: #000327;
 }
 
 .dash-tab-btn.active {
-    background: #19A3DF;
-    color: #FFFFFF;
+    background: #FFFFFF;
+    color: #000327;
     font-weight: 700;
-    box-shadow: 0 2px 8px rgba(25, 163, 223, 0.4);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
 .dash-search-box {
@@ -5725,14 +5626,14 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .dash-search-icon {
     position: absolute;
     left: 10px;
-    color: var(--dash-muted-color);
+    color: #94A3B8;
     pointer-events: none;
 }
 
 .dash-search-input {
-    background: var(--dash-input-bg);
-    border: 1px solid var(--dash-input-border);
-    color: var(--dash-title-color);
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    color: #000327;
     padding: 0.45rem 0.85rem 0.45rem 2rem;
     border-radius: 8px;
     font-size: 0.8rem;
@@ -5745,17 +5646,17 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     outline: none;
     border-color: #19A3DF;
     width: 210px;
-    box-shadow: 0 0 0 3px rgba(25, 163, 223, 0.2);
+    box-shadow: 0 0 0 3px rgba(25, 163, 223, 0.15);
 }
 
 .dash-export-btn {
-    background: var(--dash-control-bg);
-    border: 1px solid var(--dash-control-border);
-    color: var(--dash-title-color);
+    background: #F1F5F9;
+    border: 1px solid #CBD5E1;
+    color: #334155;
     padding: 0.45rem 0.85rem;
     border-radius: 8px;
     font-size: 0.8rem;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
@@ -5781,21 +5682,21 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 .dash-table th {
-    background: var(--dash-table-head);
-    color: var(--dash-muted-color);
+    background: #F8FAFC;
+    color: #475569;
     text-align: left;
     padding: 0.75rem 1rem;
     font-size: 0.74rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.6px;
-    border-bottom: 1px solid var(--dash-subtle-border);
+    border-bottom: 1px solid #E2E8F0;
 }
 
 .dash-table td {
     padding: 0.85rem 1rem;
-    border-bottom: 1px solid var(--dash-subtle-border);
-    color: var(--dash-body-color);
+    border-bottom: 1px solid #F1F5F9;
+    color: #334155;
 }
 
 .dash-table tbody tr {
@@ -5803,7 +5704,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 .dash-table tbody tr:hover {
-    background: var(--dash-table-row-hover);
+    background: #F8FAFC;
 }
 
 .dash-table-cell-lead {
@@ -5813,7 +5714,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 .dash-table-cell-lead strong {
-    color: var(--dash-title-color);
+    color: #000327;
 }
 
 .dash-segment-dot {
@@ -5836,24 +5737,24 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 .tag-form {
     background: rgba(56, 189, 248, 0.15);
-    color: #38BDF8;
+    color: #0284C7;
 }
 
 .tag-wpp {
     background: rgba(37, 211, 102, 0.15);
-    color: #25D366;
+    color: #15803D;
 }
 
 .dash-text-highlight {
-    color: #38BDF8;
+    color: #0284C7;
     font-family: var(--font-logo), "Orbitron", monospace;
     font-size: 0.95rem;
 }
 
 .dash-conv-badge {
-    background: rgba(74, 222, 128, 0.15);
-    color: #4ADE80;
-    border: 1px solid rgba(74, 222, 128, 0.3);
+    background: #DCFCE7;
+    color: #15803D;
+    border: 1px solid #BBF7D0;
     font-weight: 700;
     padding: 0.2rem 0.55rem;
     border-radius: 6px;
@@ -5865,8 +5766,8 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--dash-control-bg);
-    border: 1px solid var(--dash-control-border);
+    background: #F1F5F9;
+    border: 1px solid #E2E8F0;
     padding: 0.3rem 0.7rem;
     border-radius: 6px;
     font-size: 0.8rem;
@@ -5874,7 +5775,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 .route-origem, .route-destino {
     font-weight: 700;
-    color: var(--dash-title-color);
+    color: #000327;
 }
 
 .route-arrow {
@@ -5896,8 +5797,8 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .dash-vehicle-tag {
     font-size: 0.76rem;
     font-weight: 600;
-    color: var(--dash-muted-color);
-    background: var(--dash-control-bg);
+    color: #64748B;
+    background: #F1F5F9;
     padding: 0.2rem 0.6rem;
     border-radius: 6px;
 }
@@ -5905,19 +5806,19 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .dash-table-empty {
     text-align: center;
     padding: 2.5rem 1rem !important;
-    color: var(--dash-muted-color);
+    color: #94A3B8;
 }
 
-/* 8. MODAL DE CONFIGURACAO GA4 */
+/* 7. MODAL DE CONFIGURAÇÃO GA4 */
 .dash-modal-backdrop {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 3, 39, 0.75);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(0, 3, 39, 0.65);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -5926,12 +5827,12 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 .dash-modal-box {
-    background: var(--dash-card-bg);
+    background: #FFFFFF;
     width: 100%;
     max-width: 620px;
     border-radius: 18px;
-    box-shadow: 0 25px 60px rgba(0, 3, 39, 0.8);
-    border: 1px solid var(--dash-card-border);
+    box-shadow: 0 25px 50px rgba(0, 3, 39, 0.25);
+    border: 1px solid #E2E8F0;
     overflow: hidden;
     animation: slideUpModal 0.25s ease;
     max-height: 90vh;
@@ -5946,7 +5847,6 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 .dash-modal-header {
     background: #000327;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     color: #FFFFFF;
     padding: 1.4rem 1.75rem;
     display: flex;
@@ -5983,7 +5883,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 .dash-modal-close:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .dash-modal-form {
@@ -6004,7 +5904,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .dash-label {
     font-size: 0.82rem;
     font-weight: 700;
-    color: var(--dash-title-color);
+    color: #000327;
 }
 
 .dash-mode-selector {
@@ -6014,8 +5914,8 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 .dash-mode-card {
-    background: var(--dash-control-bg);
-    border: 2px solid var(--dash-control-border);
+    background: #F8FAFC;
+    border: 2px solid #E2E8F0;
     border-radius: 12px;
     padding: 0.95rem;
     cursor: pointer;
@@ -6028,7 +5928,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 .dash-mode-card.active {
     border-color: #19A3DF;
-    background: rgba(25, 163, 223, 0.12);
+    background: rgba(25, 163, 223, 0.06);
 }
 
 .dash-mode-icon {
@@ -6041,7 +5941,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     flex-shrink: 0;
 }
 
-.icon-yellow { background: rgba(245, 158, 11, 0.2); color: #FBBF24; }
+.icon-yellow { background: #FEF3C7; color: #D97706; }
 .dash-mode-text {
     display: flex;
     flex-direction: column;
@@ -6050,12 +5950,12 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 .dash-mode-text strong {
     font-size: 0.85rem;
-    color: var(--dash-title-color);
+    color: #000327;
 }
 
 .dash-mode-text span {
     font-size: 0.72rem;
-    color: var(--dash-muted-color);
+    color: #64748B;
     line-height: 1.35;
 }
 
@@ -6063,9 +5963,9 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     display: flex;
     align-items: flex-start;
     gap: 0.75rem;
-    background: rgba(25, 163, 223, 0.1);
-    border: 1px solid rgba(25, 163, 223, 0.3);
-    color: #38BDF8;
+    background: #E0F2FE;
+    border: 1px solid #BAE6FD;
+    color: #0369A1;
     padding: 0.85rem 1rem;
     border-radius: 10px;
     font-size: 0.8rem;
@@ -6073,43 +5973,41 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 .alert-icon {
-    color: #38BDF8;
+    color: #0284C7;
     margin-top: 1px;
     flex-shrink: 0;
 }
 
 .dash-alert-box strong {
     display: block;
-    color: #FFFFFF;
+    color: #0C4A6E;
     margin-bottom: 0.15rem;
 }
 
 .dash-input {
     width: 100%;
     padding: 0.65rem 0.85rem;
-    border: 1px solid var(--dash-input-border);
-    background: var(--dash-input-bg);
+    border: 1px solid #CBD5E1;
     border-radius: 8px;
     font-size: 0.85rem;
     font-family: inherit;
-    color: var(--dash-title-color);
-    transition: border-color 0.2s, box-shadow 0.2s;
+    color: #000327;
+    transition: border-color 0.2s;
 }
 
 .dash-input:focus {
     outline: none;
     border-color: #19A3DF;
-    box-shadow: 0 0 0 3px rgba(25, 163, 223, 0.25);
+    box-shadow: 0 0 0 3px rgba(25, 163, 223, 0.15);
 }
 
 .dash-input-help {
     font-size: 0.72rem;
-    color: var(--dash-muted-color);
+    color: #64748B;
 }
 
 .dash-snippet-box {
     background: #000327;
-    border: 1px solid rgba(25, 163, 223, 0.25);
     border-radius: 10px;
     overflow: hidden;
     margin-top: 0.4rem;
@@ -6141,7 +6039,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 .dash-copy-btn:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .dash-code-pre {
@@ -6156,12 +6054,12 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 .dash-demo-info {
-    background: var(--dash-control-bg);
-    border: 1px dashed var(--dash-control-border);
+    background: #F8FAFC;
+    border: 1px dashed #CBD5E1;
     border-radius: 10px;
     padding: 1rem 1.25rem;
     font-size: 0.82rem;
-    color: var(--dash-muted-color);
+    color: #475569;
     line-height: 1.5;
 }
 
@@ -6179,7 +6077,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     justify-content: flex-end;
     gap: 0.75rem;
     padding: 1.25rem 1.75rem;
-    border-top: 1px solid var(--dash-subtle-border);
+    border-top: 1px solid #E2E8F0;
 }
 
 .dash-save-success {
@@ -6188,14 +6086,14 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     gap: 0.3rem;
     font-size: 0.8rem;
     font-weight: 700;
-    color: #4ADE80;
+    color: #15803D;
     margin-right: auto;
 }
 
 .dash-btn-secondary {
-    background: var(--dash-control-bg);
-    border: 1px solid var(--dash-control-border);
-    color: var(--dash-body-color);
+    background: #F1F5F9;
+    border: 1px solid #CBD5E1;
+    color: #475569;
     font-size: 0.82rem;
     font-weight: 700;
     padding: 0.6rem 1.1rem;
@@ -6220,15 +6118,14 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 .dash-btn-primary:hover {
     background: #1486B8;
-    box-shadow: 0 4px 14px rgba(25, 163, 223, 0.4);
-    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(25, 163, 223, 0.3);
 }
 
-/* 9. RODAPE DO DASHBOARD */
+/* 8. RODAPÉ DO DASHBOARD */
 .dash-footer {
     margin-top: 2rem;
     padding-top: 1.5rem;
-    border-top: 1px solid var(--dash-subtle-border);
+    border-top: 1px solid #E2E8F0;
 }
 
 .dash-footer-content {
@@ -6241,7 +6138,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 .dash-footer p {
     font-size: 0.8rem;
-    color: var(--dash-muted-color);
+    color: #64748B;
     margin: 0;
 }
 
@@ -6254,20 +6151,20 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .dash-footer-tag {
     font-size: 0.72rem;
     font-weight: 700;
-    background: var(--dash-control-bg);
-    color: var(--dash-muted-color);
+    background: #F1F5F9;
+    color: #64748B;
     padding: 0.2rem 0.6rem;
     border-radius: 20px;
-    border: 1px solid var(--dash-control-border);
+    border: 1px solid #E2E8F0;
 }
 
 .dash-footer-tag.tag-highlight {
-    background: rgba(25, 163, 223, 0.12);
-    color: #38BDF8;
-    border-color: rgba(25, 163, 223, 0.3);
+    background: #E0F2FE;
+    color: #0369A1;
+    border-color: #BAE6FD;
 }
 
-/* 10. RESPONSIVIDADE CALIBRADA (DESIGN SYSTEM & MACBOOK 13") */
+/* 9. RESPONSIVIDADE CALIBRADA */
 @media (max-width: 1200px) {
     .dash-kpi-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -6278,25 +6175,33 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 @media (max-width: 992px) {
-    .dash-exec-bar {
-        flex-direction: column;
-        align-items: stretch;
+    .dash-filter-row {
+        gap: 1rem;
     }
 }
 
 @media (max-width: 768px) {
     .dash-header-container {
         padding: 0 1rem;
+    }
+    .dash-filter-card {
+        padding: 1rem;
+    }
+    .dash-filter-row {
         flex-direction: column;
         align-items: stretch;
         gap: 0.85rem;
     }
-    .dash-header-left {
+    .dash-filter-group {
+        width: 100%;
         justify-content: space-between;
     }
-    .dash-header-right {
-        justify-content: space-between;
-        flex-wrap: wrap;
+    .dash-select-wrapper, .dash-select {
+        width: 100%;
+    }
+    .dash-filter-actions {
+        width: 100%;
+        justify-content: flex-end;
     }
     .dash-kpi-grid {
         grid-template-columns: 1fr;
