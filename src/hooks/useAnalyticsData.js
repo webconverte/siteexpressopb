@@ -1,7 +1,6 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { 
     fetchAnalyticsData, 
-    getSavedConfig, 
     getAllSavedConfigs, 
     saveConfig, 
     saveAllConfigs 
@@ -10,19 +9,38 @@ import {
 export const useAnalyticsData = (initialPeriod = '30d', initialProperty = 'site') => {
     const [property, setProperty] = useState(initialProperty);
     const [period, setPeriod] = useState(initialPeriod);
-    const [data, setData] = useState(null);
+    const [cache, setCache] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [allConfigs, setAllConfigsState] = useState(getAllSavedConfigs());
 
-    const config = allConfigs[property] || allConfigs.site;
+    const cacheRef = useRef({});
+    cacheRef.current = cache;
 
-    const loadData = useCallback(async (activeProp, selectedPeriod) => {
+    const config = allConfigs[property] || allConfigs.site;
+    const cacheKey = `${property}_${period}`;
+    // Retorna os dados se e somente se pertencerem exatamente à propriedade ativa
+    const activeData = cache[cacheKey];
+    const data = (activeData && activeData.property === property) ? activeData : null;
+
+    const loadData = useCallback(async (activeProp, selectedPeriod, force = false) => {
+        const key = `${activeProp}_${selectedPeriod}`;
+        const existing = cacheRef.current[key];
+
+        if (!force && existing && existing.property === activeProp) {
+            setLoading(false);
+            return;
+        }
+
         setLoading(true);
         setError(null);
         try {
             const result = await fetchAnalyticsData(activeProp, selectedPeriod);
-            setData(result);
+            setCache(prev => {
+                const next = { ...prev, [key]: result };
+                cacheRef.current = next;
+                return next;
+            });
         } catch (err) {
             setError(err.message || `Erro ao carregar dados de ${activeProp}.`);
         } finally {
@@ -35,19 +53,34 @@ export const useAnalyticsData = (initialPeriod = '30d', initialProperty = 'site'
     }, [property, period, loadData]);
 
     const handlePropertyChange = (newProperty) => {
+        if (newProperty === property) return;
         setProperty(newProperty);
+        const nextKey = `${newProperty}_${period}`;
+        const cached = cacheRef.current[nextKey];
+        if (cached && cached.property === newProperty) {
+            setLoading(false);
+        } else {
+            setLoading(true);
+        }
     };
 
     const handlePeriodChange = (newPeriod) => {
+        if (newPeriod === period) return;
         setPeriod(newPeriod);
+        const nextKey = `${property}_${newPeriod}`;
+        const cached = cacheRef.current[nextKey];
+        if (cached && cached.property === property) {
+            setLoading(false);
+        } else {
+            setLoading(true);
+        }
     };
 
     const handleRefresh = () => {
-        loadData(property, period);
+        loadData(property, period, true);
     };
 
     const handleUpdateConfig = (targetProperty, newConfig) => {
-        // Suporte para chamada com 1 argumento (default para a propriedade ativa)
         if (typeof targetProperty === 'object' && targetProperty !== null) {
             newConfig = targetProperty;
             targetProperty = property;
@@ -55,13 +88,26 @@ export const useAnalyticsData = (initialPeriod = '30d', initialProperty = 'site'
         saveConfig(targetProperty, newConfig);
         const updated = getAllSavedConfigs();
         setAllConfigsState(updated);
-        loadData(property, period);
+        // Limpar cache da propriedade alterada para forçar recarga
+        setCache(prev => {
+            const next = { ...prev };
+            Object.keys(next).forEach(k => {
+                if (k.startsWith(`${targetProperty}_`)) {
+                    delete next[k];
+                }
+            });
+            cacheRef.current = next;
+            return next;
+        });
+        loadData(property, period, true);
     };
 
     const handleUpdateAllConfigs = (newAllConfigs) => {
         saveAllConfigs(newAllConfigs);
         setAllConfigsState(newAllConfigs);
-        loadData(property, period);
+        setCache({});
+        cacheRef.current = {};
+        loadData(property, period, true);
     };
 
     return {
@@ -70,7 +116,7 @@ export const useAnalyticsData = (initialPeriod = '30d', initialProperty = 'site'
         period,
         setPeriod: handlePeriodChange,
         data,
-        loading,
+        loading: loading || !data,
         error,
         refresh: handleRefresh,
         config,

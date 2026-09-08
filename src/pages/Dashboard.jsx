@@ -52,17 +52,18 @@ export const Dashboard = () => {
 
     // Dados dinamicamente filtrados para o Site Institucional
     const filteredSiteData = useMemo(() => {
-        if (!data || property !== 'site') return null;
+        if (!data || property !== 'site' || data.property !== 'site') return null;
 
-        let kpis = { ...data.kpis };
-        let timeSeries = [...data.timeSeries];
-        let segments = [...data.segments];
-        let routes = [...data.routes];
-        let topGeo = [...data.topGeo];
-        let funnel = [...data.funnel];
+        let kpis = data.kpis ? { ...data.kpis } : {};
+        let timeSeries = Array.isArray(data.timeSeries) ? [...data.timeSeries] : [];
+        let segments = Array.isArray(data.segments) ? [...data.segments] : [];
+        let routes = Array.isArray(data.routes) ? [...data.routes] : [];
+        let topGeo = Array.isArray(data.topGeo) ? [...data.topGeo] : [];
+        let funnel = Array.isArray(data.funnel) ? [...data.funnel] : [];
+        let ctas = Array.isArray(data.ctas) ? [...data.ctas] : [];
 
         // 1. Filtrar por Segmento
-        if (segmentFilter !== 'all') {
+        if (segmentFilter !== 'all' && segments.length > 0) {
             const segMatch = segments.find(s => s.slug === segmentFilter);
             if (segMatch) {
                 kpis.totalLeads = segMatch.totalLeads;
@@ -84,7 +85,7 @@ export const Dashboard = () => {
         }
 
         // 3. Filtrar por Região / UF
-        if (regionFilter !== 'all') {
+        if (regionFilter !== 'all' && topGeo.length > 0) {
             const geoFiltered = topGeo.filter(g => g.code === regionFilter);
             if (geoFiltered.length > 0) {
                 topGeo = geoFiltered;
@@ -100,7 +101,8 @@ export const Dashboard = () => {
             segments,
             routes,
             topGeo,
-            funnel
+            funnel,
+            ctas
         };
     }, [data, property, segmentFilter, channelFilter, regionFilter]);
 
@@ -152,7 +154,7 @@ export const Dashboard = () => {
                     {/* 4. Conteúdo Dinâmico por Propriedade */}
 
                     {/* ABA 1: SITE INSTITUCIONAL */}
-                    {property === 'site' && (
+                    {property === 'site' && filteredSiteData && (
                         <>
                             <KpiCardsGrid 
                                 kpis={filteredSiteData?.kpis} 
@@ -175,7 +177,7 @@ export const Dashboard = () => {
                     )}
 
                     {/* ABA 2: LINK DA BIO */}
-                    {property === 'bio' && (
+                    {property === 'bio' && data?.property === 'bio' && (
                         <>
                             <BioKpiCards 
                                 kpis={data?.kpis} 
@@ -197,7 +199,7 @@ export const Dashboard = () => {
                     )}
 
                     {/* ABA 3: BLOG DE LOGÍSTICA */}
-                    {property === 'blog' && (
+                    {property === 'blog' && data?.property === 'blog' && (
                         <>
                             <BlogKpiCards 
                                 kpis={data?.kpis} 
