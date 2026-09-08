@@ -23,10 +23,10 @@ const Footer = () => {
                     <div className="footer-col link-col">
                         <h4>Soluções Logísticas</h4>
                         <ul>
-                            <li><Link to="/servicos"><CaretRight weight="bold"/> Carga Lotação (FTL)</Link></li>
-                            <li><Link to="/servicos"><CaretRight weight="bold"/> Transporte Dedicado</Link></li>
-                            <li><Link to="/servicos"><CaretRight weight="bold"/> Construção & Pesados</Link></li>
-                            <li><Link to="/servicos"><CaretRight weight="bold"/> Rotas Exclusivas</Link></li>
+                            <li><Link to="/segmentos/construcao-civil"><CaretRight weight="bold"/> Construção Civil & Cerâmica</Link></li>
+                            <li><Link to="/segmentos/alimentos-bebidas"><CaretRight weight="bold"/> Alimentos & Bebidas</Link></li>
+                            <li><Link to="/segmentos/papel-celulose"><CaretRight weight="bold"/> Papel, Celulose & FMCG</Link></li>
+                            <li><Link to="/segmentos/maquinario-metalmecanica"><CaretRight weight="bold"/> Maquinário & Metalmecânica</Link></li>
                         </ul>
                     </div>
                     
