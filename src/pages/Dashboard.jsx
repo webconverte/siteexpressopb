@@ -1,15 +1,31 @@
 import React, { useState, useMemo } from 'react';
 import useAnalyticsData from '../hooks/useAnalyticsData';
 import DashboardHeader from '../components/dashboard/DashboardHeader';
+import PropertyTabBar from '../components/dashboard/PropertyTabBar';
 import DashboardFilterBar from '../components/dashboard/DashboardFilterBar';
+
+// Componentes do Site Institucional
 import KpiCardsGrid from '../components/dashboard/KpiCardsGrid';
 import ChartsSection from '../components/dashboard/ChartsSection';
 import TablesSection from '../components/dashboard/TablesSection';
+
+// Componentes do Link da Bio
+import BioKpiCards from '../components/dashboard/bio/BioKpiCards';
+import BioChartsSection from '../components/dashboard/bio/BioChartsSection';
+import BioTablesSection from '../components/dashboard/bio/BioTablesSection';
+
+// Componentes do Blog de Logística
+import BlogKpiCards from '../components/dashboard/blog/BlogKpiCards';
+import BlogChartsSection from '../components/dashboard/blog/BlogChartsSection';
+import BlogTablesSection from '../components/dashboard/blog/BlogTablesSection';
+
 import Ga4ConfigModal from '../components/dashboard/Ga4ConfigModal';
 import { WarningCircle } from '@phosphor-icons/react';
 
 export const Dashboard = () => {
     const { 
+        property,
+        setProperty,
         period, 
         setPeriod, 
         data, 
@@ -17,12 +33,13 @@ export const Dashboard = () => {
         error, 
         refresh, 
         config, 
+        allConfigs,
         updateConfig 
-    } = useAnalyticsData('30d');
+    } = useAnalyticsData('30d', 'site');
 
     const [isConfigOpen, setIsConfigOpen] = useState(false);
 
-    // Estados dos novos filtros analíticos
+    // Estados dos filtros analíticos do Site Institucional
     const [segmentFilter, setSegmentFilter] = useState('all');
     const [channelFilter, setChannelFilter] = useState('all');
     const [regionFilter, setRegionFilter] = useState('all');
@@ -33,9 +50,9 @@ export const Dashboard = () => {
         setRegionFilter('all');
     };
 
-    // Dados dinamicamente filtrados por período, segmento, canal e UF
-    const filteredData = useMemo(() => {
-        if (!data) return null;
+    // Dados dinamicamente filtrados para o Site Institucional
+    const filteredSiteData = useMemo(() => {
+        if (!data || property !== 'site') return null;
 
         let kpis = { ...data.kpis };
         let timeSeries = [...data.timeSeries];
@@ -85,7 +102,7 @@ export const Dashboard = () => {
             topGeo,
             funnel
         };
-    }, [data, segmentFilter, channelFilter, regionFilter]);
+    }, [data, property, segmentFilter, channelFilter, regionFilter]);
 
     return (
         <div className="dash-layout">
@@ -108,8 +125,17 @@ export const Dashboard = () => {
                         </div>
                     )}
 
-                    {/* 2. Barra de Filtros Analíticos (Período, Segmentos, Canais e UFs) */}
+                    {/* 2. Seletor de Abas de Propriedade (Site / Link da Bio / Blog) */}
+                    <PropertyTabBar
+                        activeProperty={property}
+                        onSelectProperty={setProperty}
+                        allConfigs={allConfigs}
+                        loading={loading}
+                    />
+
+                    {/* 3. Barra de Filtros Analíticos */}
                     <DashboardFilterBar
+                        property={property}
                         period={period}
                         onPeriodChange={setPeriod}
                         segment={segmentFilter}
@@ -123,41 +149,86 @@ export const Dashboard = () => {
                         loading={loading}
                     />
 
-                    {/* 3. Grid de Cards de KPIs Executivos */}
-                    <KpiCardsGrid 
-                        kpis={filteredData?.kpis} 
-                        loading={loading} 
-                    />
+                    {/* 4. Conteúdo Dinâmico por Propriedade */}
 
-                    {/* 4. Seção de Gráficos (SVG Interativos) */}
-                    <ChartsSection 
-                        timeSeries={filteredData?.timeSeries} 
-                        segments={filteredData?.segments} 
-                        funnel={filteredData?.funnel} 
-                        topGeo={filteredData?.topGeo} 
-                        loading={loading} 
-                    />
+                    {/* ABA 1: SITE INSTITUCIONAL */}
+                    {property === 'site' && (
+                        <>
+                            <KpiCardsGrid 
+                                kpis={filteredSiteData?.kpis} 
+                                loading={loading} 
+                            />
+                            <ChartsSection 
+                                timeSeries={filteredSiteData?.timeSeries} 
+                                segments={filteredSiteData?.segments} 
+                                funnel={filteredSiteData?.funnel} 
+                                topGeo={filteredSiteData?.topGeo} 
+                                loading={loading} 
+                            />
+                            <TablesSection 
+                                segments={filteredSiteData?.segments} 
+                                routes={filteredSiteData?.routes} 
+                                ctas={filteredSiteData?.ctas} 
+                                loading={loading} 
+                            />
+                        </>
+                    )}
 
-                    {/* 5. Seção de Tabelas de Inteligência Comercial */}
-                    <TablesSection 
-                        segments={filteredData?.segments} 
-                        routes={filteredData?.routes} 
-                        ctas={filteredData?.ctas} 
-                        loading={loading} 
-                    />
+                    {/* ABA 2: LINK DA BIO */}
+                    {property === 'bio' && (
+                        <>
+                            <BioKpiCards 
+                                kpis={data?.kpis} 
+                                loading={loading} 
+                            />
+                            <BioChartsSection 
+                                timeSeries={data?.timeSeries} 
+                                buttons={data?.buttons} 
+                                hourlyDistribution={data?.hourlyDistribution} 
+                                loading={loading} 
+                            />
+                            <BioTablesSection 
+                                buttons={data?.buttons} 
+                                campaigns={data?.campaigns} 
+                                devices={data?.devices} 
+                                loading={loading} 
+                            />
+                        </>
+                    )}
+
+                    {/* ABA 3: BLOG DE LOGÍSTICA */}
+                    {property === 'blog' && (
+                        <>
+                            <BlogKpiCards 
+                                kpis={data?.kpis} 
+                                loading={loading} 
+                            />
+                            <BlogChartsSection 
+                                timeSeries={data?.timeSeries} 
+                                categories={data?.categories} 
+                                funnel={data?.funnel} 
+                                loading={loading} 
+                            />
+                            <BlogTablesSection 
+                                articles={data?.articles} 
+                                keywords={data?.keywords} 
+                                loading={loading} 
+                            />
+                        </>
+                    )}
 
                     {/* Rodapé do Dashboard */}
                     <footer className="dash-footer">
                         <div className="dash-footer-content">
                             <p>
-                                <strong>Expresso PB Logística</strong> • Painel Executivo B2B conectado a Google Analytics 4 (GA4) & GTM.
+                                <strong>Expresso PB Logística</strong> • Painel Executivo Multi-Propriedade conectado a Google Analytics 4 (GA4) & GTM.
                             </p>
                             <div className="dash-footer-tags">
                                 <span className="dash-footer-tag">
-                                    Carga Lotação B2B
+                                    {property === 'site' ? 'Carga Lotação B2B' : property === 'bio' ? 'Social & Mobile CTR' : 'Inbound SEO & Conteúdo'}
                                 </span>
                                 <span className="dash-footer-tag tag-highlight">
-                                    Integração GA4 Pronta
+                                    {data?.isLive ? 'GA4 API Conectado' : 'Modo Demonstração Calibrado'}
                                 </span>
                             </div>
                         </div>
@@ -165,11 +236,13 @@ export const Dashboard = () => {
                 </div>
             </main>
 
-            {/* Modal de Configuração de Credenciais GA4 */}
+            {/* Modal de Configuração de Credenciais GA4 Multi-Propriedade */}
             <Ga4ConfigModal
                 isOpen={isConfigOpen}
                 onClose={() => setIsConfigOpen(false)}
                 currentConfig={config}
+                allConfigs={allConfigs}
+                activeProperty={property}
                 onSave={updateConfig}
             />
         </div>

@@ -1,45 +1,72 @@
 import { useState, useEffect, useCallback } from 'react';
-import { fetchAnalyticsData, getSavedConfig, saveConfig } from '../services/analyticsService';
+import { 
+    fetchAnalyticsData, 
+    getSavedConfig, 
+    getAllSavedConfigs, 
+    saveConfig, 
+    saveAllConfigs 
+} from '../services/analyticsService';
 
-export const useAnalyticsData = (initialPeriod = '30d') => {
+export const useAnalyticsData = (initialPeriod = '30d', initialProperty = 'site') => {
+    const [property, setProperty] = useState(initialProperty);
     const [period, setPeriod] = useState(initialPeriod);
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [config, setConfigState] = useState(getSavedConfig());
+    const [allConfigs, setAllConfigsState] = useState(getAllSavedConfigs());
 
-    const loadData = useCallback(async (selectedPeriod) => {
+    const config = allConfigs[property] || allConfigs.site;
+
+    const loadData = useCallback(async (activeProp, selectedPeriod) => {
         setLoading(true);
         setError(null);
         try {
-            const result = await fetchAnalyticsData(selectedPeriod);
+            const result = await fetchAnalyticsData(activeProp, selectedPeriod);
             setData(result);
         } catch (err) {
-            setError(err.message || 'Erro ao carregar dados do dashboard.');
+            setError(err.message || `Erro ao carregar dados de ${activeProp}.`);
         } finally {
             setLoading(false);
         }
     }, []);
 
     useEffect(() => {
-        loadData(period);
-    }, [period, loadData]);
+        loadData(property, period);
+    }, [property, period, loadData]);
+
+    const handlePropertyChange = (newProperty) => {
+        setProperty(newProperty);
+    };
 
     const handlePeriodChange = (newPeriod) => {
         setPeriod(newPeriod);
     };
 
     const handleRefresh = () => {
-        loadData(period);
+        loadData(property, period);
     };
 
-    const handleUpdateConfig = (newConfig) => {
-        saveConfig(newConfig);
-        setConfigState(newConfig);
-        loadData(period);
+    const handleUpdateConfig = (targetProperty, newConfig) => {
+        // Suporte para chamada com 1 argumento (default para a propriedade ativa)
+        if (typeof targetProperty === 'object' && targetProperty !== null) {
+            newConfig = targetProperty;
+            targetProperty = property;
+        }
+        saveConfig(targetProperty, newConfig);
+        const updated = getAllSavedConfigs();
+        setAllConfigsState(updated);
+        loadData(property, period);
+    };
+
+    const handleUpdateAllConfigs = (newAllConfigs) => {
+        saveAllConfigs(newAllConfigs);
+        setAllConfigsState(newAllConfigs);
+        loadData(property, period);
     };
 
     return {
+        property,
+        setProperty: handlePropertyChange,
         period,
         setPeriod: handlePeriodChange,
         data,
@@ -47,7 +74,9 @@ export const useAnalyticsData = (initialPeriod = '30d') => {
         error,
         refresh: handleRefresh,
         config,
-        updateConfig: handleUpdateConfig
+        allConfigs,
+        updateConfig: handleUpdateConfig,
+        updateAllConfigs: handleUpdateAllConfigs
     };
 };
 

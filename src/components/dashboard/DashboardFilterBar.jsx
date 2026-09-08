@@ -39,6 +39,7 @@ const regions = [
 ];
 
 export const DashboardFilterBar = ({
+    property = 'site',
     period,
     onPeriodChange,
     segment,
@@ -76,61 +77,69 @@ export const DashboardFilterBar = ({
                             </div>
                         </div>
 
-                        <div className="dash-filter-divider hide-mobile"></div>
+                        {property === 'site' ? (
+                            <>
+                                <div className="dash-filter-divider hide-mobile"></div>
 
-                        {/* 2. Segmento */}
-                        <div className="dash-filter-item">
-                            <div className="dash-select-container">
-                                <Buildings size={14} weight="bold" className="dash-filter-icon" />
-                                <select 
-                                    value={segment} 
-                                    onChange={(e) => onSegmentChange(e.target.value)}
-                                    className={`dash-select ${segment !== 'all' ? 'has-value' : ''}`}
-                                    disabled={loading}
-                                    aria-label="Filtrar por segmento industrial"
-                                >
-                                    {segments.map(s => (
-                                        <option key={s.value} value={s.value}>{s.label}</option>
-                                    ))}
-                                </select>
-                            </div>
-                        </div>
+                                {/* 2. Segmento */}
+                                <div className="dash-filter-item">
+                                    <div className="dash-select-container">
+                                        <Buildings size={14} weight="bold" className="dash-filter-icon" />
+                                        <select 
+                                            value={segment} 
+                                            onChange={(e) => onSegmentChange(e.target.value)}
+                                            className={`dash-select ${segment !== 'all' ? 'has-value' : ''}`}
+                                            disabled={loading}
+                                            aria-label="Filtrar por segmento industrial"
+                                        >
+                                            {segments.map(s => (
+                                                <option key={s.value} value={s.value}>{s.label}</option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                </div>
 
-                        {/* 3. Canal */}
-                        <div className="dash-filter-item">
-                            <div className="dash-select-container">
-                                <Funnel size={14} weight="bold" className="dash-filter-icon" />
-                                <select 
-                                    value={channel} 
-                                    onChange={(e) => onChannelChange(e.target.value)}
-                                    className={`dash-select ${channel !== 'all' ? 'has-value' : ''}`}
-                                    disabled={loading}
-                                    aria-label="Filtrar por canal de conversão"
-                                >
-                                    {channels.map(c => (
-                                        <option key={c.value} value={c.value}>{c.label}</option>
-                                    ))}
-                                </select>
-                            </div>
-                        </div>
+                                {/* 3. Canal */}
+                                <div className="dash-filter-item">
+                                    <div className="dash-select-container">
+                                        <Funnel size={14} weight="bold" className="dash-filter-icon" />
+                                        <select 
+                                            value={channel} 
+                                            onChange={(e) => onChannelChange(e.target.value)}
+                                            className={`dash-select ${channel !== 'all' ? 'has-value' : ''}`}
+                                            disabled={loading}
+                                            aria-label="Filtrar por canal de conversão"
+                                        >
+                                            {channels.map(c => (
+                                                <option key={c.value} value={c.value}>{c.label}</option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                </div>
 
-                        {/* 4. Região / UF */}
-                        <div className="dash-filter-item">
-                            <div className="dash-select-container">
-                                <MapPin size={14} weight="bold" className="dash-filter-icon" />
-                                <select 
-                                    value={region} 
-                                    onChange={(e) => onRegionChange(e.target.value)}
-                                    className={`dash-select ${region !== 'all' ? 'has-value' : ''}`}
-                                    disabled={loading}
-                                    aria-label="Filtrar por região ou UF"
-                                >
-                                    {regions.map(r => (
-                                        <option key={r.value} value={r.value}>{r.label}</option>
-                                    ))}
-                                </select>
+                                {/* 4. Região / UF */}
+                                <div className="dash-filter-item">
+                                    <div className="dash-select-container">
+                                        <MapPin size={14} weight="bold" className="dash-filter-icon" />
+                                        <select 
+                                            value={region} 
+                                            onChange={(e) => onRegionChange(e.target.value)}
+                                            className={`dash-select ${region !== 'all' ? 'has-value' : ''}`}
+                                            disabled={loading}
+                                            aria-label="Filtrar por região ou UF"
+                                        >
+                                            {regions.map(r => (
+                                                <option key={r.value} value={r.value}>{r.label}</option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            <div className="dash-prop-context-tag hide-mobile">
+                                {property === 'bio' ? '📱 Conversões de Redes Sociais & Cliques Mobile' : '📝 Inbound Marketing & Desempenho de Artigos'}
                             </div>
-                        </div>
+                        )}
                     </div>
 
                     {/* Grupo de Ações à Direita */}
