@@ -301,8 +301,8 @@ const Atuacao = () => {
                                 <ComposableMap
                                     projection="geoMercator"
                                     projectionConfig={{
-                                        scale: 960,
-                                        center: [-53, -14.5]
+                                        scale: 920,
+                                        center: [-54.4, -14.5]
                                     }}
                                     style={{ width: "100%", height: "auto", overflow: "visible" }}
                                 >

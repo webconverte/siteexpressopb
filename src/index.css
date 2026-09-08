@@ -975,10 +975,13 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     }
     .map-wrapper {
         width: 100% !important;
-        max-width: 100% !important;
-        transform: scale(1.38) !important;
+        max-width: 480px !important;
+        transform: scale(1.12) !important;
         transform-origin: center center;
-        margin: 0 auto;
+        margin: 0 auto !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background: transparent !important;
         box-shadow: none !important;
         border: none !important;
