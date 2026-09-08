@@ -505,9 +505,9 @@ const SegmentoPage = () => {
                                                 className="quote-input-control"
                                                 required
                                             >
-                                                <option value="Construção Civil & Cerâmica">Construção Civil & Cerâmica</option>
+                                                <option value="Construção Civil">Construção Civil</option>
                                                 <option value="Alimentos & Bebidas">Alimentos & Bebidas</option>
-                                                <option value="Papel, Celulose & FMCG">Papel, Celulose & FMCG</option>
+                                                <option value="Papel & Celulose">Papel & Celulose</option>
                                                 <option value="Maquinário & Metalmecânica">Maquinário & Metalmecânica</option>
                                                 <option value="Carga Lotação Geral (FTL)">Carga Lotação Geral (FTL)</option>
                                                 <option value="Transporte Dedicado Contratual">Transporte Dedicado Contratual</option>

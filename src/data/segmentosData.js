@@ -1,7 +1,7 @@
 export const segmentosData = {
     'construcao-civil': {
         slug: 'construcao-civil',
-        title: 'Construção Civil & Cerâmica',
+        title: 'Construção Civil',
         shortTitle: 'Construção Civil',
         heroTitle: 'Construção Civil',
         kicker: 'Solução Dedicada para Indústria Cerâmica e Materiais Pesados',
@@ -96,7 +96,7 @@ export const segmentosData = {
                 specs: 'Máxima eficiência de custo por metro quadrado transportado'
             }
         ],
-        quoteFormDefault: 'Construção Civil & Cerâmica',
+        quoteFormDefault: 'Construção Civil',
         whatsappMessage: 'Olá! Gostaria de uma cotação dedicada para o segmento de Construção Civil e Cerâmica.',
         faqs: [
             {
@@ -121,8 +121,8 @@ export const segmentosData = {
     'alimentos-bebidas': {
         slug: 'alimentos-bebidas',
         title: 'Alimentos & Bebidas',
-        shortTitle: 'Alimentos e Bebidas',
-        heroTitle: 'Alimentos e Bebidas',
+        shortTitle: 'Alimentos & Bebidas',
+        heroTitle: 'Alimentos & Bebidas',
         kicker: 'Pontualidade Cirúrgica para Redes de Atacarejo e Centros de Distribuição',
         headline: 'Cumprimento Rigoroso de Janelas em Redes de Atacarejo e CDs — Sem Multas, Sem Estadias',
         subheadline: 'Acabe com o pesadelo de cargas retidas na fila do CD, devoluções por atraso no agendamento e taxas extras de pernoite. Conectamos suas fábricas aos principais atacadistas do Norte e Nordeste com pontualidade milimétrica e baús 100% higienizados.',
@@ -239,9 +239,9 @@ export const segmentosData = {
 
     'papel-celulose': {
         slug: 'papel-celulose',
-        title: 'Papel, Celulose & FMCG',
+        title: 'Papel & Celulose',
         shortTitle: 'Papel & Celulose',
-        heroTitle: 'Papel e Celulose',
+        heroTitle: 'Papel & Celulose',
         kicker: 'Alta Cubagem, Escala Industrial e Otimização Volumétrica',
         headline: 'Máxima Cubagem para Papel, Celulose e FMCG: Maior Volume por Viagem com Custo Otimizado',
         subheadline: 'Reduza seu custo por metro cúbico movimentado com carretas de alta cubagem, vedação hermética contra umidade e contratos dedicados contínuos para operações entre fábricas, convertedoras e distribuidores.',
@@ -334,7 +334,7 @@ export const segmentosData = {
                 specs: 'Interior sem arestas ou saliências que possam rasgar as embalagens'
             }
         ],
-        quoteFormDefault: 'Papel, Celulose & FMCG',
+        quoteFormDefault: 'Papel & Celulose',
         whatsappMessage: 'Olá! Gostaria de uma cotação dedicada para o segmento de Papel, Celulose e FMCG.',
         faqs: [
             {

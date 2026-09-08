@@ -199,10 +199,10 @@ const Home = () => {
                         >
                             <div className="solucao-card">
                                 <div className="solucao-img-box">
-                                    <img src={imgHighway} alt="Construção Civil e Cerâmica" className="solucao-img" />
+                                    <img src={imgHighway} alt="Construção Civil" className="solucao-img" />
                                 </div>
                                 <div className="solucao-content">
-                                    <h3>Construção Civil & Cerâmica</h3>
+                                    <h3>Construção Civil</h3>
                                     <p>Operação dedicada e premiada no transporte de pisos, cerâmicas e acabamentos pesados. Eliminação de avarias e ganho de 30% em agilidade de rota.</p>
                                     <Link to="/segmentos/construcao-civil" className="solucao-link-btn">
                                         Conhecer Solução Dedicada <ArrowRight weight="bold" size={16} />
@@ -223,10 +223,10 @@ const Home = () => {
                             </div>
                             <div className="solucao-card">
                                 <div className="solucao-img-box">
-                                    <img src={imgHub} alt="Papel, Celulose e FMCG" className="solucao-img" />
+                                    <img src={imgHub} alt="Papel e Celulose" className="solucao-img" />
                                 </div>
                                 <div className="solucao-content">
-                                    <h3>Papel, Celulose & FMCG</h3>
+                                    <h3>Papel & Celulose</h3>
                                     <p>Máxima cubagem e eficiência com carretas dedicadas, Bitrems e Rodotrens, reduzindo custos operacionais em cargas de alto volume.</p>
                                     <Link to="/segmentos/papel-celulose" className="solucao-link-btn">
                                         Conhecer Solução Dedicada <ArrowRight weight="bold" size={16} />

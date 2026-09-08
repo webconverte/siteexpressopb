@@ -143,13 +143,13 @@ const Header = () => {
                         </span>
                         <div className="nav-dropdown-menu">
                             <Link to="/segmentos/construcao-civil" className={location.pathname === '/segmentos/construcao-civil' ? 'active' : ''} onClick={handleDropdownClick}>
-                                Construção Civil & Cerâmica
+                                Construção Civil
                             </Link>
                             <Link to="/segmentos/alimentos-bebidas" className={location.pathname === '/segmentos/alimentos-bebidas' ? 'active' : ''} onClick={handleDropdownClick}>
                                 Alimentos & Bebidas
                             </Link>
                             <Link to="/segmentos/papel-celulose" className={location.pathname === '/segmentos/papel-celulose' ? 'active' : ''} onClick={handleDropdownClick}>
-                                Papel, Celulose & FMCG
+                                Papel & Celulose
                             </Link>
                             <Link to="/segmentos/maquinario-metalmecanica" className={location.pathname === '/segmentos/maquinario-metalmecanica' ? 'active' : ''} onClick={handleDropdownClick}>
                                 Maquinário & Metalmecânica
@@ -282,7 +282,7 @@ const Header = () => {
                                     className={`mobile-sub-link ${location.pathname === '/segmentos/construcao-civil' ? 'active' : ''}`}
                                     onClick={() => setMenuActive(false)}
                                 >
-                                    <CaretRight size={14} weight="bold" /> Construção Civil & Cerâmica
+                                    <CaretRight size={14} weight="bold" /> Construção Civil
                                 </Link>
                                 <Link 
                                     to="/segmentos/alimentos-bebidas" 
@@ -296,7 +296,7 @@ const Header = () => {
                                     className={`mobile-sub-link ${location.pathname === '/segmentos/papel-celulose' ? 'active' : ''}`}
                                     onClick={() => setMenuActive(false)}
                                 >
-                                    <CaretRight size={14} weight="bold" /> Papel, Celulose & FMCG
+                                    <CaretRight size={14} weight="bold" /> Papel & Celulose
                                 </Link>
                                 <Link 
                                     to="/segmentos/maquinario-metalmecanica" 
