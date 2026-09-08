@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { EnvelopeSimple, InstagramLogo, MapPin, WhatsappLogo, LinkedinLogo, Phone, CaretRight } from '@phosphor-icons/react';
 import logo from '../assets/logo_escura.svg';
+import logoWebconverte from '../assets/logo_webconverte.png';
+
 
 const Footer = () => {
     return (
@@ -69,10 +71,25 @@ const Footer = () => {
                 </div>
 
                 <div className="footer-bottom">
-                    <p>&copy; 2026 Expresso PB Logística. Todos os direitos reservados.</p>
-                    <div className="legal-links">
-                        <Link to="#">Política de Privacidade</Link>
-                        <Link to="#">Termos de Uso</Link>
+                    <div className="footer-bottom-info">
+                        <p className="footer-copy">&copy; 2026 Expresso PB Logística. Todos os direitos reservados.</p>
+                        <div className="legal-links">
+                            <Link to="#">Política de Privacidade</Link>
+                            <span className="legal-divider" aria-hidden="true">•</span>
+                            <Link to="#">Termos de Uso</Link>
+                        </div>
+                    </div>
+                    <div className="dev-credit">
+                        <span className="dev-credit-text">Desenvolvido por</span>
+                        <a 
+                            href="https://webconverte.com.br" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            title="Webconverte - Soluções Digitais e Criação de Sites"
+                            className="dev-credit-link"
+                        >
+                            <img src={logoWebconverte} alt="Webconverte" className="dev-credit-logo" />
+                        </a>
                     </div>
                 </div>
             </div>
