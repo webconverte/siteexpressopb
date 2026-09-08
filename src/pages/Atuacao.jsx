@@ -4,7 +4,7 @@ import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps
 import brazilTopoJson from "../assets/brazil.json";
 import { 
     Buildings, Truck, ArrowsClockwise, NavigationArrow, 
-    ArrowRight, Clock, Compass, Crosshair
+    ArrowRight, Clock, Compass, Crosshair, ShieldCheck
 } from '@phosphor-icons/react';
 import imgHighway from '../assets/trait_highway.jpg';
 
@@ -148,7 +148,7 @@ const Atuacao = () => {
                             Rede de Filiais e Polos de Apoio
                         </h2>
                         <p style={{fontSize: '1.2rem', color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto'}}>
-                            Bases estruturadas para transbordo ágil, suporte aos motoristas e atendimento local às demandas industriais.
+                            Bases estruturadas para suporte contínuo aos motoristas, manutenção preventiva e atendimento ágil às demandas industriais.
                         </p>
                     </div>
 
@@ -202,7 +202,7 @@ const Atuacao = () => {
                                 Mapa de Operações
                             </span>
                             <h2 style={{fontSize: '3rem', fontWeight: '800', color: 'var(--white)', marginBottom: '1.5rem', letterSpacing: '-1px'}}>
-                                Conectividade direta de ponta a ponta
+                                Conectividade estratégica em todo o Brasil
                             </h2>
                             <p style={{color: 'rgba(255,255,255,0.75)', fontSize: '1.15rem', lineHeight: '1.6', marginBottom: '2.5rem'}}>
                                 Clique sobre os estados destacados no mapa ou nas siglas abaixo para inspecionar a capacidade operacional, hubs e previsões de entrega.
@@ -406,10 +406,10 @@ const Atuacao = () => {
 
                             <div className="corredor-card">
                                 <div className="corredor-icon">
-                                    <ArrowsClockwise weight="fill" />
+                                    <ShieldCheck weight="fill" />
                                 </div>
-                                <h3>Conexão Ponto a Ponto sem Intermediários</h3>
-                                <p>Operação direta e lacrada: carregamento no pátio da fábrica direto para a entrega ou CD agendado, sem transbordo/crossdocking, garantindo integridade e pontualidade na descarga.</p>
+                                <h3>Rotas Dedicadas de Longa Distância</h3>
+                                <p>Transporte interestadual contínuo com rastreamento 100% via satélite, telemetria em tempo real e cumprimento rigoroso dos prazos contratuais de entrega.</p>
                             </div>
                         </div>
 

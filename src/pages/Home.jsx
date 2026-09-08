@@ -175,7 +175,7 @@ const Home = () => {
                         <span className="kicker">Sobre a Empresa</span>
                         <h2>Inovação e eficiência no transporte rodoviário</h2>
                         <p>Fundada em 2015, a Expresso PB Logística é especializada em soluções inovadoras e eficientes para o transporte rodoviário.</p>
-                        <p>Nossa inteligência logística prioriza a agilidade: operamos com coleta e entrega direta (ponto a ponto), sem paradas em centros de distribuição, o que reduz drasticamente os prazos e elimina riscos de avarias.</p>
+                        <p>Nossa inteligência logística prioriza a agilidade, segurança e previsibilidade: planejamos rotas otimizadas com monitoramento 24/7, garantindo pontualidade rigorosa e integridade total da carga.</p>
                         <Link to="/sobre" className="btn-primary" style={{marginTop: '1.5rem'}}>
                             <i className="ph-bold ph-arrow-right"></i> Conheça nossa História
                         </Link>
@@ -221,7 +221,7 @@ const Home = () => {
                                 </div>
                                 <div className="solucao-content">
                                     <h3>Papel, Celulose & FMCG</h3>
-                                    <p>Máxima cubagem e eficiência com carretas dedicadas, Bitrems (45t) e Rodotrens (74t), reduzindo custos por tonelada em cargas de alto volume.</p>
+                                    <p>Máxima cubagem e eficiência com carretas dedicadas, Bitrems e Rodotrens, reduzindo custos operacionais em cargas de alto volume.</p>
                                 </div>
                             </div>
                             <div className="solucao-card">
@@ -230,7 +230,7 @@ const Home = () => {
                                 </div>
                                 <div className="solucao-content">
                                     <h3>Maquinário & Metalmecânica</h3>
-                                    <p>Carregamento direto no pátio da fábrica sem centros intermediários (ponto a ponto), com amarração técnica e seguro total de ponta a ponta.</p>
+                                    <p>Transporte especializado para cargas industriais pesadas e sensíveis, com amarração técnica certificada, monitoramento dedicado e seguro abrangente de ponta a ponta.</p>
                                 </div>
                             </div>
                         </div>
@@ -256,10 +256,10 @@ const Home = () => {
                     <div>
                         <span className="kicker" style={{color: 'var(--primary-blue)'}}>Área de Atuação</span>
                         <h2 className="text-white">Presença forte no Norte e Nordeste</h2>
-                        <p style={{color: 'rgba(255,255,255,0.8)', fontSize: '1.1rem', marginBottom: '2.5rem', lineHeight: '1.6'}}>Com matriz estratégica na Paraíba e presença física em 8 estados, garantimos agilidade incomparável, zero transbordo e capilaridade máxima nas rotas mais desafiadoras do país.</p>
+                        <p style={{color: 'rgba(255,255,255,0.8)', fontSize: '1.1rem', marginBottom: '2.5rem', lineHeight: '1.6'}}>Com matriz estratégica na Paraíba e presença física em 8 estados, garantimos agilidade incomparável, alta confiabilidade de frota e capilaridade máxima nas rotas mais desafiadoras do país.</p>
                         <ul className="atuacao-list">
                             <li><MapPin weight="fill" /> Filiais Estratégicas em 8 Estados</li>
-                            <li><Truck weight="fill" /> Ponto a Ponto sem Centros Intermediários</li>
+                            <li><Truck weight="fill" /> Rastreamento Satelital e Telemetria Ininterrupta</li>
                             <li><ShieldCheck weight="fill" /> Cumprimento Rigoroso de Janelas em CDs e Atacarejo</li>
                         </ul>
                         <Link to="/atuacao" className="btn-outline" style={{marginTop: '2.5rem'}}>

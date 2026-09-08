@@ -47,8 +47,8 @@ const Servicos = () => {
                             <ul className="values-list-standard" style={{marginTop: '2rem'}}>
                                 <li><CheckCircle weight="fill" /> <span>Veículos médios até carretas pesadas.</span></li>
                                 <li><CheckCircle weight="fill" /> <span>Dimensionamento para Papel, Celulose e alta cubagem.</span></li>
-                                <li><CheckCircle weight="fill" /> <span>Capacidade bruta para até 74 toneladas (Rodotrem).</span></li>
-                                <li><CheckCircle weight="fill" /> <span>Carregamento direto no pátio da fábrica sem intermediários.</span></li>
+                                <li><CheckCircle weight="fill" /> <span>Configurações pesadas de alta cubagem (Bitrem e Rodotrem).</span></li>
+                                <li><CheckCircle weight="fill" /> <span>Planejamento de rotas customizadas para grandes operações.</span></li>
                             </ul>
                         </div>
 
@@ -97,7 +97,6 @@ const Servicos = () => {
                             <div className="frota-card-body">
                                 <div className="frota-card-header">
                                     <h4>Truck (2 eixos)</h4>
-                                    <span className="frota-tag">Até 14 toneladas</span>
                                 </div>
                                 <p className="frota-desc">A máquina perfeita para cargas médias, transporte urbano ágil e conexões intermunicipais dinâmicas.</p>
                             </div>
@@ -123,7 +122,6 @@ const Servicos = () => {
                             <div className="frota-card-body">
                                 <div className="frota-card-header">
                                     <h4>Carreta (3 eixos)</h4>
-                                    <span className="frota-tag">Até 30 toneladas</span>
                                 </div>
                                 <p className="frota-desc">O padrão-ouro da estrada. A solução mais versátil para escoamento de longas distâncias entre estados.</p>
                             </div>
@@ -150,7 +148,6 @@ const Servicos = () => {
                             <div className="frota-card-body">
                                 <div className="frota-card-header">
                                     <h4>Bitrem (5 eixos)</h4>
-                                    <span className="frota-tag">Até 45 toneladas</span>
                                 </div>
                                 <p className="frota-desc">Escalabilidade e alto volume cúbico. Solução perfeita para Papel, Celulose, FMCG e grandes volumes contínuos de cargas industriais.</p>
                             </div>
@@ -180,9 +177,8 @@ const Servicos = () => {
                             <div className="frota-card-body">
                                 <div className="frota-card-header">
                                     <h4>Rodotrem (7 eixos)</h4>
-                                    <span className="frota-tag">Até 74 toneladas</span>
                                 </div>
-                                <p className="frota-desc">A força bruta das estradas. Máxima capacidade de carga líquida para Papel e Celulose, mineração e insumos pesados, minimizando o frete por tonelada.</p>
+                                <p className="frota-desc">A força bruta das estradas. Máxima capacidade de carga para Papel e Celulose, mineração e insumos pesados, com alto aproveitamento operacional.</p>
                             </div>
                         </div>
                     </div>

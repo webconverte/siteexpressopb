@@ -303,20 +303,20 @@ const Contato = () => {
                                                 <option value="Construção Civil & Cerâmica (Pisos/Revestimentos)">Construção Civil & Cerâmica (Pisos/Revestimentos)</option>
                                                 <option value="Alimentos & Bebidas (Janelas em CDs / Atacarejo)">Alimentos & Bebidas (Janelas em CDs / Atacarejo)</option>
                                                 <option value="Papel, Celulose & Alta Cubagem">Papel, Celulose & Alta Cubagem (Bitrem/Rodotrem)</option>
-                                                <option value="Maquinário & Metalmecânica (Carga Direta)">Maquinário & Metalmecânica (Carga Direta)</option>
+                                                <option value="Maquinário & Metalmecânica">Maquinário & Metalmecânica</option>
                                                 <option value="Transporte Dedicado Contratual (Longo Prazo)">Transporte Dedicado Contratual (Longo Prazo)</option>
                                                 <option value="Outros">Outros</option>
                                             </select>
                                         </div>
                                         <div>
-                                            <label className="quote-input-label">Peso Estimado (ou Toneladas)</label>
+                                            <label className="quote-input-label">Peso Estimado da Carga</label>
                                             <input 
                                                 type="text" 
                                                 name="pesoEstimado" 
                                                 value={formData.pesoEstimado} 
                                                 onChange={handleChange}
                                                 className="quote-input-control" 
-                                                placeholder="Ex: 27 toneladas" 
+                                                placeholder="Ex: 25.000 kg / Carga Fechada" 
                                             />
                                         </div>
                                     </div>
@@ -394,8 +394,8 @@ const Contato = () => {
                         <div className="sla-trust-item">
                             <Truck weight="fill" className="sla-trust-icon" />
                             <div>
-                                <h4>Frota Dedicada sem Transbordo</h4>
-                                <p>Carregamento direto da fábrica ao destino final sem centros intermediários, eliminando risco de avaria.</p>
+                                <h4>Frota Dedicada & Integridade</h4>
+                                <p>Veículos exclusivos sob medida por contrato, com amarração técnica e seguro total para eliminar riscos de avaria.</p>
                             </div>
                         </div>
 
