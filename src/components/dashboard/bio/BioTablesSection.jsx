@@ -6,7 +6,7 @@ import {
     DeviceMobile, 
     DownloadSimple, 
     MagnifyingGlass,
-    ArrowRight
+    ArrowUpRight
 } from '@phosphor-icons/react';
 
 export const BioTablesSection = ({ buttons, campaigns, devices, loading }) => {
@@ -56,6 +56,15 @@ export const BioTablesSection = ({ buttons, campaigns, devices, loading }) => {
         document.body.removeChild(link);
     };
 
+    const formatDestination = (url) => {
+        if (!url) return '';
+        if (url.includes('wa.me')) return 'WhatsApp Comercial';
+        if (url.includes('#cotacao')) return 'expressopb.com/#cotacao';
+        if (url.includes('rastreamento')) return 'expressopb.com/rastreamento';
+        if (url.includes('trabalhe-conosco')) return 'expressopb.com/trabalhe-conosco';
+        return url.replace(/^https?:\/\/(www\.)?/, '').slice(0, 32);
+    };
+
     if (!buttons || !campaigns) return null;
 
     return (
@@ -72,7 +81,7 @@ export const BioTablesSection = ({ buttons, campaigns, devices, loading }) => {
 
                     <div className="dash-table-controls">
                         {/* Abas */}
-                        <div className="dash-table-tabs">
+                        <div className="dash-table-tabs" role="tablist">
                             <button
                                 type="button"
                                 className={`dash-tab-btn ${activeTab === 'botoes' ? 'active' : ''}`}
@@ -100,11 +109,11 @@ export const BioTablesSection = ({ buttons, campaigns, devices, loading }) => {
                         </div>
 
                         {/* Campo de Busca */}
-                        <div className="dash-search-container">
-                            <MagnifyingGlass size={14} className="dash-search-icon" />
+                        <div className="dash-search-box">
+                            <MagnifyingGlass size={15} weight="bold" className="dash-search-icon" />
                             <input
                                 type="text"
-                                className="dash-table-search"
+                                className="dash-search-input"
                                 placeholder="Filtrar dados..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -118,8 +127,8 @@ export const BioTablesSection = ({ buttons, campaigns, devices, loading }) => {
                             onClick={handleExportCsv}
                             title="Exportar dados da tabela atual em formato CSV"
                         >
-                            <DownloadSimple size={14} weight="bold" />
-                            <span className="hide-mobile">Exportar</span>
+                            <DownloadSimple size={15} weight="bold" />
+                            <span className="hide-mobile">Exportar CSV</span>
                         </button>
                     </div>
                 </div>
@@ -127,38 +136,54 @@ export const BioTablesSection = ({ buttons, campaigns, devices, loading }) => {
                 {/* TABELA 1: BOTÕES DA BIO */}
                 {activeTab === 'botoes' && (
                     <div className="dash-table-responsive">
-                        <table className="dash-data-table">
+                        <table className="dash-table">
                             <thead>
                                 <tr>
                                     <th>Link / Botão</th>
                                     <th>Finalidade</th>
-                                    <th>Destino</th>
+                                    <th>Destino / Rota</th>
                                     <th className="text-right">Cliques</th>
                                     <th className="text-right">CTR no Período</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {filteredButtons.map((btn, idx) => (
-                                    <tr key={idx}>
-                                        <td className="font-bold text-dark">{btn.name}</td>
-                                        <td>
-                                            <span className="dash-tag-table" style={{ borderColor: btn.color, color: btn.color }}>
-                                                {btn.tag}
-                                            </span>
-                                        </td>
-                                        <td className="text-muted font-mono" style={{ fontSize: '0.72rem' }}>
-                                            {btn.destination}
-                                        </td>
-                                        <td className="text-right font-bold text-dark">
-                                            {btn.clicks.toLocaleString('pt-BR')}
-                                        </td>
-                                        <td className="text-right">
-                                            <span className="dash-badge-table badge-pill-green">
-                                                {btn.ctr}
-                                            </span>
+                                {filteredButtons.length === 0 ? (
+                                    <tr>
+                                        <td colSpan="5" className="dash-table-empty">
+                                            Nenhum botão encontrado para "{searchQuery}"
                                         </td>
                                     </tr>
-                                ))}
+                                ) : (
+                                    filteredButtons.map((btn, idx) => (
+                                        <tr key={idx}>
+                                            <td className="font-bold text-dark">
+                                                <div className="dash-table-cell-lead">
+                                                    <span className="dash-segment-dot" style={{ backgroundColor: btn.color }} />
+                                                    <strong>{btn.name}</strong>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span className="dash-tag-table" style={{ borderColor: btn.color, color: btn.color }}>
+                                                    {btn.tag}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span className="dash-url-chip" title={btn.destination}>
+                                                    <ArrowUpRight size={12} weight="bold" />
+                                                    <code>{formatDestination(btn.destination)}</code>
+                                                </span>
+                                            </td>
+                                            <td className="text-right font-bold text-dark">
+                                                {btn.clicks.toLocaleString('pt-BR')}
+                                            </td>
+                                            <td className="text-right">
+                                                <span className="dash-badge-table badge-pill-green">
+                                                    {btn.ctr}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    ))
+                                )}
                             </tbody>
                         </table>
                     </div>
@@ -167,7 +192,7 @@ export const BioTablesSection = ({ buttons, campaigns, devices, loading }) => {
                 {/* TABELA 2: CAMPANHAS & UTMS */}
                 {activeTab === 'campanhas' && (
                     <div className="dash-table-responsive">
-                        <table className="dash-data-table">
+                        <table className="dash-table">
                             <thead>
                                 <tr>
                                     <th>Rede Social / Origem</th>
@@ -179,24 +204,34 @@ export const BioTablesSection = ({ buttons, campaigns, devices, loading }) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {filteredCampaigns.map((camp, idx) => (
-                                    <tr key={idx}>
-                                        <td className="font-bold text-dark">
-                                            <span className="dash-utm-source">{camp.source}</span>
-                                        </td>
-                                        <td className="font-mono text-cyan" style={{ fontSize: '0.75rem' }}>
-                                            {camp.campaign}
-                                        </td>
-                                        <td className="text-muted">{camp.medium}</td>
-                                        <td className="text-right font-bold text-dark">{camp.clicks}</td>
-                                        <td className="text-right font-bold text-green">{camp.wppLeads}</td>
-                                        <td className="text-right">
-                                            <span className="dash-badge-table badge-pill-blue">
-                                                {camp.convRate}
-                                            </span>
+                                {filteredCampaigns.length === 0 ? (
+                                    <tr>
+                                        <td colSpan="6" className="dash-table-empty">
+                                            Nenhuma campanha encontrada para "{searchQuery}"
                                         </td>
                                     </tr>
-                                ))}
+                                ) : (
+                                    filteredCampaigns.map((camp, idx) => (
+                                        <tr key={idx}>
+                                            <td className="font-bold text-dark">
+                                                <span className="dash-utm-source">{camp.source}</span>
+                                            </td>
+                                            <td>
+                                                <span className="dash-badge-table badge-pill-blue" style={{ fontFamily: 'monospace' }}>
+                                                    {camp.campaign}
+                                                </span>
+                                            </td>
+                                            <td className="text-muted">{camp.medium}</td>
+                                            <td className="text-right font-bold text-dark">{camp.clicks.toLocaleString('pt-BR')}</td>
+                                            <td className="text-right font-bold text-green">{camp.wppLeads.toLocaleString('pt-BR')}</td>
+                                            <td className="text-right">
+                                                <span className="dash-badge-table badge-pill-green">
+                                                    {camp.convRate}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    ))
+                                )}
                             </tbody>
                         </table>
                     </div>
@@ -205,11 +240,11 @@ export const BioTablesSection = ({ buttons, campaigns, devices, loading }) => {
                 {/* TABELA 3: DISPOSITIVOS MOBILE */}
                 {activeTab === 'dispositivos' && (
                     <div className="dash-table-responsive">
-                        <table className="dash-data-table">
+                        <table className="dash-table">
                             <thead>
                                 <tr>
                                     <th>Sistema / Dispositivo</th>
-                                    <th>Participação de Mercado</th>
+                                    <th>Participação de Mercado Mobile</th>
                                     <th className="text-right">Cliques Totais</th>
                                 </tr>
                             </thead>

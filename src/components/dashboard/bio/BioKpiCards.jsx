@@ -73,13 +73,14 @@ export const BioKpiCards = ({ kpis, loading }) => {
                         <InstagramLogo weight="duotone" size={24} />
                     </div>
                     <span className="dash-kpi-badge badge-success">
-                        {kpis.topSourceShare}
+                        Líder Social
                     </span>
                 </div>
                 <div className="dash-kpi-body">
-                    <span className="dash-kpi-label">Origem Social Líder</span>
+                    <span className="dash-kpi-label">Origem Predominante</span>
                     <div className="dash-kpi-value-row">
-                        <span className="dash-kpi-value text-compact">{kpis.topSocialSource}</span>
+                        <span className="dash-kpi-value">{kpis.topSourceShare}</span>
+                        <span className="dash-kpi-unit">{kpis.topSocialSource}</span>
                     </div>
                     <p className="dash-kpi-subtext">
                         Maior volume de cliques qualificados para FTL

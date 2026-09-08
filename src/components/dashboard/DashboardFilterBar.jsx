@@ -135,11 +135,7 @@ export const DashboardFilterBar = ({
                                     </div>
                                 </div>
                             </>
-                        ) : (
-                            <div className="dash-prop-context-tag hide-mobile">
-                                {property === 'bio' ? '📱 Conversões de Redes Sociais & Cliques Mobile' : '📝 Inbound Marketing & Desempenho de Artigos'}
-                            </div>
-                        )}
+                        ) : null}
                     </div>
 
                     {/* Grupo de Ações à Direita */}

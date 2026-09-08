@@ -18,28 +18,25 @@ export const PropertyTabBar = ({
             id: 'site',
             title: 'Site Institucional',
             subtitle: 'Cotações FTL & Segmentos',
-            icon: GlobeHemisphereWest,
-            badge: 'Principal'
+            icon: GlobeHemisphereWest
         },
         {
             id: 'bio',
             title: 'Link da Bio',
             subtitle: 'Redes Sociais & Mobile',
-            icon: DeviceMobile,
-            badge: 'Instagram / LinkedIn'
+            icon: DeviceMobile
         },
         {
             id: 'blog',
             title: 'Blog de Logística',
             subtitle: 'Inbound SEO & Conteúdo',
-            icon: Article,
-            badge: 'Google Orgânico'
+            icon: Article
         }
     ];
 
     return (
-        <nav className="dash-property-tabs" aria-label="Propriedades Analíticas">
-            <div className="dash-property-tabs-container">
+        <div className="dash-property-tabs" aria-label="Seletor de Propriedade Analítica">
+            <div className="dash-property-segmented-bar">
                 {properties.map((prop) => {
                     const Icon = prop.icon;
                     const isActive = activeProperty === prop.id;
@@ -50,32 +47,22 @@ export const PropertyTabBar = ({
                         <button
                             key={prop.id}
                             type="button"
-                            className={`dash-property-tab-btn ${isActive ? 'active' : ''}`}
+                            className={`dash-property-segment ${isActive ? 'active' : ''}`}
                             onClick={() => onSelectProperty(prop.id)}
                             disabled={loading}
                         >
-                            <div className="dash-prop-icon-box">
-                                <Icon weight={isActive ? "duotone" : "regular"} size={20} />
-                            </div>
-
-                            <div className="dash-prop-text">
-                                <div className="dash-prop-title-row">
-                                    <span className="dash-prop-title">{prop.title}</span>
-                                    <span className={`dash-prop-status-dot ${isLive ? 'dot-live' : 'dot-demo'}`} 
-                                          title={isLive ? 'Conectado à API do GA4' : 'Modo Demonstração'} 
-                                    />
-                                </div>
-                                <span className="dash-prop-subtitle">{prop.subtitle}</span>
-                            </div>
-
-                            <span className="dash-prop-badge hide-mobile">
-                                {prop.badge}
-                            </span>
+                            <Icon weight={isActive ? "fill" : "bold"} size={17} className="dash-segment-icon" />
+                            <span className="dash-segment-title">{prop.title}</span>
+                            <span className="dash-segment-desc hide-mobile">• {prop.subtitle}</span>
+                            <span 
+                                className={`dash-prop-status-dot ${isLive ? 'dot-live' : 'dot-demo'}`} 
+                                title={isLive ? 'GA4 Conectado' : 'Modo Demonstração'} 
+                            />
                         </button>
                     );
                 })}
             </div>
-        </nav>
+        </div>
     );
 };
 

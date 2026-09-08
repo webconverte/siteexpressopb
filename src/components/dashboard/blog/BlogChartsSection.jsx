@@ -202,13 +202,13 @@ export const BlogChartsSection = ({ timeSeries, categories, funnel, loading }) =
 
                     {activePoint !== null && (
                         <div 
-                            className="dash-chart-tooltip" 
+                            className="dash-tooltip-box" 
                             style={{ 
-                                left: `${(getX(activePoint) / chartWidth) * 100}%`,
+                                left: `${Math.min(Math.max((getX(activePoint) / chartWidth) * 100, 15), 75)}%`,
                                 top: '20px'
                             }}
                         >
-                            <span className="dash-tooltip-date">{timeSeries[activePoint].label}</span>
+                            <span className="dash-tooltip-title">{timeSeries[activePoint].label}</span>
                             <div className="dash-tooltip-row">
                                 <span className="tooltip-ch-name"><span className="dot-cyan" /> Google Orgânico:</span>
                                 <strong>{timeSeries[activePoint].organico} views</strong>
@@ -219,17 +219,6 @@ export const BlogChartsSection = ({ timeSeries, categories, funnel, loading }) =
                             </div>
                         </div>
                     )}
-                </div>
-
-                <div className="dash-chart-legend">
-                    <div className="dash-legend-item">
-                        <span className="dash-legend-bar bar-cyan" />
-                        <span>Google Search (SEO Orgânico)</span>
-                    </div>
-                    <div className="dash-legend-item">
-                        <span className="dash-legend-bar bar-sky" />
-                        <span>Acessos Diretos / Favoritos</span>
-                    </div>
                 </div>
             </div>
 
@@ -272,12 +261,10 @@ export const BlogChartsSection = ({ timeSeries, categories, funnel, loading }) =
 
                     <div className="dash-donut-legend">
                         {categories.map((c, idx) => (
-                            <div key={idx} className="dash-donut-legend-item">
-                                <span className="dash-donut-color-dot" style={{ backgroundColor: c.color }} />
-                                <div className="dash-donut-text-group">
-                                    <span className="dash-donut-name">{c.name}</span>
-                                    <span className="dash-donut-share">{c.views.toLocaleString('pt-BR')} views ({c.share}%)</span>
-                                </div>
+                            <div key={idx} className="dash-donut-legend-row">
+                                <span className="dash-legend-color" style={{ backgroundColor: c.color }} />
+                                <span className="dash-legend-name">{c.name}</span>
+                                <span className="dash-legend-pct"><strong>{c.share}%</strong> <span style={{ opacity: 0.65, fontWeight: 400 }}>({c.views.toLocaleString('pt-BR')})</span></span>
                             </div>
                         ))}
                     </div>
@@ -285,26 +272,25 @@ export const BlogChartsSection = ({ timeSeries, categories, funnel, loading }) =
 
                 {/* Funil de Inbound: Da Leitura ao Lead */}
                 {funnel && (
-                    <div className="dash-funnel-section">
-                        <div className="dash-funnel-header">
-                            <div className="dash-funnel-title-group">
-                                <FunnelSimple size={15} weight="bold" />
-                                <span>Funil Inbound: Leitura &gt; Cotação</span>
+                    <div className="dash-funnel-section" style={{ marginTop: '0.85rem', paddingTop: '0.75rem', borderTop: '1px solid #F1F5F9' }}>
+                        <div className="dash-card-title-group" style={{ marginBottom: '0.65rem' }}>
+                            <FunnelSimple size={16} weight="duotone" className="dash-icon-title" />
+                            <div>
+                                <h4 style={{ fontSize: '0.82rem', fontWeight: 700, color: '#000327', margin: 0 }}>Funil Inbound: Leitura &gt; Cotação</h4>
                             </div>
                         </div>
 
                         <div className="dash-funnel-list">
                             {funnel.map((step, idx) => (
-                                <div key={idx} className="dash-funnel-row">
-                                    <div className="dash-funnel-labels">
-                                        <span className="dash-funnel-name">
-                                            <CaretRight size={12} weight="bold" />
-                                            {step.step}
+                                <div key={idx} className="dash-funnel-item">
+                                    <div className="dash-funnel-header">
+                                        <span className="dash-funnel-step-name">
+                                            <span className="dash-step-num">{idx + 1}</span> {step.step}
                                         </span>
-                                        <div className="dash-funnel-stats">
-                                            <strong className="dash-funnel-val">{step.value.toLocaleString('pt-BR')}</strong>
-                                            <span className="dash-funnel-pct">({step.percentage}%)</span>
-                                        </div>
+                                        <span className="dash-funnel-values">
+                                            <strong>{step.value.toLocaleString('pt-BR')}</strong>
+                                            <span className="dash-funnel-pct">{step.percentage}%</span>
+                                        </span>
                                     </div>
                                     <div className="dash-funnel-track">
                                         <div 

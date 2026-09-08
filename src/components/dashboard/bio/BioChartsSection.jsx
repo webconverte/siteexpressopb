@@ -202,13 +202,13 @@ export const BioChartsSection = ({ timeSeries, buttons, hourlyDistribution, load
 
                     {activePoint !== null && (
                         <div 
-                            className="dash-chart-tooltip" 
+                            className="dash-tooltip-box" 
                             style={{ 
-                                left: `${(getX(activePoint) / chartWidth) * 100}%`,
+                                left: `${Math.min(Math.max((getX(activePoint) / chartWidth) * 100, 15), 75)}%`,
                                 top: '20px'
                             }}
                         >
-                            <span className="dash-tooltip-date">{timeSeries[activePoint].label}</span>
+                            <span className="dash-tooltip-title">{timeSeries[activePoint].label}</span>
                             <div className="dash-tooltip-row">
                                 <span className="tooltip-ch-name"><span className="dot-cyan" /> Instagram:</span>
                                 <strong>{timeSeries[activePoint].instagram} cliques</strong>
@@ -219,17 +219,6 @@ export const BioChartsSection = ({ timeSeries, buttons, hourlyDistribution, load
                             </div>
                         </div>
                     )}
-                </div>
-
-                <div className="dash-chart-legend">
-                    <div className="dash-legend-item">
-                        <span className="dash-legend-bar bar-cyan" />
-                        <span>Instagram (Stories & Perfil)</span>
-                    </div>
-                    <div className="dash-legend-item">
-                        <span className="dash-legend-bar bar-sky" />
-                        <span>LinkedIn B2B Corporativo</span>
-                    </div>
                 </div>
             </div>
 
@@ -272,12 +261,10 @@ export const BioChartsSection = ({ timeSeries, buttons, hourlyDistribution, load
 
                     <div className="dash-donut-legend">
                         {buttons.map((b, idx) => (
-                            <div key={idx} className="dash-donut-legend-item">
-                                <span className="dash-donut-color-dot" style={{ backgroundColor: b.color }} />
-                                <div className="dash-donut-text-group">
-                                    <span className="dash-donut-name">{b.name}</span>
-                                    <span className="dash-donut-share">{b.clicks} cliques ({b.ctr})</span>
-                                </div>
+                            <div key={idx} className="dash-donut-legend-row">
+                                <span className="dash-legend-color" style={{ backgroundColor: b.color }} />
+                                <span className="dash-legend-name" title={b.name}>{b.name}</span>
+                                <span className="dash-legend-pct"><strong>{b.clicks}</strong> ({b.ctr})</span>
                             </div>
                         ))}
                     </div>

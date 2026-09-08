@@ -68,7 +68,7 @@ export const BlogTablesSection = ({ articles, keywords, loading }) => {
 
                     <div className="dash-table-controls">
                         {/* Abas */}
-                        <div className="dash-table-tabs">
+                        <div className="dash-table-tabs" role="tablist">
                             <button
                                 type="button"
                                 className={`dash-tab-btn ${activeTab === 'artigos' ? 'active' : ''}`}
@@ -88,11 +88,11 @@ export const BlogTablesSection = ({ articles, keywords, loading }) => {
                         </div>
 
                         {/* Campo de Busca */}
-                        <div className="dash-search-container">
-                            <MagnifyingGlass size={14} className="dash-search-icon" />
+                        <div className="dash-search-box">
+                            <MagnifyingGlass size={15} weight="bold" className="dash-search-icon" />
                             <input
                                 type="text"
-                                className="dash-table-search"
+                                className="dash-search-input"
                                 placeholder="Filtrar dados..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -106,8 +106,8 @@ export const BlogTablesSection = ({ articles, keywords, loading }) => {
                             onClick={handleExportCsv}
                             title="Exportar dados da tabela atual em formato CSV"
                         >
-                            <DownloadSimple size={14} weight="bold" />
-                            <span className="hide-mobile">Exportar</span>
+                            <DownloadSimple size={15} weight="bold" />
+                            <span className="hide-mobile">Exportar CSV</span>
                         </button>
                     </div>
                 </div>
@@ -115,7 +115,7 @@ export const BlogTablesSection = ({ articles, keywords, loading }) => {
                 {/* TABELA 1: TOP ARTIGOS */}
                 {activeTab === 'artigos' && (
                     <div className="dash-table-responsive">
-                        <table className="dash-data-table">
+                        <table className="dash-table">
                             <thead>
                                 <tr>
                                     <th>Artigo do Blog</th>
@@ -127,30 +127,41 @@ export const BlogTablesSection = ({ articles, keywords, loading }) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {filteredArticles.map((art, idx) => (
-                                    <tr key={idx}>
-                                        <td className="font-bold text-dark" style={{ maxWidth: '380px' }}>
-                                            {art.title}
-                                        </td>
-                                        <td>
-                                            <span className="dash-tag-table">
-                                                {art.category}
-                                            </span>
-                                        </td>
-                                        <td className="text-right font-bold text-dark">
-                                            {art.views.toLocaleString('pt-BR')}
-                                        </td>
-                                        <td className="text-right text-muted">{art.avgTime}</td>
-                                        <td className="text-right font-bold text-green">
-                                            {art.ctaClicks} cotações
-                                        </td>
-                                        <td className="text-right">
-                                            <span className="dash-badge-table badge-pill-blue">
-                                                {art.convRate}
-                                            </span>
+                                {filteredArticles.length === 0 ? (
+                                    <tr>
+                                        <td colSpan="6" className="dash-table-empty">
+                                            Nenhum artigo encontrado para "{searchQuery}"
                                         </td>
                                     </tr>
-                                ))}
+                                ) : (
+                                    filteredArticles.map((art, idx) => (
+                                        <tr key={idx}>
+                                            <td className="font-bold text-dark" style={{ maxWidth: '380px' }}>
+                                                <div className="dash-table-cell-lead">
+                                                    <Article size={16} weight="duotone" className="text-cyan" style={{ flexShrink: 0 }} />
+                                                    <span>{art.title}</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span className="dash-tag-table">
+                                                    {art.category}
+                                                </span>
+                                            </td>
+                                            <td className="text-right font-bold text-dark">
+                                                {art.views.toLocaleString('pt-BR')}
+                                            </td>
+                                            <td className="text-right text-muted">{art.avgTime}</td>
+                                            <td className="text-right font-bold text-green">
+                                                {art.ctaClicks} cotações
+                                            </td>
+                                            <td className="text-right">
+                                                <span className="dash-badge-table badge-pill-blue">
+                                                    {art.convRate}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    ))
+                                )}
                             </tbody>
                         </table>
                     </div>
@@ -159,7 +170,7 @@ export const BlogTablesSection = ({ articles, keywords, loading }) => {
                 {/* TABELA 2: PALAVRAS-CHAVE NO GOOGLE */}
                 {activeTab === 'palavras' && (
                     <div className="dash-table-responsive">
-                        <table className="dash-data-table">
+                        <table className="dash-table">
                             <thead>
                                 <tr>
                                     <th>Palavra-Chave (Google Search Console / GA4)</th>
@@ -170,27 +181,37 @@ export const BlogTablesSection = ({ articles, keywords, loading }) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {filteredKeywords.map((kw, idx) => (
-                                    <tr key={idx}>
-                                        <td className="font-bold text-cyan font-mono" style={{ fontSize: '0.8rem' }}>
-                                            {kw.keyword}
-                                        </td>
-                                        <td className="text-right text-muted font-bold">
-                                            {kw.impressions.toLocaleString('pt-BR')}
-                                        </td>
-                                        <td className="text-right font-bold text-dark">
-                                            {kw.clicks.toLocaleString('pt-BR')}
-                                        </td>
-                                        <td className="text-right">
-                                            <span className="dash-badge-table badge-pill-green">
-                                                {kw.ctr}
-                                            </span>
-                                        </td>
-                                        <td className="text-right font-bold text-dark">
-                                            #{kw.position}
+                                {filteredKeywords.length === 0 ? (
+                                    <tr>
+                                        <td colSpan="5" className="dash-table-empty">
+                                            Nenhuma palavra-chave encontrada para "{searchQuery}"
                                         </td>
                                     </tr>
-                                ))}
+                                ) : (
+                                    filteredKeywords.map((kw, idx) => (
+                                        <tr key={idx}>
+                                            <td className="font-bold text-dark font-mono" style={{ fontSize: '0.8rem' }}>
+                                                <span className="dash-badge-table badge-pill-blue" style={{ textTransform: 'none', letterSpacing: 'normal' }}>
+                                                    {kw.keyword}
+                                                </span>
+                                            </td>
+                                            <td className="text-right text-muted font-bold">
+                                                {kw.impressions.toLocaleString('pt-BR')}
+                                            </td>
+                                            <td className="text-right font-bold text-dark">
+                                                {kw.clicks.toLocaleString('pt-BR')}
+                                            </td>
+                                            <td className="text-right">
+                                                <span className="dash-badge-table badge-pill-green">
+                                                    {kw.ctr}
+                                                </span>
+                                            </td>
+                                            <td className="text-right font-bold text-dark">
+                                                <span className="dash-rank-badge">#{kw.position}</span>
+                                            </td>
+                                        </tr>
+                                    ))
+                                )}
                             </tbody>
                         </table>
                     </div>
