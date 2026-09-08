@@ -177,7 +177,27 @@ const Header = () => {
             {/* Menu Mobile Drawer */}
             <div className={`mobile-nav-drawer ${menuActive ? 'open' : ''}`}>
                 <div className="mobile-nav-content">
-
+                    {/* CTAs de Ação Rápida no Topo */}
+                    <div className="mobile-nav-actions">
+                        <Link 
+                            to="/contato" 
+                            className="mobile-btn-primary" 
+                            onClick={() => setMenuActive(false)}
+                        >
+                            <span>Solicitar Cotação de Frete</span>
+                            <ArrowRight size={18} weight="bold" />
+                        </Link>
+                        <a 
+                            href="https://wa.me/5583999999999" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="mobile-btn-whatsapp"
+                            onClick={() => setMenuActive(false)}
+                        >
+                            <WhatsappLogo size={20} weight="fill" />
+                            <span>WhatsApp Comercial</span>
+                        </a>
+                    </div>
 
                     <nav className="mobile-nav-list">
                         {navItems.map((item) => {
@@ -288,28 +308,6 @@ const Header = () => {
                             </div>
                         </div>
                     </nav>
-
-                    {/* CTAs de Ação Rápida */}
-                    <div className="mobile-nav-actions">
-                        <Link 
-                            to="/contato" 
-                            className="mobile-btn-primary" 
-                            onClick={() => setMenuActive(false)}
-                        >
-                            <span>Solicitar Cotação de Frete</span>
-                            <ArrowRight size={18} weight="bold" />
-                        </Link>
-                        <a 
-                            href="https://wa.me/5583999999999" 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
-                            className="mobile-btn-whatsapp"
-                            onClick={() => setMenuActive(false)}
-                        >
-                            <WhatsappLogo size={20} weight="fill" />
-                            <span>WhatsApp Comercial</span>
-                        </a>
-                    </div>
 
                     {/* Rodapé institucional com contato rápido */}
                     <div className="mobile-nav-footer">

@@ -497,7 +497,9 @@ textarea.form-control { min-height: 120px; resize: vertical; }
         display: flex;
         flex-direction: column;
         gap: 0.75rem;
-        margin-top: 0.5rem;
+        margin-top: 0;
+        padding-bottom: 1.25rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
     .mobile-btn-primary {
         display: flex;
