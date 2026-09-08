@@ -272,7 +272,7 @@ const Home = () => {
                               projection="geoMercator"
                               projectionConfig={{
                                 scale: 900,
-                                center: [-54.4, -14.5]
+                                center: [-53.5, -14.5]
                               }}
                               style={{ width: "100%", height: "auto", overflow: "visible" }}
                             >

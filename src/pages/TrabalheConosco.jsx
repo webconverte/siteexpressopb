@@ -32,7 +32,7 @@ const TrabalheConosco = () => {
                     <span className="kicker" style={{ color: 'var(--primary-blue)', letterSpacing: '2px', fontWeight: '800', textTransform: 'uppercase', marginBottom: '1rem', display: 'block' }}>
                         Gente que Move o Brasil
                     </span>
-                    <h1 style={{ fontSize: '4.2rem', fontWeight: '800', lineHeight: '1.1', letterSpacing: '-2px', marginBottom: '1.5rem', color: 'var(--white)' }}>
+                    <h1 style={{ fontWeight: '800', lineHeight: '1.1', letterSpacing: '-2px', marginBottom: '1.5rem', color: 'var(--white)' }}>
                         Construa sua Carreira na Expresso PB
                     </h1>
                     <p style={{ fontSize: '1.25rem', color: 'rgba(255,255,255,0.85)', maxWidth: '660px', lineHeight: '1.6', margin: '0' }}>
@@ -51,7 +51,7 @@ const TrabalheConosco = () => {
                             <span className="kicker" style={{ color: 'var(--primary-blue)', letterSpacing: '2px', fontWeight: '800', textTransform: 'uppercase', marginBottom: '1rem', display: 'block' }}>
                                 Oportunidades & Carreiras
                             </span>
-                            <h2 style={{ fontSize: '2.8rem', fontWeight: '800', color: 'var(--dark-blue)', marginBottom: '1.2rem', letterSpacing: '-1px' }}>
+                            <h2 style={{ fontWeight: '800', color: 'var(--dark-blue)', marginBottom: '1.2rem', letterSpacing: '-1px' }}>
                                 Venha fazer parte de uma equipe que não para de crescer
                             </h2>
                             <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '2.5rem' }}>

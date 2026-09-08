@@ -42,7 +42,7 @@ const Contato = () => {
                     <span className="kicker" style={{ color: 'var(--primary-blue)', letterSpacing: '2px', fontWeight: '800', textTransform: 'uppercase', marginBottom: '1rem', display: 'block' }}>
                         Atendimento & Engenharia Logística
                     </span>
-                    <h1 style={{ fontSize: '4.2rem', fontWeight: '800', lineHeight: '1.1', letterSpacing: '-2px', marginBottom: '1.5rem', color: 'var(--white)' }}>
+                    <h1 style={{ fontWeight: '800', lineHeight: '1.1', letterSpacing: '-2px', marginBottom: '1.5rem', color: 'var(--white)' }}>
                         Solicite sua Cotação Dedicada B2B
                     </h1>
                     <p style={{ fontSize: '1.25rem', color: 'rgba(255,255,255,0.85)', maxWidth: '680px', lineHeight: '1.6', margin: '0' }}>
@@ -61,7 +61,7 @@ const Contato = () => {
                             <span className="kicker" style={{ color: 'var(--primary-blue)', letterSpacing: '2px', fontWeight: '800', textTransform: 'uppercase', marginBottom: '1rem', display: 'block' }}>
                                 Canais Diretos
                             </span>
-                            <h2 style={{ fontSize: '2.8rem', fontWeight: '800', color: 'var(--dark-blue)', marginBottom: '1.2rem', letterSpacing: '-1px' }}>
+                            <h2 style={{ fontWeight: '800', color: 'var(--dark-blue)', marginBottom: '1.2rem', letterSpacing: '-1px' }}>
                                 Estamos prontos para transportar seu resultado
                             </h2>
                             <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '2.5rem' }}>
