@@ -39,6 +39,7 @@ const Footer = () => {
                             <li><a href="https://blog.expressopb.com" target="_blank" rel="noopener noreferrer"><CaretRight weight="bold"/> Blog de Notícias</a></li>
                             <li><Link to="/trabalhe-conosco"><CaretRight weight="bold"/> Trabalhe Conosco</Link></li>
                             <li><Link to="/contato"><CaretRight weight="bold"/> Fale Conosco</Link></li>
+                            <li><Link to="/dashboard" style={{ color: '#19A3DF', fontWeight: 600 }}><CaretRight weight="bold"/> Painel B2B (Analytics)</Link></li>
                         </ul>
                     </div>
                     

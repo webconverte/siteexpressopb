@@ -1,24 +1,27 @@
 import React, { useState } from 'react';
 import { 
     CalendarBlank, 
-    Funnel, 
+    FunnelSimple, 
     ChartPie, 
     GlobeHemisphereWest, 
     WhatsappLogo, 
     FileText,
-    Buildings
+    Buildings,
+    CaretRight,
+    Sparkle
 } from '@phosphor-icons/react';
 
 export const ChartsSection = ({ timeSeries, segments, funnel, topGeo, loading }) => {
     const [activePoint, setActivePoint] = useState(null);
     const [hoveredSegment, setHoveredSegment] = useState(null);
+    const [channelFilter, setChannelFilter] = useState('all'); // 'all' | 'wpp' | 'form'
 
     if (!timeSeries || !segments) return null;
 
     // --- CÁLCULOS DO GRÁFICO DE LINHA/ÁREA TEMPORAL (SVG) ---
-    const chartWidth = 600;
-    const chartHeight = 220;
-    const padding = { top: 20, right: 20, bottom: 35, left: 35 };
+    const chartWidth = 620;
+    const chartHeight = 230;
+    const padding = { top: 25, right: 20, bottom: 35, left: 35 };
     const innerWidth = chartWidth - padding.left - padding.right;
     const innerHeight = chartHeight - padding.top - padding.bottom;
 
@@ -53,43 +56,66 @@ export const ChartsSection = ({ timeSeries, segments, funnel, topGeo, loading })
         };
     });
 
+    const showWpp = channelFilter === 'all' || channelFilter === 'wpp';
+    const showForm = channelFilter === 'all' || channelFilter === 'form';
+
     return (
         <section className={`dash-charts-grid ${loading ? 'dash-skeleton' : ''}`}>
             {/* 1. GRÁFICO TEMPORAL DE EVOLUÇÃO DE LEADS */}
             <div className="dash-card dash-chart-main">
                 <div className="dash-card-header">
                     <div className="dash-card-title-group">
-                        <CalendarBlank weight="duotone" size={20} className="dash-icon-title" />
+                        <CalendarBlank weight="duotone" size={22} className="dash-icon-title" />
                         <div>
-                            <h3>Evolução de Leads Comerciais B2B</h3>
-                            <p>Volume comparativo diário entre WhatsApp e Formulário</p>
+                            <h3>Evolução de Cotações & Leads B2B</h3>
+                            <p>Volume diário de oportunidades geradas por canal de aquisição</p>
                         </div>
                     </div>
-                    <div className="dash-chart-legend">
-                        <span className="dash-legend-item">
-                            <span className="dash-legend-dot dot-cyan"></span>
-                            <WhatsappLogo weight="fill" size={13} color="#19A3DF" /> WhatsApp
-                        </span>
-                        <span className="dash-legend-item">
-                            <span className="dash-legend-dot dot-navy"></span>
-                            <FileText weight="fill" size={13} color="#000327" /> Formulário
-                        </span>
+
+                    {/* Filtros de Canal Interativos */}
+                    <div className="dash-chart-filter-group">
+                        <button 
+                            type="button"
+                            className={`dash-chart-pill ${channelFilter === 'all' ? 'active' : ''}`}
+                            onClick={() => setChannelFilter('all')}
+                        >
+                            Todos
+                        </button>
+                        <button 
+                            type="button"
+                            className={`dash-chart-pill pill-cyan ${channelFilter === 'wpp' ? 'active' : ''}`}
+                            onClick={() => setChannelFilter('wpp')}
+                        >
+                            <WhatsappLogo weight="fill" size={12} /> WhatsApp
+                        </button>
+                        <button 
+                            type="button"
+                            className={`dash-chart-pill pill-navy ${channelFilter === 'form' ? 'active' : ''}`}
+                            onClick={() => setChannelFilter('form')}
+                        >
+                            <FileText weight="fill" size={12} /> Formulário
+                        </button>
                     </div>
                 </div>
 
                 <div className="dash-svg-container">
                     <svg viewBox={`0 0 ${chartWidth} ${chartHeight}`} className="dash-line-chart">
                         <defs>
-                            {/* Gradiente WhatsApp */}
-                            <linearGradient id="gradWpp" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stopColor="#19A3DF" stopOpacity="0.35" />
+                            {/* Gradiente WhatsApp Neon */}
+                            <linearGradient id="gradWppNeon" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stopColor="#19A3DF" stopOpacity="0.45" />
                                 <stop offset="100%" stopColor="#19A3DF" stopOpacity="0.0" />
                             </linearGradient>
                             {/* Gradiente Formulário */}
-                            <linearGradient id="gradForm" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stopColor="#000327" stopOpacity="0.25" />
+                            <linearGradient id="gradFormNeon" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.30" />
                                 <stop offset="100%" stopColor="#000327" stopOpacity="0.0" />
                             </linearGradient>
+
+                            {/* Filtro de Brilho Neon */}
+                            <filter id="cyanGlow" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="0" dy="0" stdDeviation="3" floodColor="#19A3DF" floodOpacity="0.45" />
+                            </filter>
                         </defs>
 
                         {/* Linhas de Grade Horizontal */}
@@ -97,20 +123,20 @@ export const ChartsSection = ({ timeSeries, segments, funnel, topGeo, loading })
                             const y = padding.top + innerHeight * (1 - ratio);
                             const valLabel = Math.round(maxVal * ratio);
                             return (
-                                <g key={idx}>
+                                <g key={idx} className="dash-grid-line-group">
                                     <line 
                                         x1={padding.left} 
                                         y1={y} 
                                         x2={chartWidth - padding.right} 
                                         y2={y} 
-                                        stroke="#E5E7EB" 
+                                        className="dash-grid-line"
                                         strokeDasharray="4 4" 
                                     />
                                     <text 
                                         x={padding.left - 8} 
                                         y={y + 4} 
                                         fontSize="10" 
-                                        fill="#9CA3AF" 
+                                        className="dash-grid-text"
                                         textAnchor="end"
                                     >
                                         {valLabel}
@@ -120,26 +146,33 @@ export const ChartsSection = ({ timeSeries, segments, funnel, topGeo, loading })
                         })}
 
                         {/* Área Preenchida com Gradiente */}
-                        <path d={wppAreaPath} fill="url(#gradWpp)" />
-                        <path d={formAreaPath} fill="url(#gradForm)" />
+                        {showWpp && <path d={wppAreaPath} fill="url(#gradWppNeon)" />}
+                        {showForm && <path d={formAreaPath} fill="url(#gradFormNeon)" />}
 
                         {/* Linha do Formulário */}
-                        <polyline 
-                            fill="none" 
-                            stroke="#000327" 
-                            strokeWidth="2.5" 
-                            points={formPoints} 
-                            strokeLinecap="round" 
-                        />
+                        {showForm && (
+                            <polyline 
+                                fill="none" 
+                                stroke="#38BDF8" 
+                                strokeWidth="2.5" 
+                                points={formPoints} 
+                                strokeLinecap="round" 
+                                strokeLinejoin="round"
+                            />
+                        )}
 
                         {/* Linha do WhatsApp */}
-                        <polyline 
-                            fill="none" 
-                            stroke="#19A3DF" 
-                            strokeWidth="3" 
-                            points={wppPoints} 
-                            strokeLinecap="round" 
-                        />
+                        {showWpp && (
+                            <polyline 
+                                fill="none" 
+                                stroke="#19A3DF" 
+                                strokeWidth="3.2" 
+                                points={wppPoints} 
+                                strokeLinecap="round" 
+                                strokeLinejoin="round"
+                                filter="url(#cyanGlow)"
+                            />
+                        )}
 
                         {/* Pontos Interativos e Rótulos do Eixo X */}
                         {timeSeries.map((d, i) => {
@@ -159,23 +192,36 @@ export const ChartsSection = ({ timeSeries, segments, funnel, topGeo, loading })
                                             y2={padding.top + innerHeight} 
                                             stroke="#19A3DF" 
                                             strokeWidth="1.5" 
-                                            strokeDasharray="2 2" 
+                                            strokeDasharray="3 3" 
                                         />
                                     )}
 
                                     {/* Ponto Formulário */}
-                                    <circle cx={cx} cy={cyForm} r={isHovered ? 5.5 : 3.5} fill="#000327" stroke="#FFF" strokeWidth="2" />
+                                    {showForm && (
+                                        <circle 
+                                            cx={cx} 
+                                            cy={cyForm} 
+                                            r={isHovered ? 6 : 3.5} 
+                                            className="dash-chart-dot-form"
+                                        />
+                                    )}
                                     
                                     {/* Ponto WhatsApp */}
-                                    <circle cx={cx} cy={cyWpp} r={isHovered ? 6 : 4} fill="#19A3DF" stroke="#FFF" strokeWidth="2" />
+                                    {showWpp && (
+                                        <circle 
+                                            cx={cx} 
+                                            cy={cyWpp} 
+                                            r={isHovered ? 6.5 : 4.5} 
+                                            className="dash-chart-dot-wpp"
+                                        />
+                                    )}
 
                                     {/* Rótulo Eixo X */}
                                     <text 
                                         x={cx} 
-                                        y={chartHeight - 12} 
+                                        y={chartHeight - 10} 
                                         fontSize="11" 
-                                        fill={isHovered ? '#000327' : '#6B7280'} 
-                                        fontWeight={isHovered ? '700' : '500'}
+                                        className={`dash-axis-text ${isHovered ? 'active' : ''}`}
                                         textAnchor="middle"
                                     >
                                         {d.label}
@@ -185,21 +231,27 @@ export const ChartsSection = ({ timeSeries, segments, funnel, topGeo, loading })
                         })}
                     </svg>
 
-                    {/* Tooltip Dinâmico Flutuante */}
+                    {/* Tooltip Dinâmico Flutuante Executivo */}
                     {activePoint !== null && (
                         <div className="dash-tooltip-box">
-                            <span className="dash-tooltip-title">{timeSeries[activePoint].label}</span>
+                            <span className="dash-tooltip-title">
+                                <Sparkle weight="fill" size={12} /> {timeSeries[activePoint].label}
+                            </span>
                             <div className="dash-tooltip-row">
-                                <span>WhatsApp:</span>
+                                <span className="tooltip-ch-name">
+                                    <span className="dot-cyan"></span> WhatsApp:
+                                </span>
                                 <strong>{timeSeries[activePoint].whatsapp} leads</strong>
                             </div>
                             <div className="dash-tooltip-row">
-                                <span>Formulário:</span>
+                                <span className="tooltip-ch-name">
+                                    <span className="dot-sky"></span> Formulário:
+                                </span>
                                 <strong>{timeSeries[activePoint].formulario} cotações</strong>
                             </div>
                             <div className="dash-tooltip-total">
-                                <span>Total:</span>
-                                <strong>{timeSeries[activePoint].total} leads</strong>
+                                <span>Total Gerado:</span>
+                                <strong>{timeSeries[activePoint].total} oportunidades</strong>
                             </div>
                         </div>
                     )}
@@ -210,10 +262,10 @@ export const ChartsSection = ({ timeSeries, segments, funnel, topGeo, loading })
             <div className="dash-card dash-chart-donut">
                 <div className="dash-card-header">
                     <div className="dash-card-title-group">
-                        <ChartPie weight="duotone" size={20} className="dash-icon-title" />
+                        <ChartPie weight="duotone" size={22} className="dash-icon-title" />
                         <div>
                             <h3>Demanda por Segmento</h3>
-                            <p>Proporção das cotações recebidas</p>
+                            <p>Distribuição de cotações B2B recebidas</p>
                         </div>
                     </div>
                 </div>
@@ -229,7 +281,7 @@ export const ChartsSection = ({ timeSeries, segments, funnel, topGeo, loading })
                                     r={donutRadius}
                                     fill="transparent"
                                     stroke={slice.color}
-                                    strokeWidth="20"
+                                    strokeWidth={hoveredSegment === i ? "24" : "18"}
                                     strokeDasharray={slice.strokeDasharray}
                                     strokeDashoffset={slice.strokeDashoffset}
                                     transform="rotate(-90 80 80)"
@@ -239,13 +291,13 @@ export const ChartsSection = ({ timeSeries, segments, funnel, topGeo, loading })
                                 />
                             ))}
                         </svg>
-                        {/* Centro da Rosca */}
+                        {/* Centro da Rosca com Número em Orbitron */}
                         <div className="dash-donut-center">
                             <span className="dash-donut-center-num">
                                 {hoveredSegment !== null ? donutSlices[hoveredSegment].totalLeads : totalSegmentLeads}
                             </span>
                             <span className="dash-donut-center-label">
-                                {hoveredSegment !== null ? donutSlices[hoveredSegment].name.split(' ')[0] : 'Leads'}
+                                {hoveredSegment !== null ? donutSlices[hoveredSegment].name.split(' ')[0] : 'Total Leads'}
                             </span>
                         </div>
                     </div>
@@ -272,10 +324,10 @@ export const ChartsSection = ({ timeSeries, segments, funnel, topGeo, loading })
             <div className="dash-card dash-chart-funnel">
                 <div className="dash-card-header">
                     <div className="dash-card-title-group">
-                        <Funnel weight="duotone" size={20} className="dash-icon-title" />
+                        <FunnelSimple weight="duotone" size={22} className="dash-icon-title" />
                         <div>
-                            <h3>Funil de Aquisição B2B</h3>
-                            <p>Taxas de avanço na jornada de cotação</p>
+                            <h3>Funil de Aquisição de Cargas</h3>
+                            <p>Taxa de avanço na jornada do comitê de compras</p>
                         </div>
                     </div>
                 </div>
@@ -284,18 +336,20 @@ export const ChartsSection = ({ timeSeries, segments, funnel, topGeo, loading })
                     {funnel.map((step, idx) => (
                         <div key={idx} className="dash-funnel-item">
                             <div className="dash-funnel-header">
-                                <span className="dash-funnel-step-name">{step.step}</span>
+                                <span className="dash-funnel-step-name">
+                                    <span className="dash-step-num">{idx + 1}</span> {step.step}
+                                </span>
                                 <span className="dash-funnel-values">
                                     <strong>{step.value.toLocaleString('pt-BR')}</strong>
-                                    <span className="dash-funnel-pct">({step.percentage}%)</span>
+                                    <span className="dash-funnel-pct">{step.percentage}%</span>
                                 </span>
                             </div>
                             <div className="dash-funnel-track">
                                 <div 
                                     className="dash-funnel-fill" 
                                     style={{ 
-                                        width: `${Math.max(step.percentage, 4)}%`,
-                                        backgroundColor: step.color 
+                                        width: `${Math.max(step.percentage, 5)}%`,
+                                        background: `linear-gradient(90deg, #19A3DF 0%, ${step.color} 100%)`
                                     }}
                                 ></div>
                             </div>
@@ -308,10 +362,10 @@ export const ChartsSection = ({ timeSeries, segments, funnel, topGeo, loading })
             <div className="dash-card dash-chart-geo">
                 <div className="dash-card-header">
                     <div className="dash-card-title-group">
-                        <GlobeHemisphereWest weight="duotone" size={20} className="dash-icon-title" />
+                        <GlobeHemisphereWest weight="duotone" size={22} className="dash-icon-title" />
                         <div>
-                            <h3>Demanda Geográfica (Top UFs)</h3>
-                            <p>Sessões e leads por estado de origem</p>
+                            <h3>Demanda Geográfica (Top Origens)</h3>
+                            <p>Estados com maior procura por frota dedicada</p>
                         </div>
                     </div>
                 </div>
@@ -327,8 +381,8 @@ export const ChartsSection = ({ timeSeries, segments, funnel, topGeo, loading })
                                     <span className="dash-geo-code">{item.code}</span>
                                     <span className="dash-geo-name">{item.uf}</span>
                                     {item.isBranch && (
-                                        <span className="dash-branch-badge" title="Filial física da Expresso PB">
-                                            <Buildings size={11} weight="fill" /> Filial
+                                        <span className="dash-branch-badge" title="Filial física ou matriz da Expresso PB">
+                                            <Buildings size={11} weight="fill" /> {item.code === 'PB' ? 'Matriz' : 'Filial'}
                                         </span>
                                     )}
                                 </div>
@@ -337,7 +391,7 @@ export const ChartsSection = ({ timeSeries, segments, funnel, topGeo, loading })
                                         <div className="dash-geo-bar-fill" style={{ width: `${pctBar}%` }}></div>
                                     </div>
                                     <span className="dash-geo-metric">
-                                        <strong>{item.leads}</strong> leads ({item.sessions} visitas)
+                                        <strong>{item.leads}</strong> cotações ({item.sessions} visitas)
                                     </span>
                                 </div>
                             </div>

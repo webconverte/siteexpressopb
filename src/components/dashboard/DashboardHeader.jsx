@@ -6,7 +6,10 @@ import {
     Gear, 
     ChartLineUp, 
     CheckCircle, 
-    WarningCircle 
+    WarningCircle,
+    Sun,
+    Moon,
+    Broadcast
 } from '@phosphor-icons/react';
 import logo from '../../assets/logo fundo escuro.svg';
 
@@ -23,58 +26,63 @@ export const DashboardHeader = ({
     onRefresh, 
     loading, 
     isLive, 
-    onOpenConfig 
+    onOpenConfig,
+    theme = 'dark',
+    onToggleTheme
 }) => {
     return (
         <header className="dash-header">
             <div className="dash-header-container">
-                {/* Lado Esquerdo: Voltar + Logo + Título */}
+                {/* Lado Esquerdo: Voltar ao Site + Logo Expresso PB + Título com Kicker */}
                 <div className="dash-header-left">
-                    <Link to="/" className="dash-back-btn" title="Voltar ao site público">
-                        <ArrowLeft weight="bold" size={16} />
+                    <Link to="/" className="dash-back-btn" title="Retornar ao site institucional da Expresso PB">
+                        <ArrowLeft weight="bold" size={15} />
                         <span>Voltar ao Site</span>
                     </Link>
 
                     <div className="dash-divider-v hide-mobile"></div>
 
                     <div className="dash-brand-group">
-                        <img src={logo} alt="Expresso PB Logística" className="dash-logo" />
+                        <div className="dash-logo-box">
+                            <img src={logo} alt="Expresso PB Logística" className="dash-logo" />
+                            <span className="dash-radar-pulse" title="Telemetria Satelital Ativa"></span>
+                        </div>
                         <div className="dash-title-group hide-mobile">
                             <span className="dash-badge-hub">
-                                <ChartLineUp weight="bold" size={12} /> B2B Intelligence Hub
+                                <Broadcast weight="bold" size={13} className="dash-pulse-icon" /> 
+                                TORRE DE CONTROLE B2B • GA4 & GTM
                             </span>
-                            <h1 className="dash-title">Painel de Performance GA4</h1>
+                            <h1 className="dash-title">Painel Executivo de Inteligência Logística</h1>
                         </div>
                     </div>
                 </div>
 
-                {/* Lado Direito: Status + Períodos + Ações */}
+                {/* Lado Direito: Status GA4 + Seletor de Período + Alternador de Tema + Ações */}
                 <div className="dash-header-right">
-                    {/* Badge de Status GA4 */}
+                    {/* Badge de Status GA4 com Radar */}
                     <div 
                         className={`dash-status-badge ${isLive ? 'status-live' : 'status-demo'}`}
                         onClick={onOpenConfig}
                         role="button"
                         tabIndex={0}
-                        title={isLive ? "Conectado ao Google Analytics 4" : "Clique para conectar com suas credenciais do GA4"}
+                        title={isLive ? "Conectado ao Google Analytics 4" : "Clique para conectar suas credenciais do GA4"}
                     >
+                        <span className={`status-dot ${isLive ? 'live' : 'demo'}`}></span>
                         {isLive ? (
                             <>
-                                <span className="status-dot live"></span>
                                 <CheckCircle weight="fill" size={14} />
-                                <span>GA4 Conectado</span>
+                                <span className="dash-status-text">GA4 Conectado</span>
                             </>
                         ) : (
                             <>
-                                <span className="status-dot demo"></span>
                                 <WarningCircle weight="fill" size={14} />
-                                <span>Modo Demonstração</span>
+                                <span className="dash-status-text">Modo Demonstração</span>
                             </>
                         )}
                     </div>
 
                     {/* Seletor de Período Temporal */}
-                    <div className="dash-period-selector" role="group" aria-label="Seletor de período">
+                    <div className="dash-period-selector" role="group" aria-label="Seletor de período temporal">
                         {periods.map(p => (
                             <button
                                 key={p.key}
@@ -88,24 +96,39 @@ export const DashboardHeader = ({
                         ))}
                     </div>
 
-                    {/* Botão de Atualização Manual */}
+                    {/* Alternador de Tema (Torre de Controle Dark / Executivo Light) */}
+                    <button
+                        type="button"
+                        className="dash-theme-btn"
+                        onClick={onToggleTheme}
+                        title={theme === 'dark' ? "Mudar para Modo Claro Executivo" : "Mudar para Modo Torre de Controle (Dark)"}
+                        aria-label="Alternar tema visual"
+                    >
+                        {theme === 'dark' ? (
+                            <Sun weight="duotone" size={18} />
+                        ) : (
+                            <Moon weight="duotone" size={18} />
+                        )}
+                    </button>
+
+                    {/* Botão de Atualização Manual com Spin */}
                     <button 
                         type="button"
                         className="dash-icon-btn" 
                         onClick={onRefresh}
-                        title="Atualizar dados"
+                        title="Atualizar dados de telemetria"
                         disabled={loading}
                         aria-label="Atualizar dados"
                     >
-                        <ArrowClockwise weight="bold" size={18} className={loading ? 'dash-spin' : ''} />
+                        <ArrowClockwise weight="bold" size={17} className={loading ? 'dash-spin' : ''} />
                     </button>
 
-                    {/* Botão de Configurações GA4 */}
+                    {/* Botão de Conexão com GA4 */}
                     <button 
                         type="button"
                         className="dash-config-btn"
                         onClick={onOpenConfig}
-                        title="Configurações de Conexão do GA4"
+                        title="Configurações de Conexão com Google Analytics 4"
                     >
                         <Gear weight="bold" size={16} />
                         <span className="hide-mobile">Conectar GA4</span>
