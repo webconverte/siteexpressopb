@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom';
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 import brazilTopoJson from "../assets/brazil.json";
 import { 
-    Buildings, MapPin, ShieldCheck, Truck, Headset, 
-    ArrowsClockwise, NavigationArrow, CheckCircle, ArrowRight, 
-    Clock, Compass, Crosshair
+    Buildings, Truck, ArrowsClockwise, NavigationArrow, 
+    ArrowRight, Clock, Compass, Crosshair
 } from '@phosphor-icons/react';
-import imgHub from '../assets/trait_hub.jpg';
 import imgHighway from '../assets/trait_highway.jpg';
 
 const FILIAIS_DATA = [
@@ -85,13 +83,13 @@ const Atuacao = () => {
             <div className="hero-internal" style={{backgroundImage: `url(${imgHighway})`}}>
                 <div className="container" style={{textAlign: 'left', margin: '0 auto'}}>
                     <span className="kicker" style={{color: 'var(--primary-blue)', letterSpacing: '2px', fontWeight: '800', textTransform: 'uppercase', marginBottom: '1rem', display: 'block'}}>
-                        Cobertura & Malha Rodoviária
+                        Cobertura & Malha Rodoviária Norte/Nordeste
                     </span>
                     <h1 style={{fontSize: '4.5rem', fontWeight: '800', lineHeight: '1.1', letterSpacing: '-2px', marginBottom: '1.5rem', color: 'var(--white)'}}>
                         Presença Estratégica Nacional
                     </h1>
-                    <p style={{fontSize: '1.3rem', color: 'rgba(255,255,255,0.85)', maxWidth: '650px', lineHeight: '1.6', margin: '0'}}>
-                        Com matriz na Paraíba e filiais operacionais em 8 estados, conectamos centros produtivos e de consumo com velocidade, rastreamento contínuo e sem intermediários.
+                    <p style={{fontSize: '1.3rem', color: 'rgba(255,255,255,0.85)', maxWidth: '680px', lineHeight: '1.6', margin: '0'}}>
+                        Com matriz própria na Paraíba e filiais operacionais em 8 estados, garantimos que sua marca cresça no Nordeste sem risco de ruptura de estoque, com abastecimento direto e SLA garantido.
                     </p>
                 </div>
             </div>
@@ -410,8 +408,8 @@ const Atuacao = () => {
                                 <div className="corredor-icon">
                                     <ArrowsClockwise weight="fill" />
                                 </div>
-                                <h3>Conexão Ponto a Ponto Dedicada</h3>
-                                <p>Operação sem centros de redistribuição (crossdocking): o caminhão sai lacrado da indústria e vai direto até a porta do seu cliente final.</p>
+                                <h3>Conexão Ponto a Ponto sem Intermediários</h3>
+                                <p>Operação direta e lacrada: carregamento no pátio da fábrica direto para a entrega ou CD agendado, sem transbordo/crossdocking, garantindo integridade e pontualidade na descarga.</p>
                             </div>
                         </div>
 

@@ -4,9 +4,9 @@ import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps
 import brazilTopoJson from "../assets/brazil.json";
 
 import { 
-    MapPin, ShieldCheck, Truck, Buildings, Factory, Package, 
-    Barcode, Headset, Crosshair, ArrowRight, CheckCircle, 
-    MapPinLine, VideoCamera, Leaf, Tree, Recycle, Drop, Compass
+    MapPin, ShieldCheck, Truck, Factory, Package, 
+    Headset, Crosshair, ArrowRight, CheckCircle, 
+    MapPinLine, VideoCamera, Leaf, Tree, Recycle, Drop, Trophy
 } from '@phosphor-icons/react';
 import imgHub from '../assets/trait_hub.jpg';
 import imgHighway from '../assets/trait_highway.jpg';
@@ -53,7 +53,7 @@ const Home = () => {
         const cardWidth = card.offsetWidth;
         const gap = 20;
         const index = Math.round(scrollLeft / (cardWidth + gap));
-        setActiveSolucao(Math.min(Math.max(index, 0), 2));
+        setActiveSolucao(Math.min(Math.max(index, 0), 3));
     };
 
     const scrollToSolucao = (index) => {
@@ -107,6 +107,7 @@ const Home = () => {
                         <span className="hero-tag"><CheckCircle weight="fill" /> 10 anos no mercado</span>
                         <span className="hero-tag"><CheckCircle weight="fill" /> Monitoramento 24h</span>
                         <span className="hero-tag"><CheckCircle weight="fill" /> Frota dedicada</span>
+                        <span className="hero-tag"><CheckCircle weight="fill" /> Isenção total de pernoite</span>
                     </div>
                 </div>
             </section>
@@ -124,8 +125,8 @@ const Home = () => {
                                 <div className="feature-icon">
                                     <Truck weight="fill" />
                                 </div>
-                                <h3 className="feature-title">Frota Própria</h3>
-                                <p>Veículos modernos, próprios e agregados, rastreados via satélite para garantir máxima segurança na sua entrega.</p>
+                                <h3 className="feature-title">Frota Própria & Agregados</h3>
+                                <p>Nossos motoristas terceirizados e agregados operam sob o mesmo padrão rigoroso da frota própria: telemetria ativa, rastreamento ininterrupto e câmeras na cabine.</p>
                                 <span className="feature-link">Conheça a Frota <ArrowRight weight="bold" /></span>
                             </Link>
                             
@@ -188,21 +189,21 @@ const Home = () => {
                     <div className="section-header text-center">
                         <span className="kicker">Especialidades</span>
                         <h2>Nossas Soluções Logísticas</h2>
-                        <p className="section-sub">Atendemos os mais exigentes setores da economia com veículos dedicados e equipe altamente qualificada.</p>
+                        <p className="section-sub">Atendemos os mais exigentes setores da economia com veículos dedicados, frota pesada e equipe altamente qualificada.</p>
                     </div>
                     <div className="solucoes-carousel-wrapper">
                         <div 
-                            className="grid-3 solucoes-carousel-grid"
+                            className="grid-4 solucoes-carousel-grid"
                             ref={solucoesRef}
                             onScroll={handleSolucaoScroll}
                         >
                             <div className="solucao-card">
                                 <div className="solucao-img-box">
-                                    <img src={imgHighway} alt="Construção Civil" className="solucao-img" />
+                                    <img src={imgHighway} alt="Construção Civil e Acabamentos" className="solucao-img" />
                                 </div>
                                 <div className="solucao-content">
-                                    <h3>Construção Civil e Pesados</h3>
-                                    <p>Transporte especializado para indústrias, cerâmicas e equipamentos de grande porte com total segurança.</p>
+                                    <h3>Construção Civil & Acabamentos</h3>
+                                    <p>Operação dedicada e premiada no transporte de pisos, cerâmicas e acabamentos pesados. Eliminação de avarias e ganho de 30% em agilidade de rota.</p>
                                 </div>
                             </div>
                             <div className="solucao-card">
@@ -211,22 +212,31 @@ const Home = () => {
                                 </div>
                                 <div className="solucao-content">
                                     <h3>Alimentos & Bebidas</h3>
-                                    <p>Cuidado, telemetria e agilidade no transporte de bens de consumo, garantindo a integridade até o varejo.</p>
+                                    <p>Precisão cirúrgica no cumprimento rigoroso de janelas de agendamento em grandes redes de atacarejo e Centros de Distribuição (CDs), sem estadias.</p>
                                 </div>
                             </div>
                             <div className="solucao-card">
                                 <div className="solucao-img-box">
-                                    <img src={imgDriver} alt="Carga Dedicada" className="solucao-img" />
+                                    <img src={imgHub} alt="Papel, Celulose e FMCG" className="solucao-img" />
                                 </div>
                                 <div className="solucao-content">
-                                    <h3>Carga Lotação (Dedicada)</h3>
-                                    <p>Veículos exclusivos para a sua carga, indo do ponto de coleta diretamente ao destino final, sem paradas.</p>
+                                    <h3>Papel, Celulose & FMCG</h3>
+                                    <p>Máxima cubagem e eficiência com carretas dedicadas, Bitrems (45t) e Rodotrens (74t), reduzindo custos por tonelada em cargas de alto volume.</p>
+                                </div>
+                            </div>
+                            <div className="solucao-card">
+                                <div className="solucao-img-box">
+                                    <img src={imgDriver} alt="Maquinário e Metalmecânica" className="solucao-img" />
+                                </div>
+                                <div className="solucao-content">
+                                    <h3>Maquinário & Metalmecânica</h3>
+                                    <p>Carregamento direto no pátio da fábrica sem centros intermediários (ponto a ponto), com amarração técnica e seguro total de ponta a ponta.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div className="solucoes-dots" aria-label="Navegação das soluções">
-                            {[0, 1, 2].map((idx) => (
+                            {[0, 1, 2, 3].map((idx) => (
                                 <button
                                     key={idx}
                                     type="button"
@@ -246,11 +256,11 @@ const Home = () => {
                     <div>
                         <span className="kicker" style={{color: 'var(--primary-blue)'}}>Área de Atuação</span>
                         <h2 className="text-white">Presença forte no Norte e Nordeste</h2>
-                        <p style={{color: 'rgba(255,255,255,0.8)', fontSize: '1.1rem', marginBottom: '2.5rem', lineHeight: '1.6'}}>Com matriz estratégica na Paraíba e presença física em 8 estados, garantimos agilidade incomparável e capilaridade máxima nas rotas do Norte e Nordeste brasileiro.</p>
+                        <p style={{color: 'rgba(255,255,255,0.8)', fontSize: '1.1rem', marginBottom: '2.5rem', lineHeight: '1.6'}}>Com matriz estratégica na Paraíba e presença física em 8 estados, garantimos agilidade incomparável, zero transbordo e capilaridade máxima nas rotas mais desafiadoras do país.</p>
                         <ul className="atuacao-list">
                             <li><MapPin weight="fill" /> Filiais Estratégicas em 8 Estados</li>
-                            <li><Truck weight="fill" /> Hubs de Roteirização Avançada</li>
-                            <li><ShieldCheck weight="fill" /> Monitoramento 24h direto da Matriz</li>
+                            <li><Truck weight="fill" /> Ponto a Ponto sem Centros Intermediários</li>
+                            <li><ShieldCheck weight="fill" /> Cumprimento Rigoroso de Janelas em CDs e Atacarejo</li>
                         </ul>
                         <Link to="/atuacao" className="btn-outline" style={{marginTop: '2.5rem'}}>
                             Ver Filiais e Destinos <ArrowRight weight="bold" />
@@ -327,43 +337,49 @@ const Home = () => {
                         <p style={{ maxWidth: '700px', margin: '0 auto', color: 'var(--text-muted)' }}>Veja como ajudamos grandes indústrias e varejistas a otimizarem suas cadeias de suprimentos, reduzindo custos e garantindo abastecimento contínuo.</p>
                     </div>
                     
-                    <div className="grid-2 cases-grid">
-                        <div className="case-card">
+                    <div className="grid-2 cases-grid" style={{alignItems: 'stretch'}}>
+                        <div className="case-card" style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
                             <img src={imgHighway} alt="Fundo Case Cerâmica" className="case-bg" />
                             <div className="case-overlay"></div>
                             
                             <div className="quote-mark">"</div>
                             <div className="case-logo">
-                                <Factory weight="fill" /> Indústria Cerâmica
+                                <Factory weight="fill" /> Elizabeth & Cerbras (Indústria Cerâmica)
                             </div>
-                            <h3>Eficiência máxima nas rotas do Nordeste</h3>
-                            <p>Nossa operação dedicada de transporte de pisos e revestimentos reduziu o tempo de trânsito em 30%, garantindo abastecimento contínuo com índice de avaria quase zero nas rotas mais desafiadoras da região.</p>
+                            <div className="case-award-badge">
+                                <Trophy weight="fill" /> 2ª Maior Parceira Cerbras & Premiada Elizabeth
+                            </div>
+                            <h3>Eficiência e premiação máxima nas rotas do Nordeste</h3>
+                            <p>Reconhecida como a 2ª maior parceira logística da Cerbras e premiada pela Elizabeth como fornecedora destaque em pontualidade e integridade. Nossa operação dedicada de pisos e revestimentos reduziu o tempo de trânsito em 30%, garantindo abastecimento contínuo com índice de avaria próximo a zero.</p>
                             <div className="case-footer">
                                 <span className="case-metric">+30%</span>
-                                <span className="case-metric-label">Agilidade em Entregas</span>
+                                <span className="case-metric-label">Agilidade em Rotas</span>
                             </div>
                         </div>
                         
-                        <div className="case-card">
+                        <div className="case-card" style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
                             <img src={imgHub} alt="Fundo Case Varejo" className="case-bg" />
                             <div className="case-overlay"></div>
                             
                             <div className="quote-mark">"</div>
                             <div className="case-logo">
-                                <Package weight="fill" /> Bens de Consumo
+                                <Package weight="fill" /> Bens de Consumo, Alimentos & Atacarejo
                             </div>
-                            <h3>Abastecimento contínuo para o Varejo</h3>
-                            <p>Desenvolvemos uma malha logística de ponta a ponta para garantir que produtos essenciais cheguem às gôndolas sem atrasos. Monitoramento em tempo real permitiu precisão cirúrgica no recebimento.</p>
+                            <div className="case-award-badge" style={{background: 'rgba(56, 189, 248, 0.15)', borderColor: 'rgba(56, 189, 248, 0.4)', color: '#38bdf8'}}>
+                                <CheckCircle weight="fill" /> Janelas de Agendamento em CDs
+                            </div>
+                            <h3>Abastecimento contínuo sem estouro de diárias</h3>
+                            <p>Desenvolvemos uma malha logística de ponta a ponta com cumprimento rigoroso de horários agendados em Centros de Distribuição e redes de atacarejo. Com contratos dedicados e isenção de pernoite, blindamos o orçamento do cliente mesmo diante de esperas em docas.</p>
                             <div className="case-footer">
                                 <span className="case-metric">100%</span>
-                                <span className="case-metric-label">Rastreabilidade da Operação</span>
+                                <span className="case-metric-label">Pontualidade em Janelas</span>
                             </div>
                         </div>
                     </div>
                     
                     <div className="cases-cta-box text-center">
                         <h3 style={{fontSize: '1.8rem', color: 'var(--dark-blue)', marginBottom: '1rem', fontWeight: 800}}>Sua empresa precisa de um parceiro logístico de alta performance?</h3>
-                        <p style={{color: 'var(--text-muted)', marginBottom: '2.5rem', fontSize: '1.1rem'}}>Nossos especialistas estão prontos para desenhar a melhor malha de transporte para o seu negócio, reduzindo custos e otimizando prazos.</p>
+                        <p style={{color: 'var(--text-muted)', marginBottom: '2.5rem', fontSize: '1.1rem'}}>Nossos especialistas estão prontos para desenhar a melhor malha de transporte para o seu negócio, gerando saving e blindando seu DRE contra taxas imprevistas.</p>
                         <Link to="#cotacao" className="btn-primary" onClick={(e) => {
                             e.preventDefault();
                             document.getElementById('cotacao').scrollIntoView({ behavior: 'smooth' });
@@ -481,9 +497,10 @@ const Home = () => {
                         <h2>Pronto para otimizar sua logística?</h2>
                         <p>Chega de atrasos e dores de cabeça. Faça uma cotação rápida agora mesmo e descubra como a Expresso PB pode transformar a distribuição da sua empresa.</p>
                         <ul className="cotacao-benefits">
-                            <li><CheckCircle weight="fill" color="var(--primary-blue)" /> Resposta em até 30 minutos</li>
-                            <li><CheckCircle weight="fill" color="var(--primary-blue)" /> Consultoria logística gratuita</li>
-                            <li><CheckCircle weight="fill" color="var(--primary-blue)" /> Preços altamente competitivos</li>
+                            <li><CheckCircle weight="fill" color="var(--primary-blue)" /> <span><strong>Isenção total de pernoite:</strong> se a doca atrasar, seu orçamento não estoura</span></li>
+                            <li><CheckCircle weight="fill" color="var(--primary-blue)" /> <span><strong>Previsibilidade para o seu DRE:</strong> contratos dedicados imunes à volatilidade spot</span></li>
+                            <li><CheckCircle weight="fill" color="var(--primary-blue)" /> <span><strong>Redução de custos ocultos:</strong> operações formatadas para gerar saving contínuo</span></li>
+                            <li><CheckCircle weight="fill" color="var(--primary-blue)" /> <span><strong>Torre de controle 24/7:</strong> resposta da cotação em até 30 minutos</span></li>
                         </ul>
                     </div>
                     <div className="cotacao-form-wrapper">
@@ -515,8 +532,8 @@ const Home = () => {
                             </div>
 
                             <div className="input-group">
-                                <label>Tipo de Carga</label>
-                                <input type="text" placeholder="Ex: Equipamentos industriais, Cerâmica, Produtos Químicos..." />
+                                <label>Tipo de Carga / Segmento</label>
+                                <input type="text" placeholder="Ex: Cerâmica, Alimentos & Bebidas, Papel & Celulose, Maquinário..." />
                             </div>
 
                             <div className="grid-2-inputs">
@@ -530,7 +547,7 @@ const Home = () => {
                                 </div>
                             </div>
                             <button type="submit" className="btn-primary btn-block" style={{marginTop: '1rem', width: '100%', justifyContent: 'center'}}>
-                                Enviar Solicitação <ArrowRight weight="bold" />
+                                Enviar Solicitação para o Comercial <ArrowRight weight="bold" />
                             </button>
                         </form>
                     </div>

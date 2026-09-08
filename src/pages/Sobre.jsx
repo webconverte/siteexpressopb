@@ -107,8 +107,8 @@ const Sobre = () => {
             <section className="cinematic-break" style={{backgroundImage: `url(${imgDriver})`}}>
                 <div className="cinematic-overlay"></div>
                 <div className="container cinematic-content">
-                    <h2>Frota própria e motoristas de elite</h2>
-                    <p>Não terceirizamos a nossa responsabilidade. Nossa operação é 100% controlada do embarque ao destino final, garantindo a integridade absoluta da sua carga.</p>
+                    <h2>Frota própria, agregados homologados e motoristas de elite</h2>
+                    <p>Não terceirizamos a nossa responsabilidade. Nossos motoristas terceirizados e agregados operam sob o mesmo rigor da frota própria: telemetria ativa, câmeras em cabine e rastreamento satelital ininterrupto do pátio ao destino final.</p>
                 </div>
             </section>
 
@@ -132,8 +132,8 @@ const Sobre = () => {
                         <div className="roadmap-item left">
                             <span className="watermark-year">2018</span>
                             <div className="roadmap-content">
-                                <h4>Parcerias Estratégicas</h4>
-                                <p>Fechamento de grandes contratos com as maiores indústrias de bens de consumo, estabelecendo rotas expressas interestaduais.</p>
+                                <h4>Parcerias Estratégicas & Premiações</h4>
+                                <p>Consolidação como 2ª maior parceira da Cerbras e premiação como fornecedor destaque pela Elizabeth, além de rotas expressas dedicadas para bens de consumo.</p>
                             </div>
                         </div>
                         <div className="roadmap-item right">

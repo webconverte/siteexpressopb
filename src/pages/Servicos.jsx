@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
-    ShieldCheck, ArrowsOut, Handshake, Truck, MapPin, 
-    ChartLine, VideoCamera, CheckCircle, ArrowRight 
+    ShieldCheck, ArrowsOut, Handshake, CheckCircle, 
+    ArrowRight 
 } from '@phosphor-icons/react';
 import imgTablet from '../assets/trait_tablet.jpg';
 import imgDriver from '../assets/trait_driver.jpg';
 import imgHighway from '../assets/trait_highway.jpg';
-import imgHub from '../assets/trait_hub.jpg';
 
 const Servicos = () => {
     return (
@@ -32,10 +31,10 @@ const Servicos = () => {
                             </div>
                             <h3 className="feature-title">Segurança Máxima</h3>
                             <ul className="values-list-standard" style={{marginTop: '2rem'}}>
-                                <li><CheckCircle weight="fill" /> <span>Monitoramento 24/7 via telemetria avançada.</span></li>
-                                <li><CheckCircle weight="fill" /> <span>Câmeras embarcadas preventivas.</span></li>
-                                <li><CheckCircle weight="fill" /> <span>Manutenção preditiva rigorosa.</span></li>
-                                <li><CheckCircle weight="fill" /> <span>Seguro de carga abrangente.</span></li>
+                                <li><CheckCircle weight="fill" /> <span>Agregados com rigor de própria: telemetria e câmeras ativas.</span></li>
+                                <li><CheckCircle weight="fill" /> <span>Monitoramento 24/7 via satélite ininterrupto.</span></li>
+                                <li><CheckCircle weight="fill" /> <span>Manutenção preditiva rigorosa antes de cada viagem.</span></li>
+                                <li><CheckCircle weight="fill" /> <span>Seguro de carga abrangente (RCF-DC e RCTR-C).</span></li>
                             </ul>
                         </div>
                         
@@ -46,10 +45,10 @@ const Servicos = () => {
                             </div>
                             <h3 className="feature-title">Flexibilidade Absoluta</h3>
                             <ul className="values-list-standard" style={{marginTop: '2rem'}}>
-                                <li><CheckCircle weight="fill" /> <span>Veículos leves até carretas pesadas.</span></li>
-                                <li><CheckCircle weight="fill" /> <span>Capacidade bruta para até 74 toneladas.</span></li>
-                                <li><CheckCircle weight="fill" /> <span>Atendimento emergencial 7 dias por semana.</span></li>
-                                <li><CheckCircle weight="fill" /> <span>Rotas customizadas e sob demanda.</span></li>
+                                <li><CheckCircle weight="fill" /> <span>Veículos médios até carretas pesadas.</span></li>
+                                <li><CheckCircle weight="fill" /> <span>Dimensionamento para Papel, Celulose e alta cubagem.</span></li>
+                                <li><CheckCircle weight="fill" /> <span>Capacidade bruta para até 74 toneladas (Rodotrem).</span></li>
+                                <li><CheckCircle weight="fill" /> <span>Carregamento direto no pátio da fábrica sem intermediários.</span></li>
                             </ul>
                         </div>
 
@@ -60,13 +59,15 @@ const Servicos = () => {
                             </div>
                             <h3 className="feature-title">Frota Dedicada</h3>
                             <ul className="values-list-standard" style={{marginTop: '2rem'}}>
-                                <li><CheckCircle weight="fill" /> <span>Veículos exclusivos formatados por contrato.</span></li>
-                                <li><CheckCircle weight="fill" /> <span>Adesivação e identidade visual do cliente.</span></li>
-                                <li><CheckCircle weight="fill" /> <span>Ausência de cobrança extra de pernoite.</span></li>
-                                <li><CheckCircle weight="fill" /> <span>Gestão de frota 100% sob nossa responsabilidade.</span></li>
+                                <li><CheckCircle weight="fill" /> <span>Isenção total de cobrança extra de pernoite.</span></li>
+                                <li><CheckCircle weight="fill" /> <span>Cumprimento rigoroso de janelas de agendamento em CDs.</span></li>
+                                <li><CheckCircle weight="fill" /> <span>Veículos exclusivos formatados sob medida por contrato.</span></li>
+                                <li><CheckCircle weight="fill" /> <span>Previsibilidade orçamentária e blindagem do seu DRE.</span></li>
                             </ul>
                         </div>
                     </div>
+
+
                 </div>
             </section>
 
@@ -151,7 +152,7 @@ const Servicos = () => {
                                     <h4>Bitrem (5 eixos)</h4>
                                     <span className="frota-tag">Até 45 toneladas</span>
                                 </div>
-                                <p className="frota-desc">Escalabilidade e alto volume cúbico, projetado para transporte pesado contínuo de cargas industriais.</p>
+                                <p className="frota-desc">Escalabilidade e alto volume cúbico. Solução perfeita para Papel, Celulose, FMCG e grandes volumes contínuos de cargas industriais.</p>
                             </div>
                         </div>
 
@@ -181,7 +182,7 @@ const Servicos = () => {
                                     <h4>Rodotrem (7 eixos)</h4>
                                     <span className="frota-tag">Até 74 toneladas</span>
                                 </div>
-                                <p className="frota-desc">A força bruta das estradas. Operações de alta intensidade, mineração e agronegócio em escala nacional.</p>
+                                <p className="frota-desc">A força bruta das estradas. Máxima capacidade de carga líquida para Papel e Celulose, mineração e insumos pesados, minimizando o frete por tonelada.</p>
                             </div>
                         </div>
                     </div>
@@ -218,8 +219,8 @@ const Servicos = () => {
                             <div className="stepper-item">
                                 <div className="step-badge">4</div>
                                 <div className="step-content">
-                                    <h4>Entrega Comprovada</h4>
-                                    <p>Canhoto assinado digitalmente, confirmação de chegada imediata e emissão de relatórios de SLA.</p>
+                                    <h4>Entrega Comprovada & Janelas em CDs</h4>
+                                    <p>Cumprimento pontual das janelas agendadas em Centros de Distribuição, canhoto assinado digitalmente em tempo real e relatórios de SLA.</p>
                                 </div>
                             </div>
                         </div>

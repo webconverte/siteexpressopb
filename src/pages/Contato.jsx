@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { 
-    EnvelopeSimple, Phone, WhatsappLogo, MapPin, 
-    Clock, ShieldCheck, Truck, CheckCircle, ArrowRight,
-    Buildings, Headset, PaperPlaneTilt, CaretDown
+    EnvelopeSimple, WhatsappLogo, 
+    Clock, ShieldCheck, Truck, CheckCircle, 
+    Buildings, Headset, PaperPlaneTilt
 } from '@phosphor-icons/react';
 import imgHighway from '../assets/trait_highway.jpg';
 
@@ -15,9 +15,9 @@ const Contato = () => {
         whatsapp: '',
         origem: '',
         destino: '',
-        tipoCarga: 'FTL (Carga Lotação Fechada)',
+        tipoCarga: '',
         pesoEstimado: '',
-        veiculoPreferencial: 'Carreta Graneleira',
+        veiculoPreferencial: '',
         mensagem: ''
     });
 
@@ -43,10 +43,10 @@ const Contato = () => {
                         Atendimento & Engenharia Logística
                     </span>
                     <h1 style={{ fontSize: '4.2rem', fontWeight: '800', lineHeight: '1.1', letterSpacing: '-2px', marginBottom: '1.5rem', color: 'var(--white)' }}>
-                        Solicite sua Cotação Dedicada
+                        Solicite sua Cotação Dedicada B2B
                     </h1>
                     <p style={{ fontSize: '1.25rem', color: 'rgba(255,255,255,0.85)', maxWidth: '680px', lineHeight: '1.6', margin: '0' }}>
-                        Fale diretamente com nossa equipe comercial e receba uma análise detalhada de rotas, prazos garantidos (SLA) e frete sem intermediários.
+                        Fale diretamente com nossa mesa comercial e receba uma análise de saving, previsão orçamentária para o seu DRE e contratos dedicados com isenção total de pernoite.
                     </p>
                 </div>
             </div>
@@ -157,6 +157,11 @@ const Contato = () => {
                                 <p style={{ color: 'var(--text-muted)', fontSize: '1rem', margin: 0 }}>
                                     Preencha os dados da sua operação para nossa equipe comercial analisar e enviar uma proposta sob medida.
                                 </p>
+                            </div>
+
+                            <div className="pernoite-banner-inline" style={{marginBottom: '1.8rem'}}>
+                                <ShieldCheck weight="fill" />
+                                <span><strong>Garantia Comercial:</strong> Contratos dedicados com isenção total de cobrança de pernoite — blindagem do seu DRE contra taxas ocultas.</span>
                             </div>
 
                             {submitted ? (
@@ -285,7 +290,7 @@ const Contato = () => {
                                     {/* Linha 5: Especificações da Carga */}
                                     <div className="grid-2" style={{ gap: '1.2rem', marginBottom: '1.2rem' }}>
                                         <div>
-                                            <label className="quote-input-label">Tipo de Modalidade</label>
+                                            <label className="quote-input-label">Tipo de Modalidade / Segmento</label>
                                             <select 
                                                 name="tipoCarga" 
                                                 value={formData.tipoCarga} 
@@ -293,10 +298,13 @@ const Contato = () => {
                                                 className="quote-input-control"
                                                 style={{ cursor: 'pointer' }}
                                             >
+                                                <option value="">Selecione o segmento / modalidade...</option>
                                                 <option value="FTL (Carga Lotação Fechada)">FTL (Carga Lotação Fechada)</option>
-                                                <option value="Transporte Dedicado Contratual">Transporte Dedicado Contratual</option>
-                                                <option value="Carga Pesada / Maquinário">Carga Pesada / Maquinário</option>
-                                                <option value="Insumos e Construção Civil">Insumos e Construção Civil</option>
+                                                <option value="Construção Civil & Cerâmica (Pisos/Revestimentos)">Construção Civil & Cerâmica (Pisos/Revestimentos)</option>
+                                                <option value="Alimentos & Bebidas (Janelas em CDs / Atacarejo)">Alimentos & Bebidas (Janelas em CDs / Atacarejo)</option>
+                                                <option value="Papel, Celulose & Alta Cubagem">Papel, Celulose & Alta Cubagem (Bitrem/Rodotrem)</option>
+                                                <option value="Maquinário & Metalmecânica (Carga Direta)">Maquinário & Metalmecânica (Carga Direta)</option>
+                                                <option value="Transporte Dedicado Contratual (Longo Prazo)">Transporte Dedicado Contratual (Longo Prazo)</option>
                                                 <option value="Outros">Outros</option>
                                             </select>
                                         </div>
@@ -323,6 +331,7 @@ const Contato = () => {
                                             className="quote-input-control"
                                             style={{ cursor: 'pointer' }}
                                         >
+                                            <option value="">Selecione o veículo preferencial...</option>
                                             <option value="Carreta Graneleira">Carreta Graneleira (Grãos, Sacaria, Granel)</option>
                                             <option value="Carreta Baú Fechado">Carreta Baú Fechado (Carga Geral Seca)</option>
                                             <option value="Carreta Sider">Carreta Sider (Carga Paletizada e Rápida)</option>
@@ -377,8 +386,8 @@ const Contato = () => {
                         <div className="sla-trust-item">
                             <Clock weight="fill" className="sla-trust-icon" />
                             <div>
-                                <h4>Resposta Ágil de Cotação</h4>
-                                <p>Proposta comercial detalhada e estudo tarifário de rotas enviado em até 2 horas úteis.</p>
+                                <h4>Resposta Ágil & Sem Pernoite</h4>
+                                <p>Proposta comercial em até 2h úteis e contratos com isenção total de cobrança de pernoite se a doca atrasar.</p>
                             </div>
                         </div>
 
@@ -386,7 +395,7 @@ const Contato = () => {
                             <Truck weight="fill" className="sla-trust-icon" />
                             <div>
                                 <h4>Frota Dedicada sem Transbordo</h4>
-                                <p>Sua carga embarca na origem e segue no mesmo caminhão até o destino, eliminando risco de avaria.</p>
+                                <p>Carregamento direto da fábrica ao destino final sem centros intermediários, eliminando risco de avaria.</p>
                             </div>
                         </div>
 
@@ -394,7 +403,7 @@ const Contato = () => {
                             <Headset weight="fill" className="sla-trust-icon" />
                             <div>
                                 <h4>Mesa de Suporte Dedicada</h4>
-                                <p>Canal direto com o gestor de tráfego da sua conta para atualizações de localização e posição de viagem.</p>
+                                <p>Acompanhamento de janelas de agendamento em CDs e posição de viagem 24 horas por dia.</p>
                             </div>
                         </div>
                     </div>

@@ -12,8 +12,8 @@ const TrabalheConosco = () => {
         telefone: '',
         email: '',
         cidadeUf: '',
-        vagaInteresse: 'Motorista Carreteiro',
-        cnhCategoria: 'E',
+        vagaInteresse: '',
+        cnhCategoria: '',
         experiencia: '',
         linkCurriculo: ''
     });
@@ -228,6 +228,7 @@ const TrabalheConosco = () => {
                                             className="quote-input-control"
                                             style={{ cursor: 'pointer' }}
                                         >
+                                            <option value="">Selecione a categoria (se aplicável)...</option>
                                             <option value="E">Categoria E (Carreta / Articulados)</option>
                                             <option value="D">Categoria D (Caminhão / Ônibus)</option>
                                             <option value="C">Categoria C (Veículos de Carga Médios)</option>
