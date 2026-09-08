@@ -39,7 +39,6 @@ const Footer = () => {
                             <li><a href="https://blog.expressopb.com" target="_blank" rel="noopener noreferrer"><CaretRight weight="bold"/> Blog de Notícias</a></li>
                             <li><Link to="/trabalhe-conosco"><CaretRight weight="bold"/> Trabalhe Conosco</Link></li>
                             <li><Link to="/contato"><CaretRight weight="bold"/> Fale Conosco</Link></li>
-                            <li><Link to="/dashboard" style={{ color: '#19A3DF', fontWeight: 600 }}><CaretRight weight="bold"/> Painel B2B (Analytics)</Link></li>
                         </ul>
                     </div>
                     
@@ -78,6 +77,14 @@ const Footer = () => {
                             <Link to="#">Política de Privacidade</Link>
                             <span className="legal-divider" aria-hidden="true">•</span>
                             <Link to="#">Termos de Uso</Link>
+                            <Link 
+                                to="/dashboard" 
+                                className="stealth-dash-link" 
+                                title="Painel B2B"
+                                aria-label="Painel B2B"
+                            >
+                                Painel
+                            </Link>
                         </div>
                     </div>
                     <div className="dev-credit">

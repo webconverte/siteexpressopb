@@ -1460,6 +1460,21 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     font-size: 0.65rem;
     user-select: none;
 }
+.stealth-dash-link {
+    color: transparent !important;
+    text-decoration: none !important;
+    user-select: none;
+    cursor: default;
+    display: inline-block;
+    font-size: 0.82rem;
+    padding: 2px 4px;
+    border-radius: 4px;
+    transition: all 0.25s ease;
+}
+.stealth-dash-link:hover {
+    color: rgba(100, 116, 139, 0.22) !important;
+    cursor: pointer;
+}
 .dev-credit {
     display: inline-flex;
     align-items: center;
@@ -6611,4 +6626,272 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     .dash-search-input:focus {
         width: 100%;
     }
+}
+
+/* ==========================================================================
+   TELA DE ACESSO COM SENHA DO DASHBOARD (AUTH GATE)
+   ========================================================================== */
+.dash-auth-overlay {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 20%, #0A1B3A 0%, #000327 70%, #000115 100%);
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.dash-auth-overlay::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(25, 163, 223, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.dash-auth-card {
+    width: 100%;
+    max-width: 440px;
+    background: #0A1128;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2.25rem 2rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(25, 163, 223, 0.1);
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(12px);
+    transition: transform 0.2s ease;
+}
+
+.dash-auth-header {
+    text-align: center;
+    margin-bottom: 1.75rem;
+}
+
+.dash-auth-logo-link {
+    display: inline-block;
+    margin-bottom: 1.25rem;
+}
+
+.dash-auth-logo {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+}
+
+.dash-auth-shield-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: rgba(25, 163, 223, 0.12);
+    border: 1px solid rgba(25, 163, 223, 0.3);
+    color: #38BDF8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    box-shadow: 0 0 20px rgba(25, 163, 223, 0.25);
+}
+
+.dash-auth-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin: 0 0 0.4rem;
+    letter-spacing: -0.3px;
+}
+
+.dash-auth-subtitle {
+    font-size: 0.8rem;
+    color: #94A3B8;
+    line-height: 1.45;
+    margin: 0;
+}
+
+.dash-auth-error {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #FCA5A5;
+    padding: 0.65rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+}
+
+.dash-auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.dash-auth-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    text-align: left;
+}
+
+.dash-auth-input-group label {
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: #CBD5E1;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.dash-auth-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.dash-auth-key-icon {
+    position: absolute;
+    left: 0.85rem;
+    color: #64748B;
+    pointer-events: none;
+}
+
+.dash-auth-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 0.75rem 2.5rem 0.75rem 2.5rem;
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.dash-auth-input:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #19A3DF;
+    box-shadow: 0 0 0 3px rgba(25, 163, 223, 0.25);
+}
+
+.dash-auth-input::placeholder {
+    color: #475569;
+}
+
+.dash-auth-toggle-pwd {
+    position: absolute;
+    right: 0.75rem;
+    background: transparent;
+    border: none;
+    color: #64748B;
+    cursor: pointer;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: color 0.2s ease;
+}
+
+.dash-auth-toggle-pwd:hover {
+    color: #CBD5E1;
+}
+
+.dash-auth-submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #19A3DF 0%, #0284C7 100%);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    padding: 0.8rem 1.25rem;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(25, 163, 223, 0.35);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dash-auth-submit-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #38BDF8 0%, #0369A1 100%);
+    box-shadow: 0 6px 20px rgba(25, 163, 223, 0.5);
+    transform: translateY(-1px);
+}
+
+.dash-auth-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.dash-auth-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dash-auth-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: #94A3B8;
+    font-size: 0.74rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.dash-auth-back-link:hover {
+    color: #38BDF8;
+}
+
+.dash-auth-security-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: #64748B;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.dash-auth-shake {
+    animation: dashAuthShake 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes dashAuthShake {
+    10%, 90% { transform: translate3d(-2px, 0, 0); }
+    20%, 80% { transform: translate3d(3px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-5px, 0, 0); }
+    40%, 60% { transform: translate3d(5px, 0, 0); }
+}
+
+.dash-btn-logout {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #94A3B8;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dash-btn-logout:hover {
+    color: #F87171;
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.25);
 }

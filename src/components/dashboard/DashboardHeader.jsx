@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom';
 import { 
     ArrowLeft, 
     Gear, 
-    ChartLineUp
+    ChartLineUp,
+    LockKey
 } from '@phosphor-icons/react';
 import logo from '../../assets/logo fundo escuro.svg';
 
 export const DashboardHeader = ({ 
     isLive, 
-    onOpenConfig 
+    onOpenConfig,
+    onLogout
 }) => {
     return (
         <header className="dash-header">
@@ -69,6 +71,19 @@ export const DashboardHeader = ({
                         <ArrowLeft weight="bold" size={14} />
                         <span className="hide-mobile">Voltar ao Site</span>
                     </Link>
+
+                    {/* Botão Bloquear / Sair */}
+                    {onLogout && (
+                        <button
+                            type="button"
+                            className="dash-btn-logout"
+                            onClick={onLogout}
+                            title="Bloquear painel e exigir senha de acesso"
+                        >
+                            <LockKey weight="bold" size={14} />
+                            <span className="hide-mobile">Bloquear</span>
+                        </button>
+                    )}
                 </div>
             </div>
         </header>
