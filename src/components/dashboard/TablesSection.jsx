@@ -73,7 +73,7 @@ export const TablesSection = ({ segments, routes, ctas, loading }) => {
     if (!segments || !routes || !ctas) return null;
 
     return (
-        <section className={`dash-tables-section ${loading ? 'dash-skeleton' : ''}`}>
+        <div className={`dash-tables-section ${loading ? 'dash-skeleton' : ''}`}>
             <div className="dash-card">
                 {/* Header da Seção de Tabelas com Abas & Ações */}
                 <div className="dash-tables-header">
@@ -292,7 +292,7 @@ export const TablesSection = ({ segments, routes, ctas, loading }) => {
                     </div>
                 )}
             </div>
-        </section>
+        </div>
     );
 };
 

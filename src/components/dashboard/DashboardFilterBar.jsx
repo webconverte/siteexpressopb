@@ -54,7 +54,7 @@ export const DashboardFilterBar = ({
     const hasActiveFilters = segment !== 'all' || channel !== 'all' || region !== 'all';
 
     return (
-        <section className="dash-filter-section" aria-label="Filtros de telemetria analítica">
+        <div className="dash-filter-section" aria-label="Filtros de telemetria analítica">
             <div className="dash-filter-card">
                 <div className="dash-filter-row">
                     {/* Grupo de Filtros à Esquerda */}
@@ -185,7 +185,7 @@ export const DashboardFilterBar = ({
                     </div>
                 )}
             </div>
-        </section>
+        </div>
     );
 };
 

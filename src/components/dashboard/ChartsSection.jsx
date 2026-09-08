@@ -60,7 +60,7 @@ export const ChartsSection = ({ timeSeries, segments, funnel, topGeo, loading })
     const showForm = channelFilter === 'all' || channelFilter === 'form';
 
     return (
-        <section className={`dash-charts-grid ${loading ? 'dash-skeleton' : ''}`}>
+        <div className={`dash-charts-grid ${loading ? 'dash-skeleton' : ''}`}>
             {/* 1. GRÁFICO TEMPORAL DE EVOLUÇÃO DE LEADS */}
             <div className="dash-card dash-chart-main">
                 <div className="dash-card-header">
@@ -399,7 +399,7 @@ export const ChartsSection = ({ timeSeries, segments, funnel, topGeo, loading })
                     })}
                 </div>
             </div>
-        </section>
+        </div>
     );
 };
 

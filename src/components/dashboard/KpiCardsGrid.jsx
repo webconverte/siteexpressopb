@@ -14,7 +14,7 @@ export const KpiCardsGrid = ({ kpis, loading }) => {
     if (!kpis) return null;
 
     return (
-        <section className="dash-kpi-grid">
+        <div className="dash-kpi-grid">
             {/* Card 1: Leads Comerciais B2B */}
             <div className={`dash-kpi-card ${loading ? 'dash-skeleton' : ''}`}>
                 <div className="dash-kpi-header">
@@ -114,7 +114,7 @@ export const KpiCardsGrid = ({ kpis, loading }) => {
                     </p>
                 </div>
             </div>
-        </section>
+        </div>
     );
 };
 
