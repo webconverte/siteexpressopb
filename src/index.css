@@ -4539,15 +4539,18 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     margin: 0 !important;
 }
 
-/* 1. HEADER EXECUTIVO COMPACTO */
+/* 1. HEADER EXECUTIVO REFINADO */
 .dash-header {
-    background-color: #000327;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: #000327;
+    background: linear-gradient(180deg, #000327 0%, #030835 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
     position: sticky;
     top: 0;
     z-index: 100;
-    padding: 0.55rem 0;
-    box-shadow: 0 2px 12px rgba(0, 3, 39, 0.12);
+    padding: 0.62rem 0;
+    box-shadow: 0 4px 20px rgba(0, 3, 39, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .dash-header-container {
@@ -4558,74 +4561,54 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 1.25rem;
 }
 
+/* Lado Esquerdo */
 .dash-header-left {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-.dash-back-btn {
-    display: inline-flex;
+.dash-brand-link {
+    display: flex;
     align-items: center;
-    gap: 0.35rem;
-    color: #CBD5E1;
-    font-size: 0.78rem;
-    font-weight: 600;
-    padding: 0.35rem 0.75rem;
-    border-radius: 7px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    transition: all 0.2s ease;
     text-decoration: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.dash-back-btn:hover {
-    color: #FFFFFF;
-    background: rgba(25, 163, 223, 0.25);
-    border-color: #19A3DF;
-    transform: translateX(-2px);
+.dash-brand-link:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.dash-logo {
+    height: 29px;
+    width: auto;
+    object-fit: contain;
 }
 
 .dash-divider-v {
     width: 1px;
-    height: 26px;
+    height: 24px;
     background: rgba(255, 255, 255, 0.12);
-}
-
-.dash-brand-group {
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-}
-
-.dash-logo {
-    height: 28px;
-    width: auto;
-    object-fit: contain;
 }
 
 .dash-title-group {
     display: flex;
     flex-direction: column;
-    gap: 0.1rem;
+    gap: 0.15rem;
 }
 
-.dash-badge-hub {
-    display: inline-flex;
+.dash-title-main-row {
+    display: flex;
     align-items: center;
-    gap: 0.3rem;
-    font-size: 0.65rem;
-    font-weight: 800;
-    color: #38BDF8;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
+    gap: 0.6rem;
 }
 
 .dash-title {
-    font-size: 0.95rem !important;
+    font-size: 0.96rem !important;
     font-weight: 800 !important;
     color: #FFFFFF !important;
     margin: 0 !important;
@@ -4634,83 +4617,192 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     font-family: var(--font-heading) !important;
 }
 
-/* Header Direito */
+.dash-tag-hub {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #38BDF8;
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    padding: 0.15rem 0.5rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.dash-tag-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #38BDF8;
+}
+
+.dash-subtitle {
+    font-size: 0.72rem;
+    color: #94A3B8;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Lado Direito */
 .dash-header-right {
     display: flex;
     align-items: center;
     gap: 0.65rem;
 }
 
-.dash-status-badge {
+/* Status Pill Interativo com Pulso */
+.dash-status-pill {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    font-size: 0.74rem;
-    font-weight: 700;
+    gap: 0.45rem;
     padding: 0.32rem 0.75rem;
-    border-radius: 30px;
+    border-radius: 20px;
+    font-size: 0.74rem;
+    font-weight: 600;
     cursor: pointer;
+    border: 1px solid transparent;
     transition: all 0.2s ease;
+    background: transparent;
+    outline: none;
     user-select: none;
 }
 
-.status-live {
-    background: rgba(74, 222, 128, 0.15);
-    color: #4ADE80;
-    border: 1px solid rgba(74, 222, 128, 0.35);
+.dash-status-pill.status-demo {
+    background: rgba(245, 158, 11, 0.12);
+    border-color: rgba(245, 158, 11, 0.32);
+    color: #FCD34D;
 }
 
-.status-demo {
-    background: rgba(245, 158, 11, 0.15);
-    color: #FBBF24;
-    border: 1px solid rgba(245, 158, 11, 0.4);
+.dash-status-pill.status-demo:hover {
+    background: rgba(245, 158, 11, 0.2);
+    border-color: rgba(245, 158, 11, 0.55);
+    transform: translateY(-1px);
 }
 
-.status-dot {
-    width: 6px;
-    height: 6px;
+.dash-status-pill.status-live {
+    background: rgba(34, 197, 94, 0.12);
+    border-color: rgba(34, 197, 94, 0.32);
+    color: #86EFAC;
+}
+
+.dash-status-pill.status-live:hover {
+    background: rgba(34, 197, 94, 0.2);
+    border-color: rgba(34, 197, 94, 0.55);
+    transform: translateY(-1px);
+}
+
+.status-pulse-dot {
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
+    position: relative;
     display: inline-block;
+    flex-shrink: 0;
 }
 
-.status-dot.live {
-    background: #4ADE80;
-    box-shadow: 0 0 6px #4ADE80;
+.status-pulse-dot.dot-demo {
+    background: #F59E0B;
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+    animation: pulseAmber 2.2s infinite;
 }
 
-.status-dot.demo {
-    background: #FBBF24;
-    box-shadow: 0 0 6px #FBBF24;
+.status-pulse-dot.dot-live {
+    background: #22C55E;
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    animation: pulseGreen 2.2s infinite;
 }
 
-.dash-config-btn {
-    background: rgba(25, 163, 223, 0.18);
+@keyframes pulseAmber {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 6px rgba(245, 158, 11, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+    }
+}
+
+@keyframes pulseGreen {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
+}
+
+/* Botão Conectar GA4 */
+.dash-btn-config {
+    background: rgba(25, 163, 223, 0.16);
     border: 1px solid rgba(25, 163, 223, 0.45);
     color: #38BDF8;
-    font-size: 0.76rem;
+    font-size: 0.75rem;
     font-weight: 700;
     padding: 0.35rem 0.8rem;
     border-radius: 8px;
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.4rem;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.dash-config-btn:hover {
+.dash-btn-config:hover {
     background: #19A3DF;
     color: #FFFFFF;
     border-color: #19A3DF;
+    box-shadow: 0 0 14px rgba(25, 163, 223, 0.35);
+    transform: translateY(-1px);
 }
 
-.dash-spin {
-    animation: dashSpin 0.8s linear infinite;
+.dash-btn-config:hover svg {
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
 }
 
-@keyframes dashSpin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+/* Botão / Link Voltar ao Site */
+.dash-btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #94A3B8;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.dash-btn-back:hover {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateX(-2px);
+}
+
+.dash-btn-back svg {
+    transition: transform 0.2s ease;
+}
+
+.dash-btn-back:hover svg {
+    transform: translateX(-2px);
 }
 
 /* 2. CONTEÚDO PRINCIPAL COMPACTO */
