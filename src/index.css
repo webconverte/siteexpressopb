@@ -71,7 +71,7 @@ h4 { font-size: 1.2rem; margin-bottom: 0.5rem; }
 
 a { text-decoration: none; color: inherit; }
 
-.container { width: 100%; max-width: 1360px; margin: 0 auto; padding: 0 2rem; }
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 @media (max-width: 768px) {
     .container { padding: 0 1.25rem; }
 }
@@ -100,10 +100,10 @@ a { text-decoration: none; color: inherit; }
     justify-content: space-between; 
     align-items: center; 
     width: 100%;
-    max-width: 1360px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
-    gap: 2rem;
+    padding: 0 1.5rem;
+    gap: 1.5rem;
 }
 .header-logo {
     display: flex;
@@ -225,7 +225,7 @@ section { padding: 5rem 0; }
 .bg-light { background: var(--gray-light); }
 .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 1rem; }
 .section-sub { text-align: center; color: var(--text-muted); font-size: 1.1rem; max-width: 700px; margin: 0 auto 3rem; }
-.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
 
 /* Components */
@@ -235,7 +235,7 @@ section { padding: 5rem 0; }
 .card-title { font-size: 1.3rem; margin-bottom: 0.5rem; }
 
 .hero { 
-    min-height: 85vh;
+    min-height: clamp(560px, 68vh, 640px);
     background-color: var(--dark-blue);
     background-image: url('./assets/hero_truck_br.png');
     background-repeat: no-repeat;
@@ -246,7 +246,7 @@ section { padding: 5rem 0; }
     align-items: center; 
     color: var(--white); 
     margin-top: 0; 
-    padding: 120px 0 140px 0;
+    padding: 120px 0 95px 0;
 }
 .hero::before { 
     content: ''; 
@@ -664,13 +664,13 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     position: relative;
     z-index: 10;
     margin-top: -90px;
-    padding: 0 0 5rem 0;
+    padding: 0 0 4rem 0;
     background: linear-gradient(180deg, transparent 0, transparent 90px, var(--gray-light) 90px, var(--gray-light) 100%);
 }
 .feature-card {
     background: var(--white);
     border-radius: 20px;
-    padding: 2.5rem;
+    padding: 2.25rem 2rem;
     box-shadow: 0 15px 35px rgba(0, 3, 39, 0.06);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 1px solid rgba(0,0,0,0.03);
@@ -4570,7 +4570,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 .dash-header-container {
     width: 100%;
-    max-width: 1360px;
+    max-width: 1240px;
     margin: 0 auto;
     padding: 0 1.5rem;
     display: flex;
@@ -4828,7 +4828,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 .dash-container {
     width: 100%;
-    max-width: 1360px;
+    max-width: 1240px;
     margin: 0 auto;
     padding: 0 1.5rem;
 }
