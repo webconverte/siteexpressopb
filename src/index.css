@@ -235,7 +235,7 @@ section { padding: 5rem 0; }
 .card-title { font-size: 1.3rem; margin-bottom: 0.5rem; }
 
 .hero { 
-    min-height: clamp(560px, 68vh, 640px);
+    min-height: clamp(600px, 72vh, 680px);
     background-color: var(--dark-blue);
     background-image: url('./assets/hero_truck_br.png');
     background-repeat: no-repeat;
@@ -246,7 +246,7 @@ section { padding: 5rem 0; }
     align-items: center; 
     color: var(--white); 
     margin-top: 0; 
-    padding: 120px 0 95px 0;
+    padding: 145px 0 115px 0;
 }
 .hero::before { 
     content: ''; 
@@ -262,7 +262,7 @@ section { padding: 5rem 0; }
 .hero h1 { color: var(--white); font-size: 3.8rem; margin-bottom: 1.2rem; max-width: 680px; line-height: 1.15; }
 .hero p { font-size: 1.2rem; max-width: 520px; margin-bottom: 1.8rem; opacity: 0.9; font-weight: 300; letter-spacing: 0.5px; }
 .hero-btns { display: flex; gap: 1rem; }
-.hero-tags { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
 .hero-tag { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.1); padding: 0.4rem 0.8rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(4px); }
 .hero-tag svg { color: var(--primary-blue); }
 
@@ -663,9 +663,9 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .highlights-section {
     position: relative;
     z-index: 10;
-    margin-top: -90px;
+    margin-top: -75px;
     padding: 0 0 4rem 0;
-    background: linear-gradient(180deg, transparent 0, transparent 90px, var(--gray-light) 90px, var(--gray-light) 100%);
+    background: linear-gradient(180deg, transparent 0, transparent 75px, var(--gray-light) 75px, var(--gray-light) 100%);
 }
 .feature-card {
     background: var(--white);
@@ -1681,7 +1681,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .highlights-section::before {
     content: '';
     position: absolute;
-    top: 120px;
+    top: 100px;
     left: 0;
     right: 0;
     bottom: 0;
