@@ -287,7 +287,7 @@ const TrabalheConosco = () => {
             </div>
 
             {/* 3. Nossos Diferenciais para Colaboradores (Fundo Azul Acima do Footer) */}
-            <section style={{ padding: '6rem 0', background: 'var(--dark-blue)', color: 'var(--white)', borderTop: '1px solid rgba(25, 163, 223, 0.2)' }}>
+            <section className="carreiras-diferenciais-section">
                 <div className="container">
                     <div className="section-header text-center" style={{ marginBottom: '4rem' }}>
                         <span className="kicker" style={{ color: '#38bdf8', letterSpacing: '2px', fontWeight: '800', textTransform: 'uppercase', marginBottom: '1rem', display: 'inline-block' }}>

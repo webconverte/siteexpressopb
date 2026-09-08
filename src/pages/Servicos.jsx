@@ -22,7 +22,7 @@ const Servicos = () => {
             </div>
             
             {/* 2. Pilares de Serviço */}
-            <section style={{padding: '6rem 0'}}>
+            <section className="servicos-pilares-section">
                 <div className="container">
                     <div className="grid-3 mobile-carousel" style={{alignItems: 'stretch'}}>
                         <div className="feature-card" style={{height: '100%', padding: '3.5rem 2.5rem'}}>
@@ -71,7 +71,7 @@ const Servicos = () => {
             </section>
 
             {/* 3. A Frota */}
-            <section style={{padding: '8rem 0', background: 'var(--dark-blue)', color: 'var(--white)'}}>
+            <section className="servicos-frota-section">
                 <div className="container">
                     <div style={{textAlign: 'center', marginBottom: '5rem'}}>
                         <span className="kicker" style={{color: 'var(--primary-blue)', letterSpacing: '2px', fontWeight: '800', textTransform: 'uppercase', marginBottom: '1rem', display: 'block'}}>Ativos de Alta Performance</span>
@@ -189,7 +189,7 @@ const Servicos = () => {
             </section>
 
             {/* 4. Como Funciona */}
-            <section style={{padding: '8rem 0'}}>
+            <section className="servicos-processo-section">
                 <div className="container grid-2" style={{alignItems: 'stretch', gap: '5rem'}}>
                     <div>
                         <h2 style={{fontSize: '3rem', fontWeight: '800', marginBottom: '3.5rem', letterSpacing: '-1px'}}>Como orquestramos o transporte dedicado</h2>
@@ -231,7 +231,7 @@ const Servicos = () => {
             </section>
 
             {/* 5. Controle Total */}
-            <section style={{padding: '6rem 0 8rem', background: '#f4f6f9'}}>
+            <section className="servicos-tech-section">
                 <div className="container">
                     <div style={{textAlign: 'center', marginBottom: '4rem'}}>
                         <span className="kicker" style={{color: 'var(--primary-blue)', letterSpacing: '2px', fontWeight: '800', textTransform: 'uppercase', marginBottom: '0.8rem', display: 'inline-block'}}>Tecnologia Embarcada</span>

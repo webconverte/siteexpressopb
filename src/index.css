@@ -758,7 +758,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 /* --- Sobre Section --- */
 .sobre-section { 
-    padding: 8rem 0; 
+    padding: 3.5rem 0 7rem 0; 
     background: var(--gray-light);
 }
 .image-wrapper { position: relative; z-index: 1; }
@@ -819,7 +819,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 /* --- Nossas Solucoes --- */
-.solucoes-section { padding: 8rem 0; background: var(--white); }
+.solucoes-section { padding: 7rem 0; background: var(--white); }
 .text-center { text-align: center; }
 .section-header { margin-bottom: 4rem; }
 .section-header .kicker {
@@ -915,7 +915,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 /* --- Atuacao Section --- */
 .atuacao-section {
     background: var(--dark-blue);
-    padding: 8rem 0; 
+    padding: 7rem 0; 
     position: relative;
     overflow: hidden;
 }
@@ -1003,7 +1003,14 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 
 /* --- Cases de Sucesso --- */
-.cases-section { padding: 8rem 0; background: var(--white); }
+.cases-section { padding: 7rem 0 4rem; background: var(--white); }
+.cases-cta-box {
+    margin-top: 4.5rem;
+    padding: 3.5rem 2.5rem;
+    background: #f8f9fa;
+    border-radius: 24px;
+    border: 1px solid rgba(0,0,0,0.03);
+}
 .cases-grid { gap: 3rem; }
 .case-card {
     border-radius: 24px;
@@ -1041,13 +1048,19 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .case-metric-label { font-size: 1rem; color: rgba(255,255,255,0.7); font-weight: 500; max-width: 150px; line-height: 1.3; text-transform: uppercase; letter-spacing: 0.5px; }
 
 @media (max-width: 992px) {
+    .cases-section { padding: 4.5rem 0 2.5rem; }
     .cases-grid { grid-template-columns: 1fr; gap: 2rem; }
     .case-card { padding: 2.5rem; min-height: 400px; }
     .quote-mark { right: 1rem; font-size: 8rem; }
+    .cases-cta-box {
+        margin-top: 2.5rem;
+        padding: 2.2rem 1.4rem;
+        border-radius: 20px;
+    }
 }
 
 /* --- Tecnologia --- */
-.tecnologia-section { padding: 7rem 0; background: var(--white); }
+.tecnologia-section { padding: 4rem 0 4.5rem; background: var(--white); }
 .tech-image-wrapper { position: relative; border-radius: 24px; padding-right: 2rem; }
 .tech-img { border-radius: 24px; box-shadow: 0 20px 40px rgba(0,3,39,0.1); position: relative; z-index: 2; width: 100%; height: auto; }
 .tech-glow {
@@ -1064,6 +1077,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .tech-list p { margin-bottom: 0; font-size: 1rem; color: var(--text-muted); line-height: 1.5; }
 
 @media (max-width: 992px) {
+    .tecnologia-section { padding: 3rem 0 3.5rem; }
     .tecnologia-section .grid-2 { grid-template-columns: 1fr; gap: 3rem; }
     .tech-image-wrapper { padding-right: 0; }
     .tech-badge {
@@ -1266,7 +1280,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .footer-mega {
     background: #f8f9fa;
     color: var(--text-dark);
-    padding: 2rem 0 1.5rem;
+    padding: 4.5rem 0 2rem;
     position: relative;
 }
 .footer-cta {
@@ -1346,8 +1360,8 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     .footer-cta { flex-direction: column; text-align: center; gap: 2rem; padding: 3rem 1.5rem; margin: 0 0 3rem; border-radius: 0 0 20px 20px;}
 }
 @media (max-width: 768px) {
-    .footer-grid { grid-template-columns: 1fr; }
-    
+    .footer-mega { padding: 3.5rem 0 1.5rem; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
 }
 
 
@@ -1366,7 +1380,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 /* --- Cotação Section UX Redesign --- */
 .cotacao-cta-section {
-    padding: 8rem 0 6rem;
+    padding: 6rem 0 6rem;
     background: var(--dark-blue);
     position: relative;
 }
@@ -1455,6 +1469,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .grid-2-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 
 @media (max-width: 992px) {
+    .cotacao-cta-section { padding: 4rem 0 3.5rem; }
     .cotacao-container { grid-template-columns: 1fr; gap: 4rem; }
     .cotacao-text h2 { font-size: 2.5rem; }
     .cotacao-form-wrapper { padding: 2.5rem 1.5rem; }
@@ -1480,7 +1495,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 /* --- Sobre Page Redesign --- */
-.bento-section { padding: 8rem 0; background: var(--white); }
+.bento-section { padding: 6.5rem 0; background: var(--white); }
 .bento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 4rem; }
 .bento-right { display: flex; flex-direction: column; gap: 2rem; }
 .bento-card { padding: 4rem 3rem; border-radius: 32px; position: relative; overflow: hidden; transition: var(--transition); }
@@ -1499,14 +1514,14 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .values-list li::before { content: '→'; color: var(--primary-blue); font-weight: bold; font-size: 1.4rem;}
 
 /* Cinematic Break */
-.cinematic-break { position: relative; padding: 14rem 0; background-size: cover; background-position: center; background-attachment: fixed; text-align: center; color: var(--white); }
+.cinematic-break { position: relative; padding: 10rem 0; background-size: cover; background-position: center; background-attachment: fixed; text-align: center; color: var(--white); }
 .cinematic-overlay { position: absolute; inset: 0; background: linear-gradient(rgba(0,3,39,0.7), rgba(0,3,39,0.9)); z-index: 1; }
 .cinematic-content { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; padding: 0 2rem; }
 .cinematic-content h2 { font-size: 4rem; font-weight: 800; margin-bottom: 1.5rem; letter-spacing: -1px; line-height: 1.1; color: var(--white); }
 .cinematic-content p { font-size: 1.3rem; opacity: 0.9; line-height: 1.7; font-weight: 300;}
 
 /* Roadmap */
-.roadmap-section { padding: 8rem 0; overflow: hidden; }
+.roadmap-section { padding: 6.5rem 0; overflow: hidden; }
 .roadmap { position: relative; max-width: 1000px; margin: 6rem auto 0; padding-bottom: 3rem; }
 .roadmap-line { position: absolute; top: 0; bottom: 0; left: 50%; width: 4px; background: rgba(25,163,223,0.1); transform: translateX(-50%); border-radius: 4px;}
 .roadmap-item { position: relative; width: 50%; margin-bottom: 7rem; }
@@ -1526,9 +1541,12 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .sobre-cta-section { padding: 4rem 0 10rem; background: var(--white); }
 
 @media (max-width: 992px) {
+    .bento-section { padding: 4rem 0 3.5rem; }
     .bento-grid { grid-template-columns: 1fr; }
     .bento-card { padding: 2.5rem; }
+    .cinematic-break { padding: 5rem 0; }
     .cinematic-content h2 { font-size: 2.5rem; }
+    .roadmap-section { padding: 4rem 0 3.5rem; }
     .roadmap-line { left: 30px; }
     .roadmap-item { width: 100%; margin-left: 0 !important; padding-left: 5rem !important; text-align: left !important; }
     .roadmap-item.left::before, .roadmap-item.right::before { left: 18px; right: auto; }
@@ -1934,6 +1952,12 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     max-width: 100% !important;
 }
 
+@media (max-width: 992px) {
+    .sobre-cta-section {
+        padding: 4rem 0 3.5rem !important;
+    }
+}
+
 /* Stepper Modern */
 .stepper-modern {
     display: flex;
@@ -2106,6 +2130,39 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     margin-top: 0.2rem;
 }
 
+/* --- Servicos Page Section Spacings --- */
+.servicos-pilares-section {
+    padding: 6rem 0;
+    background: var(--white);
+}
+.servicos-frota-section {
+    padding: 6.5rem 0;
+    background: var(--dark-blue);
+    color: var(--white);
+}
+.servicos-processo-section {
+    padding: 6.5rem 0;
+    background: var(--white);
+}
+.servicos-tech-section {
+    padding: 6rem 0 6rem;
+    background: #f4f6f9;
+}
+@media (max-width: 992px) {
+    .servicos-pilares-section {
+        padding: 3.5rem 0;
+    }
+    .servicos-frota-section {
+        padding: 4rem 0 3.5rem;
+    }
+    .servicos-processo-section {
+        padding: 4rem 0 3.5rem;
+    }
+    .servicos-tech-section {
+        padding: 3.5rem 0;
+    }
+}
+
 /* Frota Grid & Cards */
 .frota-grid {
     display: grid;
@@ -2193,7 +2250,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 /* --- Atuacao Page Styles --- */
 .matriz-section {
-    padding: 7rem 0;
+    padding: 6rem 0;
     background: var(--white);
 }
 .matriz-banner-card {
@@ -2205,7 +2262,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     overflow: hidden;
     color: var(--white);
     box-shadow: 0 25px 60px rgba(0, 3, 39, 0.25);
-    margin-bottom: 5rem;
+    margin-bottom: 0;
 }
 .matriz-card-header {
     max-width: 800px;
@@ -2276,12 +2333,12 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 @media (max-width: 992px) {
     .matriz-section {
-        padding: 4rem 0;
+        padding: 3.5rem 0;
     }
     .matriz-banner-card {
         padding: 2.5rem 1.8rem;
         border-radius: 24px;
-        margin-bottom: 3.5rem;
+        margin-bottom: 0;
     }
     .matriz-title {
         font-size: 2.4rem;
@@ -2302,7 +2359,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     .matriz-banner-card {
         padding: 2rem 1.25rem;
         border-radius: 20px;
-        margin-bottom: 2.5rem;
+        margin-bottom: 0;
     }
     .matriz-badge-pill {
         font-size: 0.72rem;
@@ -2346,7 +2403,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 /* Filiais Grid & Carousel */
 .filiais-section {
-    padding: 7rem 0;
+    padding: 6.5rem 0;
     background: #f8fafc;
 }
 .filiais-carousel-wrapper {
@@ -2366,7 +2423,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 @media (max-width: 992px) {
     .filiais-section {
-        padding: 4rem 0 3.5rem;
+        padding: 3.5rem 0 3.5rem;
     }
     .filiais-section .section-header {
         margin-bottom: 2.2rem;
@@ -2497,9 +2554,23 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     font-size: 1.1rem;
 }
 
+/* Mapa Interativo Section */
+.mapa-interativo-section {
+    padding: 6.5rem 0;
+    background: var(--dark-blue);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+@media (max-width: 992px) {
+    .mapa-interativo-section {
+        padding: 4rem 0 3.5rem;
+    }
+}
+
 /* Corredores de Carga & Carousel */
 .corredores-section {
-    padding: 7rem 0;
+    padding: 6.5rem 0;
     background: var(--gray-light);
 }
 .corredores-carousel-wrapper {
@@ -2544,7 +2615,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 @media (max-width: 992px) {
     .corredores-section {
-        padding: 4.5rem 0 4rem;
+        padding: 3.5rem 0 3.5rem;
     }
     .corredores-section .section-header {
         margin-bottom: 2.2rem;
@@ -2604,7 +2675,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
    Página Contato & Cotação Corporativa
    ========================================================================== */
 .contato-wrapper {
-    padding: 6rem 0 8rem 0;
+    padding: 5.5rem 0 6rem 0;
     background: #f8fafc;
     position: relative;
 }
@@ -2764,8 +2835,14 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 @media (max-width: 992px) {
+    .contato-wrapper {
+        padding: 3.5rem 0 3.5rem;
+    }
     .quote-form-card {
         padding: 2rem 1.5rem;
+    }
+    .sla-trust-section {
+        padding: 3.5rem 0 3.5rem;
     }
     .sla-trust-grid {
         grid-template-columns: 1fr;
@@ -2777,7 +2854,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
    Página Trabalhe Conosco (Carreiras & Agregados)
    ========================================================================== */
 .carreiras-wrapper {
-    padding: 6rem 0 8rem 0;
+    padding: 5.5rem 0 6rem 0;
     background: #f8fafc;
     position: relative;
 }
@@ -2922,11 +2999,26 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     margin: 0;
 }
 
+.carreiras-diferenciais-section {
+    padding: 5.5rem 0;
+    background: var(--dark-blue);
+    color: var(--white);
+    border-top: 1px solid rgba(25, 163, 223, 0.2);
+}
+@media (max-width: 992px) {
+    .carreiras-wrapper {
+        padding: 3.5rem 0 3.5rem;
+    }
+    .carreiras-diferenciais-section {
+        padding: 3.5rem 0;
+    }
+}
+
 /* ==========================================================================
    Seção de Sustentabilidade & ESG na Home
    ========================================================================== */
 .eco-section {
-    padding: 8rem 0;
+    padding: 4.5rem 0 5.5rem;
     background: #ffffff;
     position: relative;
     overflow: hidden;
@@ -3068,6 +3160,9 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 @media (max-width: 992px) {
+    .eco-section {
+        padding: 3.5rem 0 3.5rem;
+    }
     .eco-banner-box {
         padding: 2.5rem 1.8rem;
     }

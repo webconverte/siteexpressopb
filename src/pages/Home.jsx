@@ -361,7 +361,7 @@ const Home = () => {
                         </div>
                     </div>
                     
-                    <div className="text-center" style={{marginTop: '6rem', padding: '4rem 2rem', background: '#f8f9fa', borderRadius: '24px', border: '1px solid rgba(0,0,0,0.03)'}}>
+                    <div className="cases-cta-box text-center">
                         <h3 style={{fontSize: '1.8rem', color: 'var(--dark-blue)', marginBottom: '1rem', fontWeight: 800}}>Sua empresa precisa de um parceiro logístico de alta performance?</h3>
                         <p style={{color: 'var(--text-muted)', marginBottom: '2.5rem', fontSize: '1.1rem'}}>Nossos especialistas estão prontos para desenhar a melhor malha de transporte para o seu negócio, reduzindo custos e otimizando prazos.</p>
                         <Link to="#cotacao" className="btn-primary" onClick={(e) => {

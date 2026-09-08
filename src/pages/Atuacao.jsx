@@ -196,7 +196,7 @@ const Atuacao = () => {
             </section>
 
             {/* 4. Mapa Interativo & Painel Dinâmico */}
-            <section style={{padding: '8rem 0', background: 'var(--dark-blue)', color: 'var(--white)', position: 'relative', overflow: 'hidden'}}>
+            <section className="mapa-interativo-section">
                 <div className="container">
                     <div className="grid-2" style={{alignItems: 'center', gap: '4rem'}}>
                         <div>
