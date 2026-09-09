@@ -23,32 +23,32 @@ export const segmentosData = {
         personas: [
             {
                 role: 'Para o Gerente de Logística',
-                badge: 'Segurança Operacional',
-                title: 'Fim das perdas na doca e integridade máxima do pallet ao destino final',
+                badge: 'Segurança na Entrega',
+                title: 'Sem perdas na doca e carga entregue sem avarias do início ao fim',
                 points: [
-                    'Amarração técnica certificada: cantoneiras emborrachadas e cintas com catraca de alta tonelagem para impedir tombamento e trincas de peças.',
-                    'Motoristas experientes e treinados no manuseio de pallets pesados e empilhamento normatizado.',
-                    'Torre de controle satelital 24 horas por dia com telemetria ativa e previsão exata de chegada (ETA) no canteiro ou revenda.'
+                    'Amarração reforçada com cantoneiras de borracha e cintas com catraca para evitar tombamento e trincas nas peças.',
+                    'Motoristas experientes no manuseio de cargas pesadas e empilhamento correto dos produtos.',
+                    'Monitoramento 24 horas por dia com rastreamento em tempo real e horário de chegada preciso no canteiro ou revenda.'
                 ]
             },
             {
-                role: 'Para o Comprador de Frete / Procurement',
+                role: 'Para o Comprador de Frete',
                 badge: 'Previsibilidade Financeira',
-                title: 'Tabela fechada, sem surpresas no DRE e isenção contratual de estadias',
+                title: 'Preço fechado, sem cobranças surpresa e sem custo de espera na doca',
                 points: [
-                    'Isenção contratual de taxa de pernoite quando sua descarga ou cliente final demorar além do previsto.',
-                    'Contratos dedicados que blindam seu orçamento contra a volatilidade abusiva do frete spot em períodos de safra.',
-                    'Faturamento corporativo transparente com relatórios mensais de performance (SLA) para auditoria contábil.'
+                    'Você não paga taxa de pernoite quando a descarga ou o cliente final demorar além do previsto.',
+                    'Contratos que protegem seu orçamento das variações bruscas de preço comuns no mercado.',
+                    'Notas e relatórios mensais transparentes para facilitar o controle do seu financeiro.'
                 ]
             },
             {
-                role: 'Para o Diretor de Supply Chain / COO',
-                badge: 'Compliance & Reputação',
-                title: 'Proteção da marca e abastecimento contínuo de grandes obras e home centers',
+                role: 'Para o Diretor de Operações',
+                badge: 'Reputação e Confiança',
+                title: 'Proteção da marca e abastecimento contínuo de grandes obras e lojas',
                 points: [
                     'Histórico comprovado como 2ª maior parceira logística da Cerbras e transportadora premiada pela Cerâmica Elizabeth.',
-                    'Apólice completa RCTR-C e RC-DC com gerenciadora de risco homologada de primeira linha (Pamcary / Buonny).',
-                    'Garantia de reposição e continuidade operacional sem rupturas nas gôndolas e sem atrasos em obras de grande porte.'
+                    'Seguro completo contra acidentes e roubo com gestora de risco reconhecida no mercado (Pamcary / Buonny).',
+                    'Reposição garantida e operação contínua sem faltas nas prateleiras ou atrasos em obras de grande porte.'
                 ]
             }
         ],
@@ -142,32 +142,32 @@ export const segmentosData = {
         personas: [
             {
                 role: 'Para o Gerente de Logística',
-                badge: 'Slot & Docas',
-                title: 'Agendamento cumprido à risca nos atacarejos e CDs mais exigentes',
+                badge: 'Agendamento e Docas',
+                title: 'Horário cumprido nos atacarejos e centros de distribuição mais exigentes',
                 points: [
-                    'Protocolo de chegada antecipada de 60 a 90 minutos para conferência de notas fiscais e liberação de portaria sem estresse.',
-                    'Baús secos, vedados contra umidade, poeira e pragas urbanas, com checklist sanitário prévio antes de cada carregamento.',
-                    'Contato direto e proativo entre nossa torre de monitoramento e o time de agendamento do cliente em caso de fila na doca.'
+                    'Chegada antecipada de 60 a 90 minutos para conferência das notas fiscais e liberação na portaria sem estresse.',
+                    'Baús secos, fechados contra umidade, poeira e insetos, com checklist de limpeza antes de cada carregamento.',
+                    'Contato direto e proativo entre nossa equipe de monitoramento e o time de agendamento do cliente quando há fila na doca.'
                 ]
             },
             {
-                role: 'Para o Comprador de Frete / Procurement',
+                role: 'Para o Comprador de Frete',
                 badge: 'Sem Custos Ocultos',
-                title: 'Isenção de pernoite quando o atacado atrasa e tabela protegida o ano todo',
+                title: 'Sem cobrança de pernoite quando o atacado atrasa e preço protegido o ano todo',
                 points: [
-                    'Quem compra frete sabe: o caminhão chega no horário marcado, mas o CD demora 14 horas para descarregar. Na Expresso PB, você não paga pernoite por culpa do receptor.',
-                    'Negociação de tabelas previsíveis de médio e longo prazo, imunes aos picos sazonais do mercado spot.',
-                    'Relatórios detalhados de tempo de trânsito e tempo de permanência em doca para municiar suas reuniões comerciais com clientes.'
+                    'O caminhão chega no horário marcado, mas o CD pode demorar horas para descarregar. Na Expresso PB, você não paga por atraso gerado pelo receptor.',
+                    'Negociação de preços estáveis para médio e longo prazo, sem surpresas nos períodos de alta demanda.',
+                    'Relatórios detalhados de tempo de entrega e espera na doca para embasar suas reuniões com clientes.'
                 ]
             },
             {
-                role: 'Para o Diretor de Supply Chain / COO',
+                role: 'Para o Diretor de Operações',
                 badge: 'Continuidade de Venda',
-                title: 'Zero risco de ruptura de gôndola nas maiores redes varejistas do Brasil',
+                title: 'Zero risco de falta de produto nas maiores redes varejistas do Brasil',
                 points: [
-                    'Preservação do índice OTIF (On-Time In-Full) com redes como Assaí, Atacadão, Grupo Mateus, Carrefour e redes regionais.',
-                    'Eliminação de penalidades comerciais e multas de "no-show" causadas por transportadoras descompromissadas.',
-                    'Capacidade comprovada de alocação de frota emergencial para picos promocionais (Black Friday, Festas Juninas e Natal).'
+                    'Entregas no prazo e na quantidade certa para redes como Assaí, Atacadão, Grupo Mateus, Carrefour e redes regionais.',
+                    'Sem multas ou penalidades por atraso causadas por transportadoras que não cumprem o combinado.',
+                    'Capacidade comprovada de aumentar a frota rapidamente nos picos de venda (Black Friday, Festas Juninas e Natal).'
                 ]
             }
         ],
@@ -261,32 +261,32 @@ export const segmentosData = {
         personas: [
             {
                 role: 'Para o Gerente de Logística',
-                badge: 'Volumetria & Paletização',
-                title: 'Otimização de espaço e proteção absoluta contra umidade e poeira',
+                badge: 'Espaço e Organização',
+                title: 'Aproveitamento máximo do espaço e proteção total contra umidade e poeira',
                 points: [
-                    'Veículos com altura e cubagem interna projetadas para empilhamento estável de bobinas de papel e fardos de embalagem.',
+                    'Veículos com altura e capacidade interna ideais para empilhamento estável de bobinas de papel e fardos de embalagem.',
                     'Lonas e baús testados contra infiltração: papel e celulose não toleram uma gota sequer de chuva durante o trajeto.',
-                    'Operação dedicada no abastecimento de linhas de conversão fabril sem atrasos de esteira ou linha paralisada.'
+                    'Operação dedicada no abastecimento das linhas de produção sem paradas de esteira ou linha paralisada.'
                 ]
             },
             {
-                role: 'Para o Comprador de Frete / Procurement',
-                badge: 'Eficiência de Custo/m³',
-                title: 'Redução drástica do custo unitário por tonelada e metro cúbico transportado',
+                role: 'Para o Comprador de Frete',
+                badge: 'Custo por Volume',
+                title: 'Redução real do custo por tonelada e metro cúbico transportado',
                 points: [
-                    'Quanto maior a cubagem do conjunto veicular, menor o custo unitário do frete por produto entregue no destino.',
-                    'Isenção de taxas de pernoite que costumam encarecer o transporte quando há filas na balança ou esteira fabril.',
-                    'Contratos de longo prazo com previsibilidade de desembolso e reajustes paramétricos justos.'
+                    'Quanto maior o caminhão, menor o custo unitário do frete por produto entregue no destino.',
+                    'Sem cobrança de pernoite quando há filas na balança ou na esteira da fábrica.',
+                    'Contratos de longo prazo com preço previsível e reajustes justos.'
                 ]
             },
             {
-                role: 'Para o Diretor de Supply Chain / COO',
+                role: 'Para o Diretor de Operações',
                 badge: 'Fluxo Ininterrupto',
-                title: 'Garantia de suprimento industrial contínuo e sem paradas fabris',
+                title: 'Garantia de abastecimento industrial contínuo e sem paradas na produção',
                 points: [
-                    'Segurança de escoamento para plantas integradas de celulose, onduladeiras e bens de consumo de giro rápido (FMCG).',
-                    'Frota jovem e rastreada, eliminando quebras mecânicas na estrada que poderiam paralisar a produção do cliente.',
-                    'Atendimento rigoroso das exigências ambientais e de governança das maiores indústrias do setor.'
+                    'Segurança no escoamento para fábricas de celulose, embalagens e produtos de consumo do dia a dia.',
+                    'Frota jovem e rastreada, eliminando quebras mecânicas na estrada que poderiam parar a sua produção.',
+                    'Cumprimento das exigências ambientais e de governança das maiores indústrias do setor.'
                 ]
             }
         ],
@@ -381,31 +381,31 @@ export const segmentosData = {
             {
                 role: 'Para o Gerente de Logística e Manutenção',
                 badge: 'Técnica e Precisão',
-                title: 'Amarração técnica milimétrica e motoristas que entendem o valor do seu ativo',
+                title: 'Fixação milimétrica e motoristas que entendem o valor do seu equipamento',
                 points: [
-                    'Dimensionamento do centro de gravidade e fixação com correntes grau 8, catracas forjadas e calços emborrachados anti-deslizantes.',
-                    'Coordenação fina com equipes de içamento e operadores de guindaste na origem e no destino.',
-                    'Zero tolerância para solavancos bruscos: motoristas seniores treinados em direção defensiva para cargas pesadas e sensíveis.'
+                    'Cálculo do ponto de equilíbrio da carga e fixação com correntes de alta resistência, catracas forjadas e calços antideslizantes de borracha.',
+                    'Coordenação cuidadosa com as equipes de içamento e operadores de guindaste na origem e no destino.',
+                    'Zero tolerância para frenagens bruscas: motoristas experientes treinados para cargas pesadas e sensíveis.'
                 ]
             },
             {
-                role: 'Para o Comprador de Frete / Procurement',
-                badge: 'Risco Zero no DRE',
-                title: 'Isenção de pernoite na espera de munck/guindaste e apólice transparente',
+                role: 'Para o Comprador de Frete',
+                badge: 'Sem Surpresas no Orçamento',
+                title: 'Sem cobrança de pernoite na espera do guindaste e seguro com tudo incluído',
                 points: [
-                    'Sabemos que içar máquinas depende de guindaste, solo e equipe especializada, o que frequentemente atrasa. Não penalizamos seu orçamento com taxas abusivas de pernoite.',
-                    'Preço justo e sem surpresas na emissão de CT-e, com todas as taxas de seguro já consolidadas.',
-                    'Equipe de atendimento dedicada para orçamentos complexos e emissão ágil de AET (Autorização Especial de Trânsito) quando necessário.'
+                    'Içar máquinas depende de guindaste, terreno e equipe especializada, o que frequentemente atrasa. Não cobramos pernoite nesses casos.',
+                    'Preço justo e sem cobranças escondidas no documento fiscal, com o seguro já incluído.',
+                    'Equipe dedicada para orçamentos complexos e emissão ágil de autorização especial de trânsito quando necessário.'
                 ]
             },
             {
-                role: 'Para o Diretor Industrial / COO',
+                role: 'Para o Diretor Industrial',
                 badge: 'Continuidade e Patrimônio',
-                title: 'Blindagem do patrimônio industrial da sua empresa e de seus clientes',
+                title: 'Proteção do patrimônio da sua empresa e dos seus clientes',
                 points: [
-                    'Garantia de que uma máquina de alto valor não sofrerá descalibração ou avaria estrutural durante o trajeto rodoviário.',
-                    'Apólice de responsabilidade civil completa (RCTR-C e RC-DC) respaldada pelas maiores seguradoras do mercado brasileiro.',
-                    'Preservação da reputação da sua indústria perante o cliente final na entrega de plantas e equipamentos prontos para produção.'
+                    'Garantia de que uma máquina de alto valor não sofrerá danos ou descalibração durante o transporte.',
+                    'Seguro completo contra acidentes, tombamento e roubo, respaldado pelas maiores seguradoras do mercado.',
+                    'Preservação da reputação da sua empresa na entrega de equipamentos e instalações prontos para operar.'
                 ]
             }
         ],

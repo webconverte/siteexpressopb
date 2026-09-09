@@ -4,7 +4,6 @@ import {
     ShieldCheck, 
     Truck, 
     CheckCircle, 
-    CaretRight, 
     ArrowRight, 
     WhatsappLogo, 
     EnvelopeSimple, 
@@ -109,15 +108,6 @@ const SegmentoPage = () => {
                 }}
             >
                 <div className="container">
-                    {/* Breadcrumbs */}
-                    <nav className="segmento-breadcrumb" aria-label="Navegação estrutural">
-                        <Link to="/">Início</Link>
-                        <CaretRight size={14} weight="bold" />
-                        <Link to="/servicos">Soluções Logísticas</Link>
-                        <CaretRight size={14} weight="bold" />
-                        <span className="current">{segmento.title}</span>
-                    </nav>
-
                     <div className="segmento-hero-content">
                         {/* Kicker & Badge */}
                         <div className="segmento-badge-wrapper">
@@ -137,36 +127,39 @@ const SegmentoPage = () => {
                         {/* Subheadline conversando com dores de DRE e SLA */}
                         <p className="segmento-subheadline">{segmento.subheadline}</p>
 
-                        {/* Tags de Garantia e Blindagem */}
-                        <div className="segmento-tags-list">
-                            {segmento.tags.map((tag, idx) => (
-                                <div key={idx} className="segmento-tag-item">
-                                    <ShieldCheck weight="fill" className="segmento-tag-icon" />
-                                    <span>{tag}</span>
-                                </div>
-                            ))}
-                        </div>
-
-                        {/* Dual CTA */}
-                        <div className="segmento-hero-cta-group">
+                        {/* Dual CTA Padrão Design System */}
+                        <div className="hero-btns">
                             <button 
                                 type="button" 
-                                className="btn-primary segmento-btn-primary" 
+                                className="btn-primary" 
                                 onClick={scrollToForm}
                             >
                                 Solicitar Cotação Dedicada
-                                <ArrowDown weight="bold" size={18} />
+                                <ArrowDown weight="bold" size={16} />
                             </button>
 
                             <a 
                                 href={`https://wa.me/5583999999999?text=${encodeURIComponent(segmento.whatsappMessage)}`}
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="btn-whatsapp-hero"
+                                className="btn-outline"
                             >
-                                <WhatsappLogo weight="fill" size={22} />
+                                <WhatsappLogo weight="fill" size={18} color="#25D366" />
                                 Falar com Especialista
                             </a>
+                        </div>
+
+                        {/* Hero Stats (Igual ao padrão da Home, eliminando tags em formato de botão) */}
+                        <div className="hero-stats">
+                            {segmento.metrics.map((m, idx) => (
+                                <React.Fragment key={idx}>
+                                    {idx > 0 && <div className="stat-divider"></div>}
+                                    <div className="hero-stat-item">
+                                        <span className="stat-number">{m.value}</span>
+                                        <span className="stat-label">{m.label}</span>
+                                    </div>
+                                </React.Fragment>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -192,7 +185,7 @@ const SegmentoPage = () => {
                 <div className="container">
                     <div className="section-header text-center">
                         <span className="kicker">Alinhamento Estratégico</span>
-                        <h2>Projetado para Atender Todos os Seus Decisores</h2>
+                        <h2>Feito para atender quem decide</h2>
                         <p className="section-sub">
                             Uma operação de transporte eficiente deve responder às exigências da doca, à disciplina do financeiro e à governança da diretoria.
                         </p>
