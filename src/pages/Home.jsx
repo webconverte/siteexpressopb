@@ -294,7 +294,7 @@ const Home = () => {
                                 href="https://wa.me/5583999999999?text=Olá! Gostaria de uma cotação para o meu segmento."
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="btn-outline"
+                                className="btn-whatsapp-outros"
                             >
                                 <WhatsappLogo weight="fill" size={18} />
                                 WhatsApp

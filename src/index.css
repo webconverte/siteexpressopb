@@ -905,7 +905,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 /* --- Nossas Solucoes --- */
-.solucoes-section { padding: 7rem 0; background: var(--white); }
+.solucoes-section { padding: 7rem 0 2.5rem; background: var(--white); }
 .text-center { text-align: center; }
 .section-header { margin-bottom: 4rem; }
 .section-header .kicker {
@@ -1076,6 +1076,35 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     flex-shrink: 0;
     position: relative;
     z-index: 2;
+}
+.outros-segmentos-actions .btn-primary {
+    padding: 0.9rem 1.8rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.outros-segmentos-actions .btn-whatsapp-outros {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    padding: 0.9rem 1.8rem;
+    border-radius: 6px;
+    background: rgba(37, 211, 102, 0.15);
+    border: 1px solid rgba(37, 211, 102, 0.4);
+    color: #4ade80;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.outros-segmentos-actions .btn-whatsapp-outros:hover {
+    background: rgba(37, 211, 102, 0.25);
+    border-color: rgba(37, 211, 102, 0.7);
+    color: #4ade80;
+    transform: translateY(-2px);
 }
 @media (max-width: 768px) {
     .outros-segmentos-box {
