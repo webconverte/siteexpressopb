@@ -317,17 +317,6 @@ const SegmentoPage = () => {
                                 Nossa mesa comercial analisa as particularidades da sua rota e tipo de carga para formatar uma proposta técnica e comercial sob medida para a sua operação.
                             </p>
 
-                            {/* Banner Isenção de Pernoite */}
-                            <div className="pernoite-banner-inline">
-                                <ShieldCheck weight="fill" />
-                                <div>
-                                    <strong>Isenção Contratual de Pernoite:</strong>
-                                    <p style={{ margin: 0, fontSize: '0.88rem', color: 'var(--text-muted)' }}>
-                                        Eliminamos surpresas no seu DRE com cláusula de tolerância para demoras na doca ou descarga.
-                                    </p>
-                                </div>
-                            </div>
-
                             {/* Contatos Imediatos */}
                             <div className="quote-quick-contacts">
                                 <a 

@@ -159,10 +159,6 @@ const Contato = () => {
                                 </p>
                             </div>
 
-                            <div className="pernoite-banner-inline" style={{marginBottom: '1.8rem'}}>
-                                <ShieldCheck weight="fill" />
-                                <span><strong>Garantia Comercial:</strong> Contratos dedicados com isenção total de cobrança de pernoite — blindagem do seu DRE contra taxas ocultas.</span>
-                            </div>
 
                             {submitted ? (
                                 <div style={{
