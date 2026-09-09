@@ -373,7 +373,7 @@ const Home = () => {
                             <div className="case-logo">
                                 <Factory weight="fill" /> Elizabeth & Cerbras (Indústria Cerâmica)
                             </div>
-                            <div className="case-award-badge">
+                            <div className="case-award-badge badge-gold">
                                 <Trophy weight="fill" /> 2ª Maior Parceira Cerbras & Premiada Elizabeth
                             </div>
                             <h3>Eficiência e premiação máxima nas rotas do Nordeste</h3>
@@ -392,7 +392,7 @@ const Home = () => {
                             <div className="case-logo">
                                 <Package weight="fill" /> Bens de Consumo, Alimentos & Atacarejo
                             </div>
-                            <div className="case-award-badge" style={{background: 'rgba(56, 189, 248, 0.15)', borderColor: 'rgba(56, 189, 248, 0.4)', color: '#38bdf8'}}>
+                            <div className="case-award-badge badge-blue">
                                 <CheckCircle weight="fill" /> Janelas de Agendamento em CDs
                             </div>
                             <h3>Abastecimento contínuo sem estouro de diárias</h3>
