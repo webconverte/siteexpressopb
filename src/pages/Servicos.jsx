@@ -254,7 +254,7 @@ const Servicos = () => {
                                     </div>
                                     <div className="tech-metric">
                                         <span className="metric-val">2s</span>
-                                        <span className="metric-lbl">Ping Latency</span>
+                                        <span className="metric-lbl">Tempo de Resposta</span>
                                     </div>
                                 </div>
                             </div>
@@ -265,7 +265,7 @@ const Servicos = () => {
                             <div className="tech-card-img-box">
                                 <img src={imgDriver} alt="Telemetria Avançada" className="tech-card-img" />
                                 <span className="tech-card-pill">
-                                    <span className="pulse-dot"></span> COLETANDO
+                                    <span className="pulse-dot"></span> TELEMETRIA ATIVA
                                 </span>
                             </div>
                             <div className="tech-card-content">
@@ -289,12 +289,12 @@ const Servicos = () => {
                             <div className="tech-card-img-box">
                                 <img src={imgTablet} alt="Câmeras Inteligentes" className="tech-card-img" />
                                 <span className="tech-card-pill">
-                                    <span className="pulse-dot" style={{background: '#ef4444'}}></span> GRAVANDO (REC)
+                                    <span className="pulse-dot red"></span> GRAVAÇÃO ATIVA
                                 </span>
                             </div>
                             <div className="tech-card-content">
                                 <h3>Câmeras Inteligentes</h3>
-                                <p>Duplo monitoramento por IA (cabine e estrada) que age contra fadiga e distração, prevenindo acidentes.</p>
+                                <p>Duplo monitoramento por inteligência artificial (cabine e estrada) que age contra fadiga e distração, prevenindo acidentes.</p>
                                 <div className="tech-card-metrics">
                                     <div className="tech-metric">
                                         <span className="metric-val">4K</span>
@@ -302,7 +302,7 @@ const Servicos = () => {
                                     </div>
                                     <div className="tech-metric">
                                         <span className="metric-val">360°</span>
-                                        <span className="metric-lbl">Visão Periférica</span>
+                                        <span className="metric-lbl">Cobertura Total</span>
                                     </div>
                                 </div>
                             </div>
