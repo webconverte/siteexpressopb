@@ -639,17 +639,17 @@ const SegmentoPage = () => {
             <section className="segmento-final-cta">
                 <div className="container text-center">
                     <span className="kicker" style={{ color: '#38bdf8' }}>Atendimento Corporativo</span>
-                    <h2>Pronto para Blindar o Frete da Sua Indústria?</h2>
+                    <h2>Pronto para acabar com atrasos e cobranças surpresa no frete?</h2>
                     <p>
-                        Elimine o estresse de atrasos, avarias e cobranças abusivas de pernoite. Converse agora com nossa mesa técnica e comprove a eficiência da Expresso PB.
+                        Fale com nossa equipe comercial e veja como a Expresso PB pode simplificar a sua operação de transporte.
                     </p>
-                    <div className="final-cta-buttons">
+                    <div className="hero-btns" style={{ justifyContent: 'center' }}>
                         <button 
                             type="button" 
                             className="btn-primary" 
                             onClick={scrollToForm}
                         >
-                            Solicitar Cotação B2B Agora
+                            Solicitar Proposta
                             <ArrowDown weight="bold" size={18} />
                         </button>
 
@@ -657,9 +657,9 @@ const SegmentoPage = () => {
                             href={`https://wa.me/5583999999999?text=${encodeURIComponent(segmento.whatsappMessage)}`}
                             target="_blank" 
                             rel="noopener noreferrer"
-                            className="btn-whatsapp-hero"
+                            className="btn-outline"
                         >
-                            <WhatsappLogo weight="fill" size={22} />
+                            <WhatsappLogo weight="fill" size={20} />
                             Falar no WhatsApp
                         </a>
                     </div>
