@@ -212,54 +212,54 @@ const Home = () => {
                             ref={solucoesRef}
                             onScroll={handleSolucaoScroll}
                         >
-                            <div className="solucao-card">
+                            <Link to="/segmentos/construcao-civil" className="solucao-card">
                                 <div className="solucao-img-box">
                                     <img src={imgHighway} alt="Construção Civil" className="solucao-img" />
                                 </div>
                                 <div className="solucao-content">
                                     <h3>Construção Civil</h3>
                                     <p>Operação dedicada e premiada no transporte de pisos, cerâmicas e acabamentos pesados. Eliminação de avarias e ganho de 30% em agilidade de rota.</p>
-                                    <Link to="/segmentos/construcao-civil" className="solucao-link-btn">
-                                        Conhecer Solução Dedicada <ArrowRight weight="bold" size={16} />
-                                    </Link>
+                                    <span className="solucao-link-btn">
+                                        Ver Solução Dedicada <ArrowRight weight="bold" size={16} />
+                                    </span>
                                 </div>
-                            </div>
-                            <div className="solucao-card">
+                            </Link>
+                            <Link to="/segmentos/alimentos-bebidas" className="solucao-card">
                                 <div className="solucao-img-box">
                                     <img src={imgTablet} alt="Alimentos e Bebidas" className="solucao-img" />
                                 </div>
                                 <div className="solucao-content">
                                     <h3>Alimentos & Bebidas</h3>
                                     <p>Precisão cirúrgica no cumprimento rigoroso de janelas de agendamento em grandes redes de atacarejo e Centros de Distribuição (CDs), sem estadias.</p>
-                                    <Link to="/segmentos/alimentos-bebidas" className="solucao-link-btn">
-                                        Conhecer Solução Dedicada <ArrowRight weight="bold" size={16} />
-                                    </Link>
+                                    <span className="solucao-link-btn">
+                                        Ver Solução Dedicada <ArrowRight weight="bold" size={16} />
+                                    </span>
                                 </div>
-                            </div>
-                            <div className="solucao-card">
+                            </Link>
+                            <Link to="/segmentos/papel-celulose" className="solucao-card">
                                 <div className="solucao-img-box">
                                     <img src={imgHub} alt="Papel e Celulose" className="solucao-img" />
                                 </div>
                                 <div className="solucao-content">
                                     <h3>Papel & Celulose</h3>
                                     <p>Máxima cubagem e eficiência com carretas dedicadas, Bitrems e Rodotrens, reduzindo custos operacionais em cargas de alto volume.</p>
-                                    <Link to="/segmentos/papel-celulose" className="solucao-link-btn">
-                                        Conhecer Solução Dedicada <ArrowRight weight="bold" size={16} />
-                                    </Link>
+                                    <span className="solucao-link-btn">
+                                        Ver Solução Dedicada <ArrowRight weight="bold" size={16} />
+                                    </span>
                                 </div>
-                            </div>
-                            <div className="solucao-card">
+                            </Link>
+                            <Link to="/segmentos/maquinario-metalmecanica" className="solucao-card">
                                 <div className="solucao-img-box">
                                     <img src={imgDriver} alt="Maquinário e Metalmecânica" className="solucao-img" />
                                 </div>
                                 <div className="solucao-content">
                                     <h3>Maquinário & Metalmecânica</h3>
-                                    <p>Transporte especializado para cargas industriais pesadas e sensíveis, com amarração técnica certificada, monitoramento dedicado e seguro abrangente de ponta a ponta.</p>
-                                    <Link to="/segmentos/maquinario-metalmecanica" className="solucao-link-btn">
-                                        Conhecer Solução Dedicada <ArrowRight weight="bold" size={16} />
-                                    </Link>
+                                    <p>Transporte especializado para cargas industriais e maquinários pesados, com amarração técnica certificada, monitoramento dedicado e seguro total.</p>
+                                    <span className="solucao-link-btn">
+                                        Ver Solução Dedicada <ArrowRight weight="bold" size={16} />
+                                    </span>
                                 </div>
-                            </div>
+                            </Link>
                         </div>
 
                         <div className="solucoes-dots" aria-label="Navegação das soluções">
