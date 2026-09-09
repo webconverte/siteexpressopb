@@ -284,7 +284,7 @@ const Home = () => {
                         <div className="outros-segmentos-content">
                             <span className="kicker" style={{ color: '#38bdf8' }}>Outros Segmentos</span>
                             <h3>Seu setor não está aqui? A gente resolve.</h3>
-                            <p>Nossa frota versátil e equipe experiente atendem qualquer operação de carga — de ponta a ponta no Brasil. Entre em contato e montamos uma solução sob medida para o seu negócio.</p>
+                            <p>Nossa frota versátil e equipe experiente atendem qualquer operação de carga, de ponta a ponta no Brasil. Entre em contato e montamos uma solução sob medida para o seu negócio.</p>
                         </div>
                         <div className="outros-segmentos-actions">
                             <Link to="/contato" className="btn-primary">
