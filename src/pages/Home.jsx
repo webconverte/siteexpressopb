@@ -6,7 +6,7 @@ import brazilTopoJson from "../assets/brazil.json";
 import { 
     MapPin, ShieldCheck, Truck, Factory, Package, 
     Headset, Crosshair, ArrowRight, CheckCircle, 
-    MapPinLine, VideoCamera, Leaf, Tree, Recycle, Drop, Trophy
+    MapPinLine, VideoCamera, Leaf, Tree, Recycle, Drop, Trophy, WhatsappLogo
 } from '@phosphor-icons/react';
 import imgHub from '../assets/trait_hub.jpg';
 import imgHighway from '../assets/trait_highway.jpg';
@@ -278,15 +278,29 @@ const Home = () => {
             </section>
 
             {/* Outros Segmentos CTA */}
-            <section className="outros-segmentos-strip">
-                <div className="container outros-segmentos-inner">
-                    <div className="outros-segmentos-text">
-                        <span className="outros-segmentos-label">Seu setor não está na lista?</span>
-                        <p>Atendemos também outros segmentos da indústria e do comércio. Fale com a nossa equipe e nos conte a sua necessidade.</p>
+            <section className="outros-segmentos-section">
+                <div className="container">
+                    <div className="outros-segmentos-box">
+                        <div className="outros-segmentos-content">
+                            <span className="kicker" style={{ color: '#38bdf8' }}>Seu setor não está na lista?</span>
+                            <h3>Atendemos outros segmentos também</h3>
+                            <p>Além das nossas especialidades principais, atendemos qualquer necessidade de transporte de carga na indústria e no comércio. Fale com a nossa equipe e nos conte o que você precisa.</p>
+                        </div>
+                        <div className="outros-segmentos-actions">
+                            <Link to="/contato" className="btn-primary">
+                                Falar com a Equipe <ArrowRight weight="bold" size={18} />
+                            </Link>
+                            <a
+                                href="https://wa.me/5583999999999?text=Olá! Gostaria de uma cotação para o meu segmento."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-outline"
+                            >
+                                <WhatsappLogo weight="fill" size={18} />
+                                WhatsApp
+                            </a>
+                        </div>
                     </div>
-                    <Link to="/contato" className="btn-primary">
-                        Entrar em Contato <ArrowRight weight="bold" size={18} />
-                    </Link>
                 </div>
             </section>
 
