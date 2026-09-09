@@ -103,11 +103,26 @@ const Home = () => {
                         <Link to="/contato" className="btn-primary">Solicitar Cotação</Link>
                         <Link to="/servicos" className="btn-outline">Nossas Soluções</Link>
                     </div>
-                    <div className="hero-tags">
-                        <span className="hero-tag"><CheckCircle weight="fill" /> 10 anos no mercado</span>
-                        <span className="hero-tag"><CheckCircle weight="fill" /> Monitoramento 24h</span>
-                        <span className="hero-tag"><CheckCircle weight="fill" /> Frota dedicada</span>
-                        <span className="hero-tag"><CheckCircle weight="fill" /> Isenção total de pernoite</span>
+                    <div className="hero-stats">
+                        <div className="hero-stat-item">
+                            <span className="stat-number">+10 <span className="stat-unit">anos</span></span>
+                            <span className="stat-label">de mercado</span>
+                        </div>
+                        <div className="stat-divider"></div>
+                        <div className="hero-stat-item">
+                            <span className="stat-number">24/7</span>
+                            <span className="stat-label">monitoramento</span>
+                        </div>
+                        <div className="stat-divider"></div>
+                        <div className="hero-stat-item">
+                            <span className="stat-number">100%</span>
+                            <span className="stat-label">frota dedicada</span>
+                        </div>
+                        <div className="stat-divider"></div>
+                        <div className="hero-stat-item">
+                            <span className="stat-number">R$ 0</span>
+                            <span className="stat-label">taxa de pernoite</span>
+                        </div>
                     </div>
                 </div>
             </section>
