@@ -277,7 +277,20 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Atuação */}
+            {/* Outros Segmentos CTA */}
+            <section className="outros-segmentos-strip">
+                <div className="container outros-segmentos-inner">
+                    <div className="outros-segmentos-text">
+                        <span className="outros-segmentos-label">Seu setor não está na lista?</span>
+                        <p>Atendemos também outros segmentos da indústria e do comércio. Fale com a nossa equipe e nos conte a sua necessidade.</p>
+                    </div>
+                    <Link to="/contato" className="btn-primary">
+                        Entrar em Contato <ArrowRight weight="bold" size={18} />
+                    </Link>
+                </div>
+            </section>
+
+
             <section className="atuacao-section">
                 <div className="container grid-2" style={{alignItems: 'center', gap: '4rem'}}>
                     <div>

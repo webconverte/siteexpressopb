@@ -1015,6 +1015,50 @@ textarea.form-control { min-height: 120px; resize: vertical; }
     display: none;
 }
 
+/* Outros Segmentos Strip */
+.outros-segmentos-strip {
+    background: #f4f6fb;
+    border-top: 1px solid #e8ecf5;
+    border-bottom: 1px solid #e8ecf5;
+    padding: 2rem 0;
+}
+.outros-segmentos-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.outros-segmentos-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+.outros-segmentos-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--primary-blue);
+}
+.outros-segmentos-text p {
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin: 0;
+    line-height: 1.5;
+}
+@media (max-width: 768px) {
+    .outros-segmentos-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+    }
+    .outros-segmentos-inner .btn-primary {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
 @media (max-width: 992px) {
     .solucoes-section {
         padding: 4.5rem 0 4rem;
