@@ -905,7 +905,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 }
 
 /* --- Nossas Solucoes --- */
-.solucoes-section { padding: 7rem 0 2.5rem; background: var(--white); }
+.solucoes-section { padding: 7rem 0 1rem; background: var(--white); }
 .text-center { text-align: center; }
 .section-header { margin-bottom: 4rem; }
 .section-header .kicker {
@@ -1017,7 +1017,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 
 /* Outros Segmentos Section */
 .outros-segmentos-section {
-    padding: 0 0 4rem 0;
+    padding: 0.5rem 0 4rem 0;
 }
 .outros-segmentos-box {
     background: linear-gradient(135deg, #000327 0%, #031245 100%);
