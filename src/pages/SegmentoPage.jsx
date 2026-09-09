@@ -7,7 +7,7 @@ import {
     ArrowRight, 
     WhatsappLogo, 
     EnvelopeSimple, 
-    ArrowDown, 
+    ArrowDown, ArrowUp,
     CaretDown, 
     PaperPlaneTilt, 
     Sparkle, 
@@ -650,7 +650,7 @@ const SegmentoPage = () => {
                             onClick={scrollToForm}
                         >
                             Solicitar Proposta
-                            <ArrowDown weight="bold" size={18} />
+                            <ArrowUp weight="bold" size={18} />
                         </button>
 
                         <a 
