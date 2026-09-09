@@ -282,9 +282,9 @@ const Home = () => {
                 <div className="container">
                     <div className="outros-segmentos-box">
                         <div className="outros-segmentos-content">
-                            <span className="kicker" style={{ color: '#38bdf8' }}>Seu setor não está na lista?</span>
-                            <h3>Atendemos outros segmentos também</h3>
-                            <p>Além das nossas especialidades principais, atendemos qualquer necessidade de transporte de carga na indústria e no comércio. Fale com a nossa equipe e nos conte o que você precisa.</p>
+                            <span className="kicker" style={{ color: '#38bdf8' }}>Outros Segmentos</span>
+                            <h3>Seu setor não está aqui? A gente resolve.</h3>
+                            <p>Nossa frota versátil e equipe experiente atendem qualquer operação de carga — de ponta a ponta no Brasil. Entre em contato e montamos uma solução sob medida para o seu negócio.</p>
                         </div>
                         <div className="outros-segmentos-actions">
                             <Link to="/contato" className="btn-primary">
